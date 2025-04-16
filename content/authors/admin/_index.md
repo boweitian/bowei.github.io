@@ -89,6 +89,8 @@ highlight_name: true
 
 Hi👋! I am a Ph.D. student in the [University of Maryland, College Park (UMD)](https://umd.edu/), advised by [Prof. Ang Li](https://www.ang-li.com/). I received my bachelor's degree from [Wuhan University, School of Cyber Science and Engineering](https://cse.whu.edu.cn/). I worked as a research intern in [NIS&P lab](http://nisplab.whu.edu.cn/), co-advised by [Prof. Qian Wang](https://scholar.google.com/citations?user=CD7ybnAAAAAJ), [Dr. Xueluan Gong](https://scholar.google.fi/citations?user=8vwOEGcAAAAJ&hl=en&oi=ao) from [Wuhan University (WHU)](https://www.whu.edu.cn/) and [Prof. Yanjiao Chen](https://scholar.google.fi/citations?user=ax6CbMgAAAAJ&hl=en) from [Zhejiang University (ZJU)](https://www.zju.edu.cn/). I’m also a research intern in [Univerity of California, Irvine (UCI)](https://uci.edu/) last summer, advised by [Prof. Yanning Shen](https://sites.google.com/uci.edu/yanning-shen/).
 
-My research interests include fairness, causal reasoning, AI security, privacy (backdoor, data poisoning) and computer vision (vision transformers, interpretability). 
+My research interests include large language models,  interpretability (causal, RepE) and computer vision.
+
+
 <!-- I am open for summer internship opportunities 💼, please reach out if you are interested 🤗 ! -->
 {style="text-align: justify;"}
