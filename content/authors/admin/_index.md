@@ -1,6 +1,7 @@
 ---
 # Display name
-title: Bowei Tian     (Breeze Terran)
+title: Breeze Terran
+subtitle: (Bowei Tian)
 
 # Full name (for SEO)
 first_name: Bowei
