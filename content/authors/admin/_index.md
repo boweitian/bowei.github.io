@@ -1,7 +1,7 @@
 ---
 # Display name
 title: |
-  Bowei Tian  
+  Bowei Tian
   (Breeze Terran)
 
 # Full name (for SEO)
