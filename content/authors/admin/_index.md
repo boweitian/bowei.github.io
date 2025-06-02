@@ -1,7 +1,6 @@
 ---
 # Display name
-title: "Breeze Terran(Bowei Tian)"
-subtitle: 
+title: "Breeze Terran<br>(Bowei Tian)"
 
 # Full name (for SEO)
 first_name: Bowei
