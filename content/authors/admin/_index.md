@@ -2,7 +2,7 @@
 # Display name
 title: |
   Bowei Tian
-  (Breeze Tony)
+  (Breeze Troy)
 
 # Full name (for SEO)
 first_name: Bowei
