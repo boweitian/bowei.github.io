@@ -1,7 +1,7 @@
 ---
 # Display name
 title: |
-  Bowei (Breezy) Tian
+  Bowei (Brady) Tian
 
 # Full name (for SEO)
 first_name: Bowei
