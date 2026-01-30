@@ -41,9 +41,9 @@ education:
     - course: Bachelor of Engineering
       institution: Wuhan University
       year: 2020 - 2024
-    - course: Science Major 
-      institution: High school No.1 Middle School Affiliated to CCNU
-      year: 2017 - 2020
+    # - course: Science Major 
+    #   institution: High school No.1 Middle School Affiliated to CCNU
+    #   year: 2017 - 2020
       
 
 # Social/Academic Networking
