@@ -23,7 +23,7 @@ organizations:
     url: https://umd.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: He is a Ph.D. student in the [University of Maryland, College Park (UMD)](https://umd.edu/), advised by [Prof. Ang Li](https://www.ang-li.com/). He received his bachelor's degree from [Wuhan University, School of Cyber Science and Engineering](https://cse.whu.edu.cn/). As an undergraduate, he worked as a research intern at the [NIS&P lab](http://nisplab.whu.edu.cn/), under the guidance of [Dr. Xueluan Gong](https://scholar.google.fi/citations?user=8vwOEGcAAAAJ&hl=en&oi=ao), [Prof. Yanjiao Chen](https://scholar.google.fi/citations?user=ax6CbMgAAAAJ&hl=en) and [Prof. Qian Wang](https://scholar.google.com/citations?user=CD7ybnAAAAAJ).
+bio: He is a Ph.D. student in the [University of Maryland, College Park (UMD)](https://umd.edu/), advised by [Dr. Ang Li](https://www.ang-li.com/). He received his bachelor's degree from [Wuhan University, School of Cyber Science and Engineering](https://cse.whu.edu.cn/). As an undergraduate, he worked as a research intern at the [NIS&P lab](http://nisplab.whu.edu.cn/), under the guidance of [Dr. Xueluan Gong](https://scholar.google.fi/citations?user=8vwOEGcAAAAJ&hl=en&oi=ao), [Dr. Yanjiao Chen](https://scholar.google.fi/citations?user=ax6CbMgAAAAJ&hl=en) and [Dr. Qian Wang](https://scholar.google.com/citations?user=CD7ybnAAAAAJ).
 # Now I'm doing an internship with Prof. Chuang Gan and Mr. Jiaben Chen at [University of Massachusetts Amherst (UMass)](https://www.umass.edu/).
 
 
@@ -86,7 +86,7 @@ email: 'btian1@umd.edu'
 highlight_name: true
 ---
 
-He is a Ph.D. student in the [University of Maryland, College Park (UMD)](https://umd.edu/), advised by [Prof. Ang Li](https://www.ang-li.com/). He received his bachelor's degree from [Wuhan University, School of Cyber Science and Engineering](https://cse.whu.edu.cn/). As an undergraduate, he worked as a research intern at the [NIS&P lab](http://nisplab.whu.edu.cn/), under the guidance of [Dr. Xueluan Gong](https://scholar.google.fi/citations?user=8vwOEGcAAAAJ&hl=en&oi=ao), [Prof. Yanjiao Chen](https://scholar.google.fi/citations?user=ax6CbMgAAAAJ&hl=en) and [Prof. Qian Wang](https://scholar.google.com/citations?user=CD7ybnAAAAAJ).
+He is a Ph.D. student in the [University of Maryland, College Park (UMD)](https://umd.edu/), advised by [Dr. Ang Li](https://www.ang-li.com/). He received his bachelor's degree from [Wuhan University, School of Cyber Science and Engineering](https://cse.whu.edu.cn/). As an undergraduate, he worked as a research intern at the [NIS&P lab](http://nisplab.whu.edu.cn/), under the guidance of [Dr. Xueluan Gong](https://scholar.google.fi/citations?user=8vwOEGcAAAAJ&hl=en&oi=ao), [Dr. Yanjiao Chen](https://scholar.google.fi/citations?user=ax6CbMgAAAAJ&hl=en) and [Dr. Qian Wang](https://scholar.google.com/citations?user=CD7ybnAAAAAJ).
 
 
 
