@@ -30,7 +30,7 @@ publication_types: ['1']
 
 # Publication name and optional abbreviated publication name.
 publication: In Conference on Language Modeling (COLM)
-publication_short: COLM
+publication_short: In Conference on Language Modeling (COLM)
 
 abstract: High-level representations have become a central focus in enhancing AI transparency and control, shifting attention from individual neurons or circuits to structured semantic directions that align with human-interpretable concepts. While the Linear Representation Hypothesis (LRH) suggests that such directions emerge in representations, it remains unclear how these representations originate and why they become increasingly stable across layers. To solve this issue, we introduce the Input-Space Linearity Hypothesis, positing that concept-aligned directions originate in the input space and are steadily maintained with increasing depth. We then propose the Spectral Principal Path (SPP) framework, which formalizes how deep networks progressively distill linear representations along the spectral principal directions. We provide rigorous stability guarantees for the SPP based on the Wedin perturbation theorem, identifying testable conditions, including spectral gap and context incoherence, that jointly ensure layer-wise directional preservation. By bridging theoretical analysis with empirical evidence, this work identifies a spectral view of how linear representations arise in LLMs, and suggests potential implications for concept-level controllable, robust, and coherent approaches to fairness and transparency in modern AI systems.
 
