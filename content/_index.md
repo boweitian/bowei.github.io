@@ -58,7 +58,10 @@ sections:
       columns: '2'
       view: citation
 
-
+  - block: html
+    id: follow-me
+    content:
+      title: Follow Me on Zhihu
   - block: experience
     id: experience
     content:
@@ -104,10 +107,6 @@ sections:
         #   date_start: '2020-09-01'
         #   date_end: ''
         #   description: Got 3.9 GPA, Rank 10/167.
-  - block: html
-    id: follow-me
-    content:
-      title: Follow Me on Zhihu
       
     design:
       columns: '2'
