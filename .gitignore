@@ -8,3 +8,7 @@ jsconfig.json
 node_modules/
 go.sum
 .hugo_build.lock
+
+# Quarto working files (rendered static/blog is committed for Netlify)
+blog-source/.quarto/
+blog-source/**/.ipynb_checkpoints/

@@ -28,3 +28,6 @@ main:
   - name: CV
     url: uploads/CV_Bowei_Tian.pdf
     weight: 50
+  - name: Blog
+    url: /blog/
+    weight: 60

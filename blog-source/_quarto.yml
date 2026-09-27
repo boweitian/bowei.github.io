@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: ../static/blog
+
+website:
+  title: "Bowei's Blog"
+  site-url: https://bowei.netlify.app/blog/
+  description: "Notes on research, code, and ideas by Bowei Tian."
+  navbar:
+    left:
+      - text: Home
+        href: https://bowei.netlify.app/
+      - text: Blog
+        href: index.qmd
+  page-footer:
+    left: "Bowei Tian"
+    right:
+      - text: Personal website
+        href: https://bowei.netlify.app/
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-fold: true
+
+execute:
+  warning: false

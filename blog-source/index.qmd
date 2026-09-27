@@ -1,0 +1,12 @@
+---
+title: "Blog"
+subtitle: "Notes on research, code, and ideas."
+toc: false
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+---
