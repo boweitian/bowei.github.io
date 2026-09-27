@@ -1,6 +1,6 @@
 ---
 title: "Blog"
-subtitle: "Notes on research, code, and some ideas."
+subtitle: "Notes on research, code, and many ideas."
 toc: false
 listing:
   contents: posts
