@@ -1,1 +1,1 @@
-git -C "C:\Users\62549\OneDrive\文档\bowei.github.io" pull --ff-only
+git -C "$PSScriptRoot" pull --ff-only
