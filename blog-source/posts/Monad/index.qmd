@@ -5,15 +5,13 @@ description: 'A story about Leibniz, the infinitely small, and the windowless mi
 categories: [Monad, Interpretability, Theory]
 lang: en
 toc: false
-image: images/leibniz-portrait.jpg
+image: images/fig-divide.png
 lightbox: true
 ---
 
 **Monads are a way to describe the behavior of a model.**
 
 Before I can defend that sentence, I owe you a story. It is the story of a man who spent his life taming the infinitely small, and who found at the end of it that calculus was not enough. He needed a new idea to say what the world is *made of*. He wrote that idea down in ninety short paragraphs, never published it, and died two years later. Today we call those paragraphs the *Monadology*. The man was Gottfried Wilhelm Leibniz.
-
-![Gottfried Wilhelm Leibniz, portrait by Christoph Bernhard Francke, c. 1700. Herzog Anton Ulrich-Museum, Braunschweig. Public domain, via Wikimedia Commons.](images/leibniz-portrait.jpg){#fig-portrait width=45% fig-alt="Oil portrait of Leibniz in a long dark curled wig and a brown velvet cloak."}
 
 ## Prologue: a boy in the Rosental
 
