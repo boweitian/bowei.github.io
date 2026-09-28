@@ -132,7 +132,3 @@ The cloud tells us how stable an edit is across contexts and realisations. The c
 The broader lesson is that **linearity and variability do not have to be competing descriptions**. An edit can have a stable ruler while still occupying a nontrivial cone around that ruler, and several approximately linear edits can still interact when they are composed.
 
 The current experiments cover models from 360M to 7B parameters, focus primarily on one relative depth, evaluate steering through next-token distributions rather than free-form generation, and use study-written contexts. Extending the same geometry to larger models and naturally occurring text is therefore an important next step.
-
-------------------------------------------------------------------------
-
-This article is based on the manuscript *Concept Geometry in Language Models: Cones, Edits, and Compositional Paths* (marked as under review at ICLR 2027). The figures shown here are cropped from the original manuscript and can be enlarged by clicking on them.

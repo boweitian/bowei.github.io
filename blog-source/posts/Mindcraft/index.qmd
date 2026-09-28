@@ -42,7 +42,3 @@ For example, in a falling-object problem, changes such as “broken / intact” 
 The framework suggests a natural location for model intervention: extract a concept direction at the bifurcation layer, then inject that direction to steer the model’s response. The paper reports that, across seven tested models, this approach reduces the hallucination rate on HalluLens PreciseWikiQA by an average of **14.5 percentage points**.
 
 The central idea is simple: **start from a difference in the input, then trace when the model begins to distinguish it and how that distinction is carried into the final answer.** The theoretical convergence result requires conditions such as a growing separation between relevant directions. Empirically, the trajectories move toward task-relevant directions, although they do not yet reach the convergence regime characterized by the theorem. Extending the framework to multi-step edits and open-ended generation remains an open problem.
-
-------------------------------------------------------------------------
-
-This article is based on the manuscript *MindCraft: A Full-Sequence Flow Theory of How Concepts Take Shape in Deep Models* (marked as under review at ICLR 2027). All figures are taken from the original manuscript and can be enlarged by clicking on them.
