@@ -38,8 +38,8 @@
 #pixel-garden a.garden-profile:hover { color: #24292f; text-decoration: underline; }
 .garden-scene {
   position: relative;
-  padding-top: 146px;
-  margin-top: 18px;
+  padding-top: 105px;
+  margin-top: 12px;
   isolation: isolate;
 }
 /* A soft patch of light, with no card edge or enclosing surface. */
@@ -94,7 +94,7 @@
   width: 54px;
   height: 54px;
   left: 40%;
-  top: 90px;
+  top: 49px;
   z-index: 3;
   background: transparent;
   border: 0;

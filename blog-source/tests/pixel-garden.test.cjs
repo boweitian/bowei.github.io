@@ -70,14 +70,21 @@ test('walking and resting update both button and upper message', async () => {
   assert.equal(ui.intervals.size, 0);
 });
 
-test('selecting a day and petting stop the walk and show English feedback', async () => {
+test('selecting a day uses encouraging feedback without raw dates or counts', async () => {
   const ui = await setup();
   assert.equal(ui.grid.children.length, 182);
   ui.wander.click();
   const day = ui.grid.children.find(el => el.dataset.count === 1);
   day.click();
-  assert.equal(ui.message.textContent, `${day.dataset.date} · 1 contribution`);
+  assert.equal(ui.message.textContent, 'A small step still moves you forward.');
+  assert.doesNotMatch(ui.message.textContent, /\d{4}-\d{2}-\d{2}|\d+ contribution/);
   assert.equal(ui.intervals.size, 0);
+  const busyDay = ui.grid.children.find(el => el.dataset.count === 4);
+  busyDay.click();
+  assert.equal(ui.message.textContent, 'A bright day in your orbit. Keep going!');
+  const restDay = ui.grid.children.find(el => el.dataset.count === 0);
+  restDay.click();
+  assert.equal(ui.message.textContent, 'Taking a little rest.');
   ui.wander.click();
   ui.cat.click();
   assert.equal(ui.wander.textContent, 'Take a walk');
@@ -104,7 +111,8 @@ test('offline and cached states remain readable and retryable', async () => {
   assert.match(offline.message.textContent, /^Waiting/);
   const fresh = await setup({ cacheAge: 1000 });
   assert.equal(fresh.requests, 0);
-  assert.match(fresh.status.children[1].textContent, /cached/);
+  assert.doesNotMatch(fresh.status.children[1].textContent, /cached/i);
+  assert.match(fresh.status.children[1].textContent, /^Through \d{4}-\d{2}-\d{2}$/);
   const stale = await setup({ offline: true, cacheAge: 7200000 });
   assert.match(stale.status.children[1].textContent, /Update unavailable/);
   assert.equal(stale.retry.hidden, false);

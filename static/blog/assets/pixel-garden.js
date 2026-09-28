@@ -27,7 +27,16 @@
     // Stay above the chosen cell, leaving it available for pointer/keyboard input.
     cat.style.left = `${Math.max(0, Math.min(grid.clientWidth - 54, cell.offsetLeft - 22))}px`;
     cat.style.top = `${grid.offsetTop + cell.offsetTop - 55}px`;
-    if (announce) message.textContent = `${cell.dataset.date} · ${cell.dataset.count} contribution${Number(cell.dataset.count) === 1 ? '' : 's'}`;
+    if (announce) {
+      const count = Number(cell.dataset.count);
+      message.textContent = count === 0
+        ? 'Taking a little rest.'
+        : count === 1
+          ? 'A small step still moves you forward.'
+          : count < 4
+            ? 'Nice work. Your momentum is growing.'
+            : 'A bright day in your orbit. Keep going!';
+    }
     hop();
   }
 
@@ -113,7 +122,7 @@
     summary.textContent = `${total.toLocaleString('en-US')} contributions in the last year`;
     const updated = document.createElement('span');
     updated.className = 'garden-updated';
-    updated.textContent = `Through ${days.at(-1).date}${cached ? ' · cached' : ''}`;
+    updated.textContent = `Through ${days.at(-1).date}`;
     status.append(summary, updated);
     if (cells.length) visit(cells.at(-1), false);
   }
