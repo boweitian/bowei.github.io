@@ -31,24 +31,29 @@ plt.show()
 ```
 
 ```{=html}
+<div class="giscus"></div>
 <script>
+(() => {
   const supportedGiscusLanguages = new Set([
     "ar", "be", "bg", "ca", "cs", "da", "de", "en", "eo", "es",
-    "eu", "fa", "fr", "gr", "he", "hu", "id", "it", "ja", "kh",
+    "eu", "fa", "fr", "gr", "gsw", "hbs", "he", "hu", "id", "it", "ja", "kh",
     "ko", "nl", "pl", "pt", "ro", "ru", "th", "tr", "uk", "uz",
-    "vi", "zh-CN", "zh-HK", "zh-TW"
+    "vi", "zh-CN", "zh-Hans", "zh-Hant", "zh-HK", "zh-TW"
   ]);
 
   function getGiscusLanguage() {
-    const languages = navigator.languages || [navigator.language || "en"];
+    const languages = navigator.languages?.length
+      ? navigator.languages
+      : [navigator.language || "en"];
 
     for (const language of languages) {
       const locale = language.replace("_", "-");
       const normalized = locale.toLowerCase();
 
-      if (normalized.startsWith("zh")) {
-        if (normalized.includes("hant") || normalized.endsWith("-tw")) return "zh-TW";
+      if (normalized === "zh" || normalized.startsWith("zh-")) {
+        if (normalized.includes("-hans")) return "zh-CN";
         if (normalized.endsWith("-hk")) return "zh-HK";
+        if (normalized.includes("-hant") || /-(tw|mo)$/.test(normalized)) return "zh-TW";
         return "zh-CN";
       }
 
@@ -58,6 +63,8 @@ plt.show()
       if (exact) return exact;
 
       const base = normalized.split("-")[0];
+      const aliases = { el: "gr", km: "kh" };
+      if (aliases[base]) return aliases[base];
       if (supportedGiscusLanguages.has(base)) return base;
     }
 
@@ -79,5 +86,6 @@ plt.show()
   giscusScript.dataset.theme = "light";
   giscusScript.dataset.lang = getGiscusLanguage();
   document.querySelector(".giscus").appendChild(giscusScript);
+})();
 </script>
 ```
