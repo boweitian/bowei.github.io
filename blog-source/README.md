@@ -21,7 +21,6 @@ Example header:
 ---
 title: "My new post"
 description: "A short summary of the post."
-author: "Bowei Tian"
 date: "2026-09-27"
 categories: [Research]
 jupyter: python3
@@ -31,3 +30,16 @@ jupyter: python3
 Omit `jupyter` for posts without executable Python. The blog index updates
 automatically when the project is rendered. Edit the `.qmd` sources, not the
 generated HTML in `static/blog`.
+
+## Shared settings
+
+- `_quarto.yml`: site navigation, theme, table of contents, and code folding.
+- `posts/_metadata.yml`: default author and the shared comments component for all posts.
+- `_includes/giscus.html`: Giscus repository settings and browser language selection.
+  Unsupported languages fall back to English. Keep comment scripts out of articles.
+- `_environment.local`: optional local `QUARTO_PYTHON` path, ignored by Git.
+  In VS Code, select the same Python using **Python: Select Interpreter**;
+  the Preview button can override this path with the selected interpreter.
+
+New posts inherit the author, appearance, and comments automatically. Only add
+`jupyter: python3` when a post executes Python code.

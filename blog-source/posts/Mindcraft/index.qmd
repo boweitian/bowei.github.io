@@ -1,22 +1,9 @@
 ---
 title: "Quarto Basics"
-author: Bowei Tian
 date: '2026-09-27'
 description: 'A first Quarto example: running Python and plotting a polar curve.'
 categories: [Python, Quarto]
-format:
-  html:
-    code-fold: true
 jupyter: python3
-comments:
-  giscus:
-    repo: boweitian/bowei.github.io
-    mapping: pathname
-    category: Announcements
-    reactions-enabled: true
-    input-position: top
-    theme: light
-    language: zh-CN
 ---
 
 For a demonstration of a line plot on a polar axis, see @fig-polar.
