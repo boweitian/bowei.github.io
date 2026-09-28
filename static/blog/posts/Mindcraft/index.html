@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Today let us discuss something about Mindcraft. What is Mindcraft? Can you think of that before answering this question?</p>
+<p>For a demonstration of a line plot on a polar axis, see <a href="#fig-polar" class="quarto-xref">Figure&nbsp;1</a>.</p>
 <div id="cell-fig-polar" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
@@ -227,63 +227,6 @@ Figure&nbsp;1: A line plot on a polar axis
 </div>
 </div>
 </div>
-<div class="giscus"></div>
-<script>
-(() => {
-  const supportedGiscusLanguages = new Set([
-    "ar", "be", "bg", "ca", "cs", "da", "de", "en", "eo", "es",
-    "eu", "fa", "fr", "gr", "gsw", "hbs", "he", "hu", "id", "it", "ja", "kh",
-    "ko", "nl", "pl", "pt", "ro", "ru", "th", "tr", "uk", "uz",
-    "vi", "zh-CN", "zh-Hans", "zh-Hant", "zh-HK", "zh-TW"
-  ]);
-
-  function getGiscusLanguage() {
-    const languages = navigator.languages?.length
-      ? navigator.languages
-      : [navigator.language || "en"];
-
-    for (const language of languages) {
-      const locale = language.replace("_", "-");
-      const normalized = locale.toLowerCase();
-
-      if (normalized === "zh" || normalized.startsWith("zh-")) {
-        if (normalized.includes("-hans")) return "zh-CN";
-        if (normalized.endsWith("-hk")) return "zh-HK";
-        if (normalized.includes("-hant") || /-(tw|mo)$/.test(normalized)) return "zh-TW";
-        return "zh-CN";
-      }
-
-      const exact = [...supportedGiscusLanguages].find(
-        (supported) => supported.toLowerCase() === normalized
-      );
-      if (exact) return exact;
-
-      const base = normalized.split("-")[0];
-      const aliases = { el: "gr", km: "kh" };
-      if (aliases[base]) return aliases[base];
-      if (supportedGiscusLanguages.has(base)) return base;
-    }
-
-    return "en";
-  }
-
-  const giscusScript = document.createElement("script");
-  giscusScript.src = "https://giscus.app/client.js";
-  giscusScript.async = true;
-  giscusScript.crossOrigin = "anonymous";
-  giscusScript.dataset.repo = "boweitian/bowei.github.io";
-  giscusScript.dataset.repoId = "R_kgDOKT-TdA";
-  giscusScript.dataset.category = "Announcements";
-  giscusScript.dataset.categoryId = "DIC_kwDOKT-TdM4DGi1n";
-  giscusScript.dataset.mapping = "pathname";
-  giscusScript.dataset.reactionsEnabled = "1";
-  giscusScript.dataset.emitMetadata = "0";
-  giscusScript.dataset.inputPosition = "top";
-  giscusScript.dataset.theme = "light";
-  giscusScript.dataset.lang = getGiscusLanguage();
-  document.querySelector(".giscus").appendChild(giscusScript);
-})();
-</script>
 
 
 

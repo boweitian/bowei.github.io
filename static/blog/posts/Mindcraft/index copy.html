@@ -288,6 +288,41 @@ Figure&nbsp;1: A line plot on a polar axis
 
 
 </main> <!-- /main -->
+<div class="giscus"></div>
+<script>
+(() => {
+  // Choose the first supported browser language; use English as a fallback.
+  const supported = "ar be bg ca cs da de en eo es eu fa fr gr gsw hbs he hu id it ja kh ko nl pl pt ro ru th tr uk uz vi".split(" ");
+  const preferences = navigator.languages?.length ? navigator.languages : [navigator.language || "en"];
+  const language = preferences.map(value => {
+    const locale = value.toLowerCase().replaceAll("_", "-");
+    const base = locale.split("-")[0];
+    if (base === "zh") {
+      if (locale.includes("-hans")) return "zh-CN";
+      if (locale.endsWith("-hk")) return "zh-HK";
+      return /-hant|-(tw|mo)$/.test(locale) ? "zh-TW" : "zh-CN";
+    }
+    return ({ el: "gr", km: "kh" })[base] || (supported.includes(base) ? base : null);
+  }).find(Boolean) || "en";
+
+  const script = document.createElement("script");
+  script.src = "https://giscus.app/client.js";
+  script.async = true;
+  script.crossOrigin = "anonymous";
+  Object.assign(script.dataset, {
+    repo: "boweitian/bowei.github.io",
+    repoId: "R_kgDOKT-TdA",
+    category: "Announcements",
+    categoryId: "DIC_kwDOKT-TdM4DGi1n",
+    mapping: "pathname",
+    reactionsEnabled: "1",
+    inputPosition: "top",
+    theme: "light",
+    lang: language
+  });
+  document.querySelector(".giscus").appendChild(script);
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
