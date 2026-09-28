@@ -121,6 +121,40 @@ ul.task-list li input[type="checkbox"] {
     
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<style>
+  .post-back {
+    position: fixed;
+    top: 76px;
+    left: max(8px, env(safe-area-inset-left));
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: var(--bs-body-color, #343a40);
+    background: none;
+    border: 0;
+    box-shadow: none;
+    text-decoration: none;
+    font: 300 28px/1 Arial, sans-serif;
+    opacity: .6;
+  }
+  .post-back:hover,
+  .post-back:focus-visible {
+    color: var(--bs-body-color, #343a40);
+    text-decoration: none;
+    opacity: 1;
+  }
+  @media (max-width: 767px) {
+    .post-back { top: 64px; left: 0; }
+    #title-block-header { padding-top: 40px; }
+  }
+  @media print {
+    .post-back { display: none; }
+  }
+</style>
+<a class="post-back" href="../../blog/" aria-label="Back to blog">&lt;</a>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">

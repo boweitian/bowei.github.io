@@ -4,7 +4,7 @@
     "href": "posts/Mindcraft/index.html",
     "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
     "section": "",
-    "text": "MindCraft asks a simple question: how does a difference in the input gradually become a distinction that affects the model’s answer?\nThe setup is straightforward: replace a single token in the prompt—for example, change “honest” to “dishonest”—and compare the model’s internal states across the two forward passes. If we treat depth as time, we can track how this difference propagates across tokens, gets amplified, and changes direction. This is what the paper calls full-sequence flow."
+    "text": "&lt;\nMindCraft asks a simple question: how does a difference in the input gradually become a distinction that affects the model’s answer?\nThe setup is straightforward: replace a single token in the prompt—for example, change “honest” to “dishonest”—and compare the model’s internal states across the two forward passes. If we treat depth as time, we can track how this difference propagates across tokens, gets amplified, and changes direction. This is what the paper calls full-sequence flow."
   },
   {
     "objectID": "posts/Mindcraft/index.html#why-do-concepts-sometimes-look-linear-and-sometimes-curved",
@@ -46,7 +46,7 @@
     "href": "posts/Geometry/index.html",
     "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
     "section": "",
-    "text": "A concept direction is usually an average. But what is that average hiding?\nSuppose we change one word in a sentence—for example, replace honest with upright—and measure how the model’s residual stream changes. Repeat the same kind of edit across many contexts and across several words that realise it. Instead of one vector, we obtain a cloud of effect vectors.\nThis paper asks two questions:\nThe answer leads from cones to concept networks, and from concept networks to a surprisingly cheap estimator: a walker that follows only a few paths through an exponentially large edit lattice."
+    "text": "&lt;\nA concept direction is usually an average. But what is that average hiding?\nSuppose we change one word in a sentence—for example, replace honest with upright—and measure how the model’s residual stream changes. Repeat the same kind of edit across many contexts and across several words that realise it. Instead of one vector, we obtain a cloud of effect vectors.\nThis paper asks two questions:\nThe answer leads from cones to concept networks, and from concept networks to a surprisingly cheap estimator: a walker that follows only a few paths through an exponentially large edit lattice."
   },
   {
     "objectID": "posts/Geometry/index.html#from-a-concept-direction-to-an-effect-cloud",
