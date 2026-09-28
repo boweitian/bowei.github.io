@@ -43,3 +43,14 @@ generated HTML in `static/blog`.
 
 New posts inherit the author, appearance, and comments automatically. Only add
 `jupyter: python3` when a post executes Python code.
+
+## Homepage pixel garden
+
+The homepage alone loads `assets/pixel-garden.css` and `assets/pixel-garden.js`.
+The garden displays the latest 26 weeks and the last-year total for the GitHub
+username in `index.qmd` (`data-user`). Data comes from the public
+[GitHub Contributions API](https://github.com/grubersjoe/github-contributions-api)
+and is cached in the browser for one hour; no token is embedded in the site.
+If the service is unavailable, the widget shows cached data or a retry message.
+Click a day to move the cat, click the cat to pet it, or enable its optional walk.
+Reduced-motion preferences disable animation and continuous walking.

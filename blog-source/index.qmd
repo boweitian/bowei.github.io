@@ -2,11 +2,52 @@
 title: "Blog"
 subtitle: "Notes on research, code, and ideas."
 toc: false
+page-layout: full
+resources:
+  - assets/pixel-garden.js
+format:
+  html:
+    css: assets/pixel-garden.css
+    include-after-body: _includes/pixel-garden.html
 listing:
+  id: home-posts
   contents: posts
   sort: "date desc"
   type: default
-  categories: true
+  categories: false
   sort-ui: false
   filter-ui: false
 ---
+
+::: {.blog-home-layout}
+::: {#home-posts}
+:::
+
+```{=html}
+<div id="pixel-garden" role="complementary" aria-label="GitHub contribution garden" data-user="boweitian">
+  <div class="garden-heading"><span class="garden-kicker">A LITTLE EVERY DAY</span><span class="garden-dot" aria-hidden="true"></span></div>
+  <h2 class="no-anchor">小黑的代码花园 <span aria-hidden="true">✦</span></h2>
+  <a class="garden-profile" href="https://github.com/boweitian" target="_blank" rel="noopener">@boweitian ↗</a>
+  <div class="garden-scene">
+    <div class="garden-sky" aria-hidden="true"><span>✧</span><span>·</span><span>✦</span></div>
+    <p class="garden-bubble" id="garden-message" aria-live="polite">喵，今天也来种一点绿色。</p>
+    <button class="garden-cat" id="garden-cat" type="button" aria-label="摸摸小黑猫">
+      <svg viewBox="0 0 32 32" aria-hidden="true" shape-rendering="crispEdges">
+        <path fill="#222b2c" d="M7 15H4v3H2v7h3v3h7v-4H7v-3h3z"/>
+        <path fill="#11191d" d="M10 14h16v3h2v11h-3v3h-5v-3h-4v3h-5v-4H9V17h1zM7 2h3v2h3v3h9V4h3V2h3v17h-3v3H10v-3H7z"/>
+        <path fill="#617476" d="M9 5h2v4H9zM24 5h2v4h-2z"/>
+        <g class="cat-eyes"><path fill="#e5f9de" d="M9 11h6v6H9zM20 11h6v6h-6z"/><path fill="#7abc78" d="M10 12h4v4h-4zM21 12h4v4h-4z"/><path fill="#11191d" d="M12 12h2v4h-2zM21 12h2v4h-2z"/><path fill="#fff" d="M10 12h2v2h-2zM23 12h2v2h-2z"/></g>
+        <path fill="#a4c9bc" d="M17 18h2v1h-2z"/>
+      </svg>
+    </button>
+    <div class="garden-grid" id="garden-grid" aria-label="最近 26 周 GitHub 贡献"></div>
+    <div class="garden-ground" aria-hidden="true"></div>
+  </div>
+  <div class="garden-scale"><span>最近 26 周</span><span>少 <i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i> 多</span></div>
+  <p class="garden-status" id="garden-status" role="status">正在读取 GitHub 贡献…</p>
+  <div class="garden-controls"><button id="garden-wander" type="button" aria-pressed="false">让小黑散步</button><button id="garden-retry" type="button" hidden>重新加载</button></div>
+  <p class="garden-hint">点格子找小黑 · 点小黑摸摸头</p>
+  <noscript>开启 JavaScript 即可查看贡献花园并和小黑互动。</noscript>
+</div>
+```
+:::
