@@ -72,6 +72,9 @@ social:
    - icon: zhihu
      icon_pack: fab
      link: https://www.zhihu.com/people/123-39-98-41-36
+   - icon: blog # Pixel cat head, defined in assets/scss/custom.scss
+     icon_pack: pixel
+     link: /blog/
 #   # Link to a PDF of your resume/CV.
 #   # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
 #   # and uncomment the lines below.
