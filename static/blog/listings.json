@@ -2,7 +2,16 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/walkthrough/index.html"
+      "/My project/posts/post-with-code/index.html",
+      "/posts/walkthrough/index.html",
+      "/My project/posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/My project/index.html",
+    "items": [
+      "/My project/posts/post-with-code/index.html",
+      "/My project/posts/welcome/index.html"
     ]
   }
 ]
