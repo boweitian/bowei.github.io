@@ -1,11 +1,11 @@
 ---
 title: "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths"
 date: '2026-09-27'
-description: 'Instead of compressing a concept into one average direction, keep the full cloud of counterfactual effects—and use paths through edit lattices to understand how multiple concepts compose.'
+description: 'Instead of compressing a concept into one average direction, use paths through edit lattices to understand how multiple concepts compose.'
 categories: [Research, Interpretability, LLM, Representation Geometry]
 lang: en
 toc: false
-image: images/concept-geometry.png
+image: images/sphere.png
 lightbox: true
 ---
 
@@ -15,22 +15,18 @@ Suppose we change one word in a sentence—for example, replace *honest* with *u
 
 This paper asks two questions:
 
-1. What geometry does that cloud have?
-2. When several edits are applied together, how can we divide the final representation change among them?
+1.  What geometry does that cloud have?
+2.  When several edits are applied together, how can we divide the final representation change among them?
 
 The answer leads from **cones** to **concept networks**, and from concept networks to a surprisingly cheap estimator: a **walker** that follows only a few paths through an exponentially large edit lattice.
 
 ## 1. From a concept direction to an effect cloud
 
-For an edit \(\delta\), a realisation \(v\), and a context \(c\), define the effect vector
+For an edit (\delta), a realisation (v), and a context (c), define the effect vector
 
-\[
-\Delta_v(c)
-=
-e(\delta_v x,c)-e(x,c),
-\]
+\[ \Delta\_v(c) = e(\delta\_v x,c)-e(x,c), \]
 
-where \(e(\cdot)\) is the model representation being measured.
+where (e(\cdot)) is the model representation being measured.
 
 Repeating the edit over different contexts and different realisations gives an **effect cloud**. The paper summarises this cloud with two geometric quantities:
 
@@ -49,17 +45,9 @@ A cloud can be wide for two very different reasons.
 
 First, the *same word replacement* may behave differently in different contexts. Second, different words that are supposed to realise the same edit may actually move the model in different directions.
 
-The paper separates these two effects. For each realisation \(v\), it first estimates its own ruler \(\hat{\gamma}_v\). It then defines **coherence**
+The paper separates these two effects. For each realisation (v), it first estimates its own ruler (\hat{\gamma}\_v). It then defines **coherence**
 
-\[
-\kappa
-=
-\mathbb{E}_{v\neq v'}
-\left\langle
-\hat{\gamma}_v,
-\hat{\gamma}_{v'}
-\right\rangle,
-\]
+\[ \kappa = \mathbb{E}\_{v\neq v'} \left\langle \hat{\gamma}*v,* \hat{\gamma}{v'} \right\rangle, \]
 
 which measures how closely the rulers of different realisations agree.
 
@@ -73,7 +61,7 @@ So words that look synonymous to us do not necessarily correspond to one geometr
 
 The next question is compositional: what happens when several edits are applied to the same sentence?
 
-Start with a base sentence \(x_0\) and \(K\) edits. Every admissible subset of those edits gives a new sentence. These sentences form a **concept network**: nodes are edited sentences, and edges are single edits.
+Start with a base sentence (x_0) and (K) edits. Every admissible subset of those edits gives a new sentence. These sentences form a **concept network**: nodes are edited sentences, and edges are single edits.
 
 ![A schematic concept network. Grey edges show the full lattice, while the highlighted sequence shows one walker applying edits one at a time. Adapted from the original paper, Figure 2.](images/concept-network.png){#fig-network fig-alt="A layered lattice of possible sentence edits with one highlighted path, called a walker, passing through tense, honesty, addressee, and role edits."}
 
@@ -87,13 +75,11 @@ This gives a principled answer to a subtle question:
 
 ## 4. A walker approximates the whole lattice
 
-Computing exact Shapley shares appears expensive because a lattice with \(K\) edits can contain \(2^K\) sentences.
+Computing exact Shapley shares appears expensive because a lattice with (K) edits can contain (2\^K) sentences.
 
 The paper instead follows one path:
 
-\[
-x_0 \rightarrow x_1 \rightarrow \cdots \rightarrow x_K=x^*.
-\]
+\[ x_0 \rightarrow x_1 \rightarrow \cdots \rightarrow x_K=x\^\*. \]
 
 This path is called a **walker**. At each step it measures the representation change caused by the next edit, and projects that step onto the final composite effect.
 
@@ -107,9 +93,7 @@ The main source of variation is therefore not context sampling but **interaction
 
 With 16 independent edits, the full lattice contains
 
-\[
-2^{16}=65{,}536
-\]
+\[ 2\^{16}=65{,}536 \]
 
 sentences.
 

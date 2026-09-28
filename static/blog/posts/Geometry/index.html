@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-09-27">
-<meta name="description" content="Instead of compressing a concept into one average direction, keep the full cloud of counterfactual effects—and use paths through edit lattices to understand how multiple concepts compose.">
+<meta name="description" content="Instead of compressing a concept into one average direction, use paths through edit lattices to understand how multiple concepts compose.">
 
 <title>Concept Geometry in Language Models: Cones, Edits, and Compositional Paths – Bowei’s Blog</title>
 <style>
@@ -135,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Instead of compressing a concept into one average direction, keep the full cloud of counterfactual effects—and use paths through edit lattices to understand how multiple concepts compose.
+    Instead of compressing a concept into one average direction, use paths through edit lattices to understand how multiple concepts compose.
   </div>
 </div>
 
@@ -194,7 +194,7 @@ Figure&nbsp;1: Seven edit types projected onto one sphere. Each cloud has a rule
 <p>A cloud can be wide for two very different reasons.</p>
 <p>First, the <em>same word replacement</em> may behave differently in different contexts. Second, different words that are supposed to realise the same edit may actually move the model in different directions.</p>
 <p>The paper separates these two effects. For each realisation (v), it first estimates its own ruler (_v). It then defines <strong>coherence</strong></p>
-<p>[ = _{vv’} <em>v, </em>{v’} , ]</p>
+<p>[ = _{vv’} <em>v,</em> , ]</p>
 <p>which measures how closely the rulers of different realisations agree.</p>
 <p>A crucial detail is the baseline. Residual streams are anisotropic, so unrelated words inserted into the same sentence position already share some direction. The comparison therefore uses <strong>random words of the same part of speech in the same position</strong>, rather than an idealised isotropic baseline.</p>
 <p>The experiments reveal a sharp distinction. Individual realisations are highly stable across contexts: their context concentration is <strong>0.93–0.99</strong>. But families of words do not all behave alike. Adjective synonyms are <em>less coherent than random adjectives</em> on all 15 model–sentence lattices, while verbs describing destructive actions are <em>more coherent than random verbs</em> on 14 of 15 lattices.</p>
