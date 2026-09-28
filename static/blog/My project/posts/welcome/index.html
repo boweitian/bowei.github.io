@@ -83,8 +83,8 @@ ul.task-list li input[type="checkbox"] {
 <style>
   .post-back {
     position: fixed;
-    top: 76px;
-    left: max(8px, env(safe-area-inset-left));
+    top: 100px;
+    left: var(--post-back-left, 24px);
     z-index: 1000;
     display: grid;
     place-items: center;
@@ -96,24 +96,45 @@ ul.task-list li input[type="checkbox"] {
     border: 0;
     box-shadow: none;
     text-decoration: none;
-    font: 300 28px/1 Arial, sans-serif;
-    opacity: .6;
+    opacity: .55;
   }
+  .post-back svg { width: 24px; height: 24px; }
   .post-back:hover,
   .post-back:focus-visible {
     color: var(--bs-body-color, #343a40);
     text-decoration: none;
     opacity: 1;
   }
-  @media (max-width: 767px) {
-    .post-back { top: 64px; left: 0; }
-    #title-block-header { padding-top: 40px; }
+  @media (max-width: 991px) {
+    .post-back { position: static; margin: 0 0 12px -12px; }
   }
   @media print {
     .post-back { display: none; }
   }
 </style>
-<a class="post-back" href="/blog/" aria-label="Back to blog">&lt;</a>
+<a class="post-back" href="../../../index.html" aria-label="Back to blog"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 4 8 12l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<script>
+(() => {
+  function placeBackLink() {
+    const link = document.querySelector('.post-back');
+    const title = document.querySelector('#title-block-header');
+    if (!link || !title) return;
+    title.prepend(link);
+    const align = () => {
+      const left = title.getBoundingClientRect().left;
+      link.style.setProperty('--post-back-left', `${Math.max(8, left - 60)}px`);
+    };
+    align();
+    window.addEventListener('resize', align);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', placeBackLink, { once: true });
+  } else {
+    placeBackLink();
+  }
+})();
+</script>
+
 
 
 <div id="quarto-search-results"></div>
