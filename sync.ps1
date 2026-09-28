@@ -30,9 +30,13 @@ try {
     $previousPython = $env:QUARTO_PYTHON
     try {
         $condaPython = Join-Path $env:USERPROFILE 'miniconda3\python.exe'
-        if (-not $env:QUARTO_PYTHON -and (Test-Path -LiteralPath $condaPython)) {
-            $env:QUARTO_PYTHON = $condaPython
+        if (-not (Test-Path -LiteralPath $condaPython)) {
+            throw "Python was not found: $condaPython"
         }
+        $env:QUARTO_PYTHON = $condaPython
+        Write-Host "Using Python: $env:QUARTO_PYTHON"
+        & $condaPython -c "import yaml, jupyter, nbformat, nbclient, ipykernel"
+        if ($LASTEXITCODE -ne 0) { throw 'Required Python packages could not be loaded. Rendering stopped.' }
         Write-Host 'Rendering the blog...'
         & $quartoPath render (Join-Path $PSScriptRoot 'blog-source')
         if ($LASTEXITCODE -ne 0) { throw 'Quarto failed. Nothing has been committed or pushed.' }
