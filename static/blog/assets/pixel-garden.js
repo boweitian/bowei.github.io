@@ -82,7 +82,7 @@
     const end = new Date(`${days.at(-1).date}T00:00:00Z`);
     const start = new Date(end);
     start.setUTCDate(start.getUTCDate() - start.getUTCDay() - 25 * 7);
-    stopWalking();
+    stopWalking(Boolean(timer));
     grid.replaceChildren();
     cells = [];
     selected = null;

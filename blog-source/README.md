@@ -44,7 +44,7 @@ generated HTML in `static/blog`.
 New posts inherit the author, appearance, and comments automatically. Only add
 `jupyter: python3` when a post executes Python code.
 
-## Homepage pixel garden
+## Homepage: Code Orbit
 
 The homepage alone loads `assets/pixel-garden.css` and `assets/pixel-garden.js`.
 The garden displays the latest 26 weeks and the last-year total for the GitHub
@@ -54,3 +54,7 @@ and is cached in the browser for one hour; no token is embedded in the site.
 If the service is unavailable, the widget shows cached data or a retry message.
 Click a day to move the cat, click the cat to pet it, or enable its optional walk.
 Reduced-motion preferences disable animation and continuous walking.
+The borderless widget uses English throughout. Its walking/resting message
+updates together with the button; reduced-motion visitors get a single-step button.
+Run interaction checks from the repository root with
+`node --test blog-source/tests/pixel-garden.test.cjs`.
