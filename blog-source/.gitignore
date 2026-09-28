@@ -1,2 +1,5 @@
 /.quarto/
+/_environment.local
 **/*.quarto_ipynb
+
+/_*.local

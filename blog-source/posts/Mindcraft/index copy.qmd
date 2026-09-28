@@ -1,0 +1,91 @@
+---
+title: "Quarto Basics"
+author: Bowei Tian
+date: '2026-09-27'
+description: 'A first Quarto example: running Python and plotting a polar curve.'
+categories: [Python, Quarto]
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+Today let us discuss something about Mindcraft. What is Mindcraft? Can you think of that before answering this question?
+
+```{python}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 4 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+```{=html}
+<div class="giscus"></div>
+<script>
+(() => {
+  const supportedGiscusLanguages = new Set([
+    "ar", "be", "bg", "ca", "cs", "da", "de", "en", "eo", "es",
+    "eu", "fa", "fr", "gr", "gsw", "hbs", "he", "hu", "id", "it", "ja", "kh",
+    "ko", "nl", "pl", "pt", "ro", "ru", "th", "tr", "uk", "uz",
+    "vi", "zh-CN", "zh-Hans", "zh-Hant", "zh-HK", "zh-TW"
+  ]);
+
+  function getGiscusLanguage() {
+    const languages = navigator.languages?.length
+      ? navigator.languages
+      : [navigator.language || "en"];
+
+    for (const language of languages) {
+      const locale = language.replace("_", "-");
+      const normalized = locale.toLowerCase();
+
+      if (normalized === "zh" || normalized.startsWith("zh-")) {
+        if (normalized.includes("-hans")) return "zh-CN";
+        if (normalized.endsWith("-hk")) return "zh-HK";
+        if (normalized.includes("-hant") || /-(tw|mo)$/.test(normalized)) return "zh-TW";
+        return "zh-CN";
+      }
+
+      const exact = [...supportedGiscusLanguages].find(
+        (supported) => supported.toLowerCase() === normalized
+      );
+      if (exact) return exact;
+
+      const base = normalized.split("-")[0];
+      const aliases = { el: "gr", km: "kh" };
+      if (aliases[base]) return aliases[base];
+      if (supportedGiscusLanguages.has(base)) return base;
+    }
+
+    return "en";
+  }
+
+  const giscusScript = document.createElement("script");
+  giscusScript.src = "https://giscus.app/client.js";
+  giscusScript.async = true;
+  giscusScript.crossOrigin = "anonymous";
+  giscusScript.dataset.repo = "boweitian/bowei.github.io";
+  giscusScript.dataset.repoId = "R_kgDOKT-TdA";
+  giscusScript.dataset.category = "Announcements";
+  giscusScript.dataset.categoryId = "DIC_kwDOKT-TdM4DGi1n";
+  giscusScript.dataset.mapping = "pathname";
+  giscusScript.dataset.reactionsEnabled = "1";
+  giscusScript.dataset.emitMetadata = "0";
+  giscusScript.dataset.inputPosition = "top";
+  giscusScript.dataset.theme = "light";
+  giscusScript.dataset.lang = getGiscusLanguage();
+  document.querySelector(".giscus").appendChild(giscusScript);
+})();
+</script>
+```

@@ -4,13 +4,20 @@
     "href": "posts/Mindcraft/index.html",
     "title": "Quarto Basics",
     "section": "",
-    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 4 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
+    "text": "Today let us discuss something about Mindcraft. What is Mindcraft? Can you think of that before answering this question?\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 4 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Quarto Basics\n\n\n\nPython\n\nQuarto\n\n\n\nA first Quarto example: running Python and plotting a polar curve.\n\n\n\n\n\nSep 27, 2026\n\n\nBowei Tian\n\n\n\n\n\nNo matching items"
+    "text": "Quarto Basics\n\n\n\nPython\n\nQuarto\n\n\n\nA first Quarto example: running Python and plotting a polar curve.\n\n\n\n\n\nSep 27, 2026\n\n\nBowei Tian\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Basics\n\n\n\nPython\n\nQuarto\n\n\n\nA first Quarto example: running Python and plotting a polar curve.\n\n\n\n\n\nSep 27, 2026\n\n\nBowei Tian\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/Mindcraft/index copy.html",
+    "href": "posts/Mindcraft/index copy.html",
+    "title": "Quarto Basics",
+    "section": "",
+    "text": "Today let us discuss something about Mindcraft. What is Mindcraft? Can you think of that before answering this question?\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 4 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
   }
 ]
