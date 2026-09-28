@@ -8,6 +8,15 @@ format:
   html:
     code-fold: true
 jupyter: python3
+comments:
+  giscus:
+    repo: boweitian/bowei.github.io
+    mapping: pathname
+    category: Announcements
+    reactions-enabled: true
+    input-position: top
+    theme: preferred_color_scheme
+    language: zh-CN
 ---
 
 For a demonstration of a line plot on a polar axis, see @fig-polar.
