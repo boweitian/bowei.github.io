@@ -69,8 +69,8 @@ social:
    - icon: linkedin
      icon_pack: fab
      link: https://www.linkedin.com/in/boweitian
-   - icon: zhihu # Line-art cat, defined in assets/scss/custom.scss
-     icon_pack: mascot
+   - icon: zhihu
+     icon_pack: fab
      link: https://www.zhihu.com/people/123-39-98-41-36
    - icon: pen-nib
      icon_pack: fas
