@@ -27,21 +27,22 @@
     // Stay above the chosen cell, leaving it available for pointer/keyboard input.
     cat.style.left = `${Math.max(0, Math.min(grid.clientWidth - 54, cell.offsetLeft - 22))}px`;
     cat.style.top = `${grid.offsetTop + cell.offsetTop - 55}px`;
-    if (announce) message.textContent = `${cell.dataset.date} · ${cell.dataset.count} 次贡献${Number(cell.dataset.count) ? '，长出小绿芽！' : '，休息也是日常。'}`;
+    if (announce) message.textContent = `${cell.dataset.date} · ${cell.dataset.count} contribution${Number(cell.dataset.count) === 1 ? '' : 's'}`;
     hop();
   }
 
-  function stopWalking() {
+  function stopWalking(announce = false) {
     clearInterval(timer);
     timer = null;
     wander.setAttribute('aria-pressed', 'false');
-    wander.textContent = '让小黑散步';
+    wander.textContent = reducedMotion.matches ? 'Take a step' : 'Take a walk';
+    if (announce) message.textContent = 'Taking a little rest.';
   }
 
   wander.addEventListener('click', () => {
-    if (timer) return stopWalking();
+    if (timer) return stopWalking(true);
     if (!cells.length) {
-      message.textContent = '等花园加载好，再一起散步吧。';
+      message.textContent = 'Waiting for the contributions to arrive.';
       return;
     }
     const step = () => {
@@ -49,18 +50,24 @@
     };
     step();
     // Reduced-motion visitors can still move the cat one step at a time.
-    if (reducedMotion.matches) return;
+    if (reducedMotion.matches) {
+      message.textContent = 'One little step at a time.';
+      return;
+    }
     timer = setInterval(step, 3500);
     wander.setAttribute('aria-pressed', 'true');
-    wander.textContent = '让小黑歇一会';
+    wander.textContent = 'Take a rest';
+    message.textContent = 'Wandering through your contributions…';
   });
-  reducedMotion.addEventListener('change', stopWalking);
+  reducedMotion.addEventListener('change', () => stopWalking(true));
+  stopWalking();
   cat.addEventListener('click', () => {
+    stopWalking();
     hop();
-    message.textContent = ['喵～摸摸头，继续加油。', '今天的绿色，我替你看好啦。', '写累了就休息一下吧。'][Math.floor(Math.random() * 3)];
+    message.textContent = ['Purr. That was nice.', 'Your little commits have company.', 'A good time for a small break.'][Math.floor(Math.random() * 3)];
   });
   window.addEventListener('resize', () => { if (selected) visit(selected, false); });
-  window.addEventListener('pagehide', stopWalking);
+  window.addEventListener('pagehide', () => stopWalking(true));
 
   function validDays(data) {
     if (!Array.isArray(data?.contributions) || !data.contributions.length) throw Error('No contributions');
@@ -100,7 +107,14 @@
       grid.append(cell);
     }
     const total = days.reduce((sum, day) => sum + day.count, 0);
-    status.textContent = `近一年 ${total.toLocaleString()} 次贡献 · 截至 ${days.at(-1).date}${cached ? '（本地缓存）' : ''}`;
+    status.replaceChildren();
+    const summary = document.createElement('span');
+    summary.className = 'garden-total';
+    summary.textContent = `${total.toLocaleString('en-US')} contributions in the last year`;
+    const updated = document.createElement('span');
+    updated.className = 'garden-updated';
+    updated.textContent = `Through ${days.at(-1).date}${cached ? ' · cached' : ''}`;
+    status.append(summary, updated);
     if (cells.length) visit(cells.at(-1), false);
   }
 
@@ -114,7 +128,7 @@
         if (Date.now() - cached.saved < 3600000) return;
       }
     } catch { cached = null; }
-    if (!cached) status.textContent = '正在读取 GitHub 贡献…';
+    if (!cached) status.textContent = 'Loading GitHub contributions…';
     try {
       const response = await fetch(`https://github-contributions-api.jogruber.de/v4/${encodeURIComponent(garden.dataset.user)}?y=last`, { signal: AbortSignal.timeout(12000), credentials: 'omit' });
       if (!response.ok) throw Error(`HTTP ${response.status}`);
@@ -122,7 +136,11 @@
       render(data);
       try { localStorage.setItem(cacheKey, JSON.stringify({ saved: Date.now(), data })); } catch { /* Storage is optional. */ }
     } catch {
-      status.textContent = cached ? `${status.textContent} · 更新暂不可用` : '贡献数据暂时不可用，可以稍后重试或访问 GitHub。';
+      if (cached) {
+        status.querySelector('.garden-updated').textContent += ' · Update unavailable';
+      } else {
+        status.textContent = 'Contributions are unavailable right now. Try again or visit GitHub.';
+      }
       retry.hidden = false;
     }
   }

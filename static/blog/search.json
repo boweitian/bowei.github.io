@@ -2,15 +2,43 @@
   {
     "objectID": "posts/Mindcraft/index.html",
     "href": "posts/Mindcraft/index.html",
-    "title": "Quarto Basics",
+    "title": "MindCraft：概念如何在模型里成形？",
     "section": "",
-    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 4 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
+    "text": "MindCraft 想弄清楚：输入中的一个差异，如何在模型内部一步步变成影响回答的区别。\n做法很直观：把提示词里的一个 token 换掉，例如把“诚实”换成“不诚实”，比较两次前向传播的内部状态。把层数看成时间，就能追踪这个差异如何在 token 之间传播、被放大，以及改变方向。这就是论文所说的 full-sequence flow。"
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#概念为什么有时像直线有时像曲线",
+    "href": "posts/Mindcraft/index.html#概念为什么有时像直线有时像曲线",
+    "title": "MindCraft：概念如何在模型里成形？",
+    "section": "1. 概念为什么有时像直线，有时像曲线？",
+    "text": "1. 概念为什么有时像直线，有时像曲线？\nMindCraft 把差异的变化分成两件事：拉伸决定差异被放大多少，转向决定差异朝哪里走。\n如果一个概念的不同取值被共同转向同一方向，它们就可能排成一条线；如果各自持续朝不同方向转动，就可能保留弯曲的结构。线性方向和概念流形，因此可以看成同一传播过程的不同结果。\n\n\n\n\n\n\nFigure 1: 共同转向可以形成直线；不同取值各自转向，可以形成曲线。原论文 Figure 1b–c，示意图。"
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#模型会把哪些差异放大",
+    "href": "posts/Mindcraft/index.html#模型会把哪些差异放大",
+    "title": "MindCraft：概念如何在模型里成形？",
+    "section": "2. 模型会把哪些差异放大？",
+    "text": "2. 模型会把哪些差异放大？\n论文比较了“诚实／不诚实”和“房间 A／房间 B”等修改。浅层里，两类修改带来的差异大小还比较接近；到深层，诚实性修改的影响被放大得更多，因为它与当前回答更相关。\n\n\n\n\n\n\nFigure 2: 从上到下是第 2、8、24 层。诚实性修改的位移增长更明显；对照组的小图做了局部放大。原论文 Figure 3。\n\n\n\n这些是高维位移的二维投影，流线连接的是不同上下文前缀下的变化；跨层增长要结合坐标刻度来看。"
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#一个区别从哪一层开始显现",
+    "href": "posts/Mindcraft/index.html#一个区别从哪一层开始显现",
+    "title": "MindCraft：概念如何在模型里成形？",
+    "section": "3. 一个区别从哪一层开始显现？",
+    "text": "3. 一个区别从哪一层开始显现？\nMindCraft 用两次运行在最后一个 token 上的表征相似度，寻找首次低于校准阈值的层，称为分叉层。按分叉先后排列不同修改，就得到当前提示词的“概念层级”。\n\n\n\n\n\n\nFigure 3: 物理与政治提示词中的概念层级。数字表示分叉层；INF 表示在所用判据下始终没有分叉。原论文 Figure 4。\n\n\n\n例如在落球问题里，“破碎／完整”和“物理／魔法”在第 2 层就分叉，“玻璃／橡胶”等替换则到第 12–13 层才分叉。这个顺序取决于上下文：论文中，强调年份的重要性，就能让年份差异更早分叉。"
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#这有什么用",
+    "href": "posts/Mindcraft/index.html#这有什么用",
+    "title": "MindCraft：概念如何在模型里成形？",
+    "section": "这有什么用？",
+    "text": "这有什么用？\n它给模型干预提供了一个位置：在分叉层提取概念方向，再注入该方向来调整回答。论文报告，在测试的七个模型上，这种方法使 HalluLens PreciseWikiQA 的幻觉率平均下降 14.5 个百分点。\n核心想法是：沿着一个输入差异，看模型何时开始区分它，以及如何把它带到答案里。 理论中的收敛结论需要增长差距等条件；实验观察到向任务相关方向靠近，但尚未达到定理的收敛界。对多步修改和开放式生成的推广，仍是待解决的问题。\n\n本文依据 MindCraft: A Full-Sequence Flow Theory of How Concepts Take Shape in Deep Models 所提供稿件（标注为 ICLR 2027 在审）整理；图片均截取自原文，点击可放大。"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Quarto Basics\n\n\nA first Quarto example: running Python and plotting a polar curve.\n\n\n\n\n\nSep 27, 2026\n\n\nBowei Tian\n\n\n\n\n\nNo matching items\n\n\n  A LITTLE EVERY DAY\n  小黑的代码花园 ✦\n  @boweitian ↗\n  \n    ✧·✦\n    喵，今天也来种一点绿色。\n    \n      \n        \n        \n        \n        \n        \n      \n    \n    \n    \n  \n  最近 26 周少  多\n  正在读取 GitHub 贡献…\n  让小黑散步重新加载\n  点格子找小黑 · 点小黑摸摸头\n  开启 JavaScript 即可查看贡献花园并和小黑互动。"
+    "text": "MindCraft：概念如何在模型里成形？\n\n\n只改一个词，沿着模型的层数追踪：一个差异何时变得重要，又如何形成概念的几何结构？\n\n\n\n\n\nSep 27, 2026\n\n\nBowei Tian\n\n\n\n\n\nNo matching items\n\n\n  Code Orbit\n  @boweitian ↗\n  \n    A quiet moment between commits.\n    \n      \n        \n        \n        \n        \n        \n      \n    \n    \n  \n  Last 26 weeksLess  More\n  Loading GitHub contributions…\n  Take a walkTry again\n  Enable JavaScript to explore Code Orbit."
   }
 ]

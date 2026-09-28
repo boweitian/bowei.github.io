@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
@@ -8,9 +8,9 @@
 
 <meta name="author" content="Bowei Tian">
 <meta name="dcterms.date" content="2026-09-27">
-<meta name="description" content="A first Quarto example: running Python and plotting a polar curve.">
+<meta name="description" content="只改一个词，沿着模型的层数追踪：一个差异何时变得重要，又如何形成概念的几何结构？">
 
-<title>Quarto Basics – Bowei’s Blog</title>
+<title>index – Bowei's Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -28,41 +28,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -84,6 +49,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -151,24 +119,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#概念为什么有时像直线有时像曲线" id="toc-概念为什么有时像直线有时像曲线" class="nav-link active" data-scroll-target="#概念为什么有时像直线有时像曲线">1. 概念为什么有时像直线，有时像曲线？</a></li>
+  <li><a href="#模型会把哪些差异放大" id="toc-模型会把哪些差异放大" class="nav-link" data-scroll-target="#模型会把哪些差异放大">2. 模型会把哪些差异放大？</a></li>
+  <li><a href="#一个区别从哪一层开始显现" id="toc-一个区别从哪一层开始显现" class="nav-link" data-scroll-target="#一个区别从哪一层开始显现">3. 一个区别从哪一层开始显现？</a></li>
+  <li><a href="#这有什么用" id="toc-这有什么用" class="nav-link" data-scroll-target="#这有什么用">这有什么用？</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quarto Basics</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Python</div>
-    <div class="quarto-category">Quarto</div>
-  </div>
-  </div>
+<h1 class="title">MindCraft：概念如何在模型里成形？</h1>
+</div>
 
 <div>
   <div class="description">
-    A first Quarto example: running Python and plotting a polar curve.
+    只改一个词，沿着模型的层数追踪：一个差异何时变得重要，又如何形成概念的几何结构？
   </div>
 </div>
 
@@ -197,38 +170,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>For a demonstration of a line plot on a polar axis, see <a href="#fig-polar" class="quarto-xref">Figure&nbsp;1</a>.</p>
-<div id="cell-fig-polar" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, r)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-polar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p><strong>MindCraft 想弄清楚：输入中的一个差异，如何在模型内部一步步变成影响回答的区别。</strong></p>
+<p>做法很直观：把提示词里的一个 token 换掉，例如把“诚实”换成“不诚实”，比较两次前向传播的内部状态。把层数看成时间，就能追踪这个差异如何在 token 之间传播、被放大，以及改变方向。这就是论文所说的 <em>full-sequence flow</em>。</p>
+<section id="概念为什么有时像直线有时像曲线" class="level2">
+<h2 class="anchored" data-anchor-id="概念为什么有时像直线有时像曲线">1. 概念为什么有时像直线，有时像曲线？</h2>
+<p>MindCraft 把差异的变化分成两件事：<strong>拉伸</strong>决定差异被放大多少，<strong>转向</strong>决定差异朝哪里走。</p>
+<p>如果一个概念的不同取值被共同转向同一方向，它们就可能排成一条线；如果各自持续朝不同方向转动，就可能保留弯曲的结构。线性方向和概念流形，因此可以看成同一传播过程的不同结果。</p>
+<div id="fig-geometry" class="quarto-float quarto-figure quarto-figure-center anchored" alt="两组概念轨迹：共同转向后排成直线，以及分别转向后形成曲线。">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="index_files/figure-html/fig-polar-output-1.png" width="450" height="439" class="figure-img">
+<div aria-describedby="fig-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/mindcraft-geometry.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: 共同转向可以形成直线；不同取值各自转向，可以形成曲线。原论文 Figure 1b–c，示意图。"><img src="images/mindcraft-geometry.png" class="img-fluid figure-img" alt="两组概念轨迹：共同转向后排成直线，以及分别转向后形成曲线。"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: A line plot on a polar axis
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: 共同转向可以形成直线；不同取值各自转向，可以形成曲线。原论文 Figure 1b–c，示意图。
 </figcaption>
 </figure>
 </div>
+</section>
+<section id="模型会把哪些差异放大" class="level2">
+<h2 class="anchored" data-anchor-id="模型会把哪些差异放大">2. 模型会把哪些差异放大？</h2>
+<p>论文比较了“诚实／不诚实”和“房间 A／房间 B”等修改。浅层里，两类修改带来的差异大小还比较接近；到深层，诚实性修改的影响被放大得更多，因为它与当前回答更相关。</p>
+<div id="fig-expansion" class="quarto-float quarto-figure quarto-figure-center anchored" alt="科学事实和日常生活两组实验中，诚实性修改与对照修改在三层上的位移投影。">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-expansion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/mindcraft-expansion.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: 从上到下是第 2、8、24 层。诚实性修改的位移增长更明显；对照组的小图做了局部放大。原论文 Figure 3。"><img src="images/mindcraft-expansion.png" class="img-fluid figure-img" alt="科学事实和日常生活两组实验中，诚实性修改与对照修改在三层上的位移投影。"></a>
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-expansion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: 从上到下是第 2、8、24 层。诚实性修改的位移增长更明显；对照组的小图做了局部放大。原论文 Figure 3。
+</figcaption>
+</figure>
 </div>
+<p>这些是高维位移的二维投影，流线连接的是不同上下文前缀下的变化；跨层增长要结合坐标刻度来看。</p>
+</section>
+<section id="一个区别从哪一层开始显现" class="level2">
+<h2 class="anchored" data-anchor-id="一个区别从哪一层开始显现">3. 一个区别从哪一层开始显现？</h2>
+<p>MindCraft 用两次运行在最后一个 token 上的表征相似度，寻找首次低于校准阈值的层，称为<strong>分叉层</strong>。按分叉先后排列不同修改，就得到当前提示词的“概念层级”。</p>
+<div id="fig-hierarchy" class="quarto-float quarto-figure quarto-figure-center anchored" alt="物理和政治的四个提示词示例，各组反事实修改按分叉层排列。">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/mindcraft-hierarchy.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: 物理与政治提示词中的概念层级。数字表示分叉层；INF 表示在所用判据下始终没有分叉。原论文 Figure 4。"><img src="images/mindcraft-hierarchy.png" class="img-fluid figure-img" alt="物理和政治的四个提示词示例，各组反事实修改按分叉层排列。"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: 物理与政治提示词中的概念层级。数字表示分叉层；INF 表示在所用判据下始终没有分叉。原论文 Figure 4。
+</figcaption>
+</figure>
+</div>
+<p>例如在落球问题里，“破碎／完整”和“物理／魔法”在第 2 层就分叉，“玻璃／橡胶”等替换则到第 12–13 层才分叉。<strong>这个顺序取决于上下文</strong>：论文中，强调年份的重要性，就能让年份差异更早分叉。</p>
+</section>
+<section id="这有什么用" class="level2">
+<h2 class="anchored" data-anchor-id="这有什么用">这有什么用？</h2>
+<p>它给模型干预提供了一个位置：在分叉层提取概念方向，再注入该方向来调整回答。论文报告，在测试的七个模型上，这种方法使 HalluLens PreciseWikiQA 的幻觉率平均下降 <strong>14.5 个百分点</strong>。</p>
+<p>核心想法是：<strong>沿着一个输入差异，看模型何时开始区分它，以及如何把它带到答案里。</strong> 理论中的收敛结论需要增长差距等条件；实验观察到向任务相关方向靠近，但尚未达到定理的收敛界。对多步修改和开放式生成的推广，仍是待解决的问题。</p>
+<hr>
+<p>本文依据 <em>MindCraft: A Full-Sequence Flow Theory of How Concepts Take Shape in Deep Models</em> 所提供稿件（标注为 ICLR 2027 在审）整理；图片均截取自原文，点击可放大。</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <div class="giscus"></div>
@@ -686,6 +683,38 @@ Figure&nbsp;1: A line plot on a polar axis
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
