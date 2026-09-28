@@ -15,7 +15,7 @@ comments:
     category: Announcements
     reactions-enabled: true
     input-position: top
-    theme: preferred_color_scheme
+    theme: light
     language: zh-CN
 ---
 
