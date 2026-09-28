@@ -122,90 +122,175 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 ﻿<style>
+
   #title-block-header h1.title { position: relative; }
+
   .post-back,
+
   .post-to-top {
+
     display: grid;
+
     place-items: center;
+
     width: 44px;
+
     height: 44px;
+
     padding: 0;
+
     color: var(--bs-body-color, #343a40);
+
     background: none;
+
     border: 0;
+
     box-shadow: none;
+
     text-decoration: none;
+
     cursor: pointer;
+
     opacity: .55;
+
   }
+
   .post-back {
+
     position: absolute;
+
     top: 0;
+
     left: -48px;
+
     height: 1.2em;
+
   }
+
   .post-to-top {
+
     position: fixed;
+
     right: max(20px, env(safe-area-inset-right));
+
     bottom: max(20px, env(safe-area-inset-bottom));
+
     z-index: 1000;
+
   }
+
   .post-to-top[hidden] { display: none; }
+
   .post-back svg,
+
   .post-to-top svg { width: 24px; height: 24px; }
+
   .post-back:hover,
+
   .post-back:focus-visible,
+
   .post-to-top:hover,
+
   .post-to-top:focus-visible {
+
     color: var(--bs-body-color, #343a40);
+
     text-decoration: none;
+
     opacity: 1;
+
   }
+
   @media (max-width: 991px) {
+
     #title-block-header h1.title { padding-left: 36px; }
+
     .post-back { left: -8px; }
+
   }
+
   @media print {
+
     .post-back, .post-to-top { display: none; }
+
     #title-block-header h1.title { padding-left: 0; }
+
   }
+
 </style>
+
 <a class="post-back" href="../../index.html" aria-label="Back to blog"><svg viewbox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 4 8 12l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+
 <button class="post-to-top" type="button" aria-label="Back to top" hidden=""><svg viewbox="0 0 24 24" fill="none" aria-hidden="true"><path d="m4 16 8-8 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+
 <script>
+
 (() => {
+
   function setupPostNavigation() {
+
     const link = document.querySelector('.post-back');
+
     const title = document.querySelector('#title-block-header h1.title');
+
     const toTop = document.querySelector('.post-to-top');
+
     if (link && title) title.prepend(link);
+
     if (!toTop) return;
+
     let previousY = Math.max(0, window.scrollY);
+
     let returningToTop = false;
+
     window.addEventListener('scroll', () => {
+
       const currentY = Math.max(0, window.scrollY);
+
       if (currentY <= 0) returningToTop = false;
+
       if (currentY !== previousY) {
+
         toTop.hidden = returningToTop || currentY <= 0 || currentY > previousY;
+
       }
+
       previousY = currentY;
+
     }, { passive: true });
+
     toTop.addEventListener('click', () => {
+
       returningToTop = true;
+
       toTop.hidden = true;
+
       window.scrollTo({ top: 0, behavior: 'instant' });
+
       if (title) {
+
         title.setAttribute('tabindex', '-1');
+
         title.focus({ preventScroll: true });
+
       }
+
     });
+
   }
+
   if (document.readyState === 'loading') {
+
     document.addEventListener('DOMContentLoaded', setupPostNavigation, { once: true });
+
   } else {
+
     setupPostNavigation();
+
   }
+
 })();
+
 </script>
 
 
@@ -372,40 +457,75 @@ Figure&nbsp;4: On a 65,536-node lattice, the maximum share error falls rapidly a
 
 </main> <!-- /main -->
 <div class="giscus"></div>
+
 <script>
+
 (() => {
+
   // Choose the first supported browser language; use English as a fallback.
+
   const supported = "ar be bg ca cs da de en eo es eu fa fr gr gsw hbs he hu id it ja kh ko nl pl pt ro ru th tr uk uz vi".split(" ");
+
   const preferences = navigator.languages?.length ? navigator.languages : [navigator.language || "en"];
+
   const language = preferences.map(value => {
+
     const locale = value.toLowerCase().replaceAll("_", "-");
+
     const base = locale.split("-")[0];
+
     if (base === "zh") {
+
       if (locale.includes("-hans")) return "zh-CN";
+
       if (locale.endsWith("-hk")) return "zh-HK";
+
       return /-hant|-(tw|mo)$/.test(locale) ? "zh-TW" : "zh-CN";
+
     }
+
     return ({ el: "gr", km: "kh" })[base] || (supported.includes(base) ? base : null);
+
   }).find(Boolean) || "en";
 
+
+
   const script = document.createElement("script");
+
   script.src = "https://giscus.app/client.js";
+
   script.async = true;
+
   script.crossOrigin = "anonymous";
+
   Object.assign(script.dataset, {
+
     repo: "boweitian/bowei.github.io",
+
     repoId: "R_kgDOKT-TdA",
+
     category: "Announcements",
+
     categoryId: "DIC_kwDOKT-TdM4DGi1n",
+
     mapping: "pathname",
+
     reactionsEnabled: "1",
+
     inputPosition: "top",
+
     theme: "light",
+
     lang: language
+
   });
+
   document.querySelector(".giscus").appendChild(script);
+
 })();
+
 </script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

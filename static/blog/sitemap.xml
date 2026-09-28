@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bowei.netlify.app/blog/posts/Mindcraft/index.html</loc>
-    <lastmod>2026-09-28T02:44:24.065Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bowei.netlify.app/blog/index.html</loc>
-    <lastmod>2026-09-28T02:06:52.581Z</lastmod>
+    <loc>https://bowei.netlify.app/blog/posts/Monad/index.html</loc>
+    <lastmod>2026-09-28T21:14:26.461Z</lastmod>
   </url>
   <url>
     <loc>https://bowei.netlify.app/blog/posts/Geometry/index.html</loc>
-    <lastmod>2026-09-28T02:43:50.133Z</lastmod>
+    <lastmod>2026-09-28T19:17:19.803Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bowei.netlify.app/blog/index.html</loc>
+    <lastmod>2026-09-28T19:17:19.780Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bowei.netlify.app/blog/posts/Mindcraft/index.html</loc>
+    <lastmod>2026-09-28T19:17:19.849Z</lastmod>
   </url>
 </urlset>

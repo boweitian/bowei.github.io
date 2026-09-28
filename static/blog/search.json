@@ -1,45 +1,87 @@
 [
   {
-    "objectID": "posts/Mindcraft/index.html",
-    "href": "posts/Mindcraft/index.html",
-    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "objectID": "posts/Monad/index.html",
+    "href": "posts/Monad/index.html",
+    "title": "Introducing Monads",
     "section": "",
-    "text": "MindCraft asks a simple question: how does a difference in the input gradually become a distinction that affects the model’s answer?\nThe setup is straightforward: replace a single token in the prompt—for example, change “honest” to “dishonest”—and compare the model’s internal states across the two forward passes. If we treat depth as time, we can track how this difference propagates across tokens, gets amplified, and changes direction. This is what the paper calls full-sequence flow."
+    "text": "Monads are a way to describe the behavior of a model.\nBefore I can defend that sentence, I owe you a story. It is the story of a man who spent his life taming the infinitely small, and who found at the end of it that calculus was not enough. He needed a new idea to say what the world is made of. He wrote that idea down in ninety short paragraphs, never published it, and died two years later. Today we call those paragraphs the Monadology. The man was Gottfried Wilhelm Leibniz."
   },
   {
-    "objectID": "posts/Mindcraft/index.html#why-do-concepts-sometimes-look-linear-and-sometimes-curved",
-    "href": "posts/Mindcraft/index.html#why-do-concepts-sometimes-look-linear-and-sometimes-curved",
-    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
-    "section": "1. Why do concepts sometimes look linear and sometimes curved?",
-    "text": "1. Why do concepts sometimes look linear and sometimes curved?\nMindCraft decomposes the evolution of a difference into two parts: stretching, which determines how much the difference is amplified, and turning, which determines where the difference points.\nIf different values of a concept are jointly rotated toward the same direction, they can align along a line. If they continue turning in different directions, they may preserve a curved structure. From this perspective, linear directions and concept manifolds can be viewed as different outcomes of the same underlying propagation process.\n\n\n\n\n\n\nFigure 1: Shared turning can produce a line, while value-specific turning can preserve a curved structure. Adapted from the original paper, Figure 1b–c."
+    "objectID": "posts/Monad/index.html#prologue-a-boy-in-the-rosental",
+    "href": "posts/Monad/index.html#prologue-a-boy-in-the-rosental",
+    "title": "Introducing Monads",
+    "section": "Prologue: a boy in the Rosental",
+    "text": "Prologue: a boy in the Rosental\nLeipzig, around 1661. A fifteen-year-old university student is walking alone in the Rosental, a wooded park outside the city. He is not thinking about girls or exams. He is trying to decide whether the world is made of machines or of souls.\nThe new philosophers (Descartes, Gassendi, Hobbes) had an exciting answer: everything is matter in motion. A falling stone, a beating heart, a planet: all of them are clockwork, tiny pieces pushing tiny pieces. The old philosophers, the scholastics, spoke of substantial forms, inner principles that make each thing the thing it is. To a bright young man in 1661 the old talk sounded dusty, and the new talk sounded like the future.\nThe boy chose the machines. More than fifty years later, in a letter written in 1714, the old Leibniz still remembered that walk. By then he had changed his mind. How he got there is the whole story."
   },
   {
-    "objectID": "posts/Mindcraft/index.html#which-differences-does-the-model-amplify",
-    "href": "posts/Mindcraft/index.html#which-differences-does-the-model-amplify",
-    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
-    "section": "2. Which differences does the model amplify?",
-    "text": "2. Which differences does the model amplify?\nThe paper compares interventions such as “honest / dishonest” with controls such as “Room A / Room B.” In shallow layers, the magnitudes of the two kinds of changes are relatively similar. In deeper layers, however, honesty-related changes are amplified more strongly because they are more relevant to the model’s current response.\n\n\n\n\n\n\nFigure 2: From top to bottom: layers 2, 8, and 24. Honesty-related interventions show a clearer growth in displacement; the control plots are locally zoomed in. Original paper, Figure 3.\n\n\n\nThese plots are two-dimensional projections of high-dimensional displacements. The streamlines connect changes across different context prefixes, and cross-layer growth should be interpreted together with the coordinate scales."
+    "objectID": "posts/Monad/index.html#paris-and-the-infinitely-small",
+    "href": "posts/Monad/index.html#paris-and-the-infinitely-small",
+    "title": "Introducing Monads",
+    "section": "1. Paris, and the infinitely small",
+    "text": "1. Paris, and the infinitely small\nIn 1672 Leibniz arrived in Paris as a diplomat. He was 26 and, by his own later admission, knew very little serious mathematics. Christiaan Huygens, the greatest scientist in the city, gave him problems to work on. Leibniz devoured them.\nWithin three years he had found something new. In the autumn of 1675, in his private notes, he began to write a long, stretched-out S, ∫, for summa, and soon afterward a small d for differentia. Take a curve. Chop it into pieces so small that they are smaller than any number you can name. The d measures how the curve changes over one such piece. The ∫ adds all the pieces back together. With these two symbols, problems that had taken the best minds in Europe pages of clever geometry could be done by something close to routine calculation.\nHe published the method in 1684, under the modest title Nova Methodus pro Maximis et Minimis, “A New Method for Maxima and Minima”.\n\n\n\n\n\n\nFigure 2: The first page of Nova Methodus pro Maximis et Minimis, Acta Eruditorum, October 1684. This is where the notation dx first appears in print. Public domain, via Wikimedia Commons.\n\n\n\nThe method worked beautifully. But it left Leibniz with a question that would not go away. What is an infinitely small piece? If matter can be divided, and every part can be divided again, and again, forever, then where is the thing? Where does the world bottom out?"
   },
   {
-    "objectID": "posts/Mindcraft/index.html#at-which-layer-does-a-distinction-first-emerge",
-    "href": "posts/Mindcraft/index.html#at-which-layer-does-a-distinction-first-emerge",
-    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
-    "section": "3. At which layer does a distinction first emerge?",
-    "text": "3. At which layer does a distinction first emerge?\nMindCraft measures the representation similarity at the final token between the two runs and finds the first layer where the similarity drops below a calibrated threshold. This layer is called the bifurcation layer. By ordering different interventions according to when they bifurcate, we obtain a “concept hierarchy” for the current prompt.\n\n\n\n\n\n\nFigure 3: Concept hierarchies for physics and politics prompts. Numbers indicate bifurcation layers; INF means no bifurcation occurs under the chosen criterion. Original paper, Figure 4.\n\n\n\nFor example, in a falling-object problem, changes such as “broken / intact” and “physics / magic” bifurcate as early as layer 2, while replacements such as “glass / rubber” do not bifurcate until layers 12–13. This ordering depends on context: in the paper, explicitly emphasizing the importance of the year causes year-related differences to bifurcate earlier."
+    "objectID": "posts/Monad/index.html#looking-for-the-true-atom",
+    "href": "posts/Monad/index.html#looking-for-the-true-atom",
+    "title": "Introducing Monads",
+    "section": "2. Looking for the true atom",
+    "text": "2. Looking for the true atom\nTry the thought experiment yourself. Take a stone and cut it in half. Cut each half again. Keep going.\n\n\n\n\n\n\nFigure 3: Matter can always be divided again. A true unit cannot be made of parts.\n\n\n\nEvery piece you hold still has a left side and a right side, so it can still be cut. A heap of stones is not one thing; it is many things that happen to be near each other. A heap of heaps is no better. If everything were only extended matter, Leibniz argued, there would be manys all the way down and no one anywhere. You cannot build a many out of nothing but many.\nSo somewhere there must be true units: things that are one in the strict sense. The only way to be truly one is to have no parts at all. The Monadology opens exactly here:\n\nThe monad, of which we shall speak here, is nothing but a simple substance which enters into composites; simple, that is to say, without parts. (§1)\nAnd where there are no parts, there is neither extension, nor shape, nor divisibility possible. These monads are the true atoms of nature and, in a word, the elements of things. (§3)\n\nHe took the word from the Greek monas, “unit”, “the one”. Notice what follows from this. A monad has no size and no shape, so it cannot be a tiny speck of matter. It is not a geometric point either, because a geometric point is only a limit, a place and not a thing. Leibniz called monads metaphysical points: real, exact, and not in space at all."
   },
   {
-    "objectID": "posts/Mindcraft/index.html#why-does-this-matter",
-    "href": "posts/Mindcraft/index.html#why-does-this-matter",
-    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
-    "section": "Why does this matter?",
-    "text": "Why does this matter?\nThe framework suggests a natural location for model intervention: extract a concept direction at the bifurcation layer, then inject that direction to steer the model’s response. The paper reports that, across seven tested models, this approach reduces the hallucination rate on HalluLens PreciseWikiQA by an average of 14.5 percentage points.\nThe central idea is simple: start from a difference in the input, then trace when the model begins to distinguish it and how that distinction is carried into the final answer. The theoretical convergence result requires conditions such as a growing separation between relevant directions. Empirically, the trajectories move toward task-relevant directions, although they do not yet reach the convergence regime characterized by the theorem. Extending the framework to multi-step edits and open-ended generation remains an open problem."
+    "objectID": "posts/Monad/index.html#a-thing-without-parts-and-yet-it-changes",
+    "href": "posts/Monad/index.html#a-thing-without-parts-and-yet-it-changes",
+    "title": "Introducing Monads",
+    "section": "3. A thing without parts, and yet it changes",
+    "text": "3. A thing without parts, and yet it changes\nThis creates an immediate puzzle. If a monad has no parts, how can one monad differ from another? And how can it ever change? You cannot rearrange its pieces, because it has none.\nLeibniz insisted that monads must differ. One of his favorite principles was that no two things in nature are perfectly alike. He liked to tell how a clever gentleman at court once walked through the gardens of Herrenhausen in Hanover, sure he could find two leaves exactly alike. The Electress Sophia bet him he couldn’t. He searched for a long time and lost.\nSo a monad must have an inner life. Leibniz gave it two ingredients:\n\nPerception: its present state. Leibniz means “perception” in a very wide sense, not conscious seeing. It is simply the way a monad represents the many within the one, like a single point where countless lines meet.\nAppetition: its inner tendency to pass from one perception to the next.\n\nNow go back to the question my draft asked at the start: can you say it to a child, with a line or a curve? I think you can, and I think Leibniz the mathematician would have liked the answer.\n\n\n\n\n\n\nFigure 4: Perception is the point, appetition is the tangent, and the monad is the law of the whole curve.\n\n\n\nThink of a curve drawn by a single equation. At every moment the pen is at some point: that is the monad’s perception right now. At every point the curve is already heading somewhere, in the direction of its tangent, its d: that is appetition. The points change and the directions change. What never changes is the law that generates every point and every direction. Leibniz spoke of a substance carrying “the law of the series” of all its states, and in that sense the monad is the law itself.\nThis is what I was reaching for in my first draft when I wrote that a monad is “a direction invariant under all the directions it takes”. The monad is not any single state. It is what stays the same through all its states. That is why Leibniz could write one of the most striking lines in the book:\n\nEvery present state of a simple substance is a natural consequence of its preceding state, so that its present is big with its future. (§22)"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths\n\n\nInstead of compressing a concept into one average direction, use paths through edit lattices to understand how multiple concepts compose.\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMindCraft: How Do Concepts Take Shape Inside a Model?\n\n\nChange just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\nNo matching items\n\n\n  Code Orbit\n  @boweitian ↗\n  \n    A quiet moment between commits.\n    \n      \n        \n        \n        \n        \n        \n      \n    \n    \n  \n  Last 26 weeksLess  More\n  Loading GitHub contributions…\n  Take a walkTry again\n  Enable JavaScript to explore Code Orbit."
+    "objectID": "posts/Monad/index.html#walking-into-the-mill",
+    "href": "posts/Monad/index.html#walking-into-the-mill",
+    "title": "Introducing Monads",
+    "section": "4. Walking into the mill",
+    "text": "4. Walking into the mill\nBut why should the world’s true atoms be anything like perceivers? Why not simply very small machines? Leibniz answered with a thought experiment that philosophers still argue about more than three hundred years later.\n\n\n\n\n\n\nFigure 5: Leibniz’s mill argument (Monadology §17).\n\n\n\nSuppose someone built a machine that could think and feel. Now enlarge it, keeping every proportion, until it is as big as a mill, and walk inside. What will you see? Gears pushing gears, levers pulling levers. You can inspect every part. Nowhere will you find the perception itself. A description of the parts, however complete, never contains the experience.\nSo, Leibniz concluded, perception must belong to what is simple, not to what is assembled. The machine can be as intricate as you like. It is the monad inside that perceives.\nThis is the same boy from the Rosental, fifty years on. He did not throw away the machines; he kept every bit of the new mechanical science. He simply decided that the machine is how the world looks from outside, and the monads are what it is from inside."
+  },
+  {
+    "objectID": "posts/Monad/index.html#windowless-mirrors",
+    "href": "posts/Monad/index.html#windowless-mirrors",
+    "title": "Introducing Monads",
+    "section": "5. Windowless mirrors",
+    "text": "5. Windowless mirrors\nNow comes the strangest claim in the book:\n\nMonads have no windows through which anything could come in or go out. (§7)\n\nNothing can enter a monad, because there is no part of it to push on and no gap to slip through. So every change it undergoes comes from within, from its own law. A monad is a closed room.\nAnd yet each closed room contains the entire universe. Every monad perceives everything: every other monad, every event, near or far, clearly or dimly. Each one is, in Leibniz’s phrase, “a perpetual living mirror of the universe” (§56). How can a room with no windows mirror the world? Leibniz’s image is a city:\n\nJust as the same city, looked at from different sides, appears quite different and is, as it were, multiplied in perspective, so it happens that, because of the infinite number of simple substances, there are as it were so many different universes, which are nevertheless only perspectives of a single one, according to the different points of view of each monad. (§57)\n\n\n\n\n\n\n\nFigure 6: The same five buildings, projected from four viewpoints. One city; four very different pictures.\n\n\n\nIn the figure, nothing about the city changes between the four panels. Only the point of view changes, and with it which building looks tallest, which one hides behind another, which one is left and which is right. Each monad is a point of view like this. There is one universe, and infinitely many ways of being located in it."
+  },
+  {
+    "objectID": "posts/Monad/index.html#three-clocks",
+    "href": "posts/Monad/index.html#three-clocks",
+    "title": "Introducing Monads",
+    "section": "6. Three clocks",
+    "text": "6. Three clocks\nThis leaves an obvious problem. If no monad can affect any other, why do they agree? When I decide to raise my hand, my hand goes up. My soul and my body seem to be talking to each other. Leibniz framed the problem with two clocks, and gave three possible answers.\n\n\n\n\n\n\nFigure 7: Three ways to keep two clocks in agreement. Leibniz chose the third.\n\n\n\n\nMutual influence. Hang both clocks on the same beam, so the swing of each disturbs the other and they fall into step. (Huygens had actually seen pendulum clocks synchronise like this.) This is the common view, that soul and body act on each other. Leibniz rejected it: monads have no windows, so there is nothing to carry the influence across.\nA watchful craftsman. Station a skilled workman beside the clocks who corrects them the moment they drift apart. This is the view of the occasionalists such as Malebranche: God adjusts the body every time the soul wills something. Leibniz found it unworthy of God, a perpetual miracle to patch up a badly made world.\nPre-established harmony. Build both clocks so perfectly from the very beginning that each, following only its own mechanism, keeps time with the other forever.\n\nThe third is Leibniz’s answer. God did not wire the monads together. He chose, out of all possible worlds, one in which every monad’s inner law unfolds in step with every other’s. Leibniz also compared it to several choirs, placed so that none can see or hear the others, each singing only from its own score, and yet the music agrees perfectly."
+  },
+  {
+    "objectID": "posts/Monad/index.html#the-roar-of-the-sea",
+    "href": "posts/Monad/index.html#the-roar-of-the-sea",
+    "title": "Introducing Monads",
+    "section": "7. The roar of the sea",
+    "text": "7. The roar of the sea\nIf every monad mirrors the whole universe, why don’t I perceive everything? Because, Leibniz said, most perception is too small to notice. He used an image from the seashore, in his New Essays:\nWhen you stand by the sea, you hear its roar. That roar is made of the sound of each individual wave. You could never hear one wave by itself. Yet you must hear each one a little, for a hundred thousand nothings could never add up to something.\n\n\n\n\n\n\nFigure 8: Petites perceptions: each small wave is inaudible alone; together they make the roar.\n\n\n\nThese are the petites perceptions, the little perceptions. And here you can see the mathematician again. This is exactly the logic of the integral. Each dx is smaller than anything you can measure, yet ∫ of them gives a real, finite area. For Leibniz, a conscious experience is the integral of countless unconscious ones. “Nature never makes leaps,” he liked to say. There is no sharp line between a stone and a mind, only a continuous ladder:\n\n\n\n\n\n\n\n\nKind of monad\nWhat it has\nExample\n\n\n\n\nBare monad\nPerception, but all of it confused and too small to notice\nthe monads in a stone or a plant\n\n\nSoul\nPerception distinct enough to include feeling and memory\nanimals\n\n\nSpirit (rational soul)\nReason, self-awareness, knowledge of necessary truths\nhuman beings\n\n\nThe supreme monad\nPerception of everything, perfectly distinct\nGod\n\n\n\nEvery monad mirrors the same universe. They differ only in how clearly they mirror it, like the same painting seen through glass of different thickness."
+  },
+  {
+    "objectID": "posts/Monad/index.html#vienna-1714",
+    "href": "posts/Monad/index.html#vienna-1714",
+    "title": "Introducing Monads",
+    "section": "8. Vienna, 1714",
+    "text": "8. Vienna, 1714\nNow let us return to where we began.\nLeibniz is sixty-eight. For decades he has served the House of Brunswick in Hanover as librarian, historian, engineer, and advisor. He has built one of the first calculating machines able to multiply, worked out binary arithmetic, and tried to drain the silver mines of the Harz with windmills. He is now stuck in Vienna, and his reputation is falling apart: in 1712 a committee of the Royal Society, quietly steered by Newton, had declared that Newton invented the calculus first, implying Leibniz had stolen it.\nIn this year he writes to a French correspondent, Nicolas Remond, and remembers the boy in the Rosental. In the same year he writes, in French, a short text of ninety numbered paragraphs, never meant as a book, just a summary of his philosophy for friends. It has no title. Later editors call it the Monadology. It is not published in his lifetime; a German translation appears in 1720, four years after his death in Hanover in 1716, largely neglected by the court he had served for forty years.\nWhat had that long road taught him? That the fifteen-year-old was half right. The world is a machine, down to the smallest detail, and physics should describe it as one. But a machine is only how things look from outside. From inside, the world is made of points of view: simple, windowless, each following its own law, each mirroring everything, all in harmony because they were made to be."
+  },
+  {
+    "objectID": "posts/Monad/index.html#epilogue-monads-for-a-child-and-for-a-model",
+    "href": "posts/Monad/index.html#epilogue-monads-for-a-child-and-for-a-model",
+    "title": "Introducing Monads",
+    "section": "Epilogue: monads for a child, and for a model",
+    "text": "Epilogue: monads for a child, and for a model\nIf I had to tell a child, I would say it like this:\n\nImagine the whole world is made of tiny rooms with no windows and no doors. In every room there is a magic mirror, and in the mirror you can see the whole world, but only from the spot where that room stands. Nobody can pass notes between rooms. Still, every room’s mirror shows the same story at the same moment, because the one who built the rooms wound them all up just right at the very beginning.\n\nAnd now I can come back to my first sentence: monads are a way to describe the behavior of a model. Look at how a language model reads a sentence.\n\n\n\n\n\n\nFigure 9: An analogy, not a historical claim: positions in a transformer as monad-like points of view.\n\n\n\nEach position in the sequence has a hidden state. That state is, in a precise sense, a representation of the whole context seen from one place: a living mirror of everything that came before. Two positions look at the same text and hold very different pictures of it, like the city seen from the north and from the east. Every position runs the same weights, the same unchanging law, and the next word comes out of the current state: the present is big with the future.\nThe analogy is far from perfect. Attention is precisely a window, and Leibniz’s monads have none. Working out where the analogy holds and where it breaks is what the next posts are about. But I think the old question from Leipzig and Vienna, what is the one thing that stays the same while every state changes?, is also the right question to ask about a model."
+  },
+  {
+    "objectID": "posts/Monad/index.html#further-reading",
+    "href": "posts/Monad/index.html#further-reading",
+    "title": "Introducing Monads",
+    "section": "Further reading",
+    "text": "Further reading\n\nG. W. Leibniz, The Monadology (1714). Robert Latta’s 1898 English translation is in the public domain and widely available online.\nG. W. Leibniz, New Essays on Human Understanding (written c. 1704), especially the preface, for the little perceptions and the roar of the sea.\nMaria Rosa Antognazza, Leibniz: An Intellectual Biography (Cambridge University Press, 2009).\nNicholas Rescher, G. W. Leibniz’s Monadology: An Edition for Students (University of Pittsburgh Press, 1991).\nBrandon C. Look, “Gottfried Wilhelm Leibniz”, Stanford Encyclopedia of Philosophy."
   },
   {
     "objectID": "posts/Geometry/index.html",
@@ -96,5 +138,47 @@
     "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
     "section": "Why does this matter?",
     "text": "Why does this matter?\nThe usual linear-representation story compresses a concept into one vector. This work suggests a richer hierarchy:\neffect vectors → effect clouds → cones → edit lattices → compositional shares.\nThe cloud tells us how stable an edit is across contexts and realisations. The cone tells us whether a family behaves like one geometric change or several. The concept network describes how multiple edits combine. The walker makes attribution through that network computationally practical.\nThe broader lesson is that linearity and variability do not have to be competing descriptions. An edit can have a stable ruler while still occupying a nontrivial cone around that ruler, and several approximately linear edits can still interact when they are composed.\nThe current experiments cover models from 360M to 7B parameters, focus primarily on one relative depth, evaluate steering through next-token distributions rather than free-form generation, and use study-written contexts. Extending the same geometry to larger models and naturally occurring text is therefore an important next step."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Introducing Monads\n\n\nA story about Leibniz, the infinitely small, and the windowless mirrors he believed the world is made of.\n\n\n\n\n\nSep 28, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nConcept Geometry in Language Models: Cones, Edits, and Compositional Paths\n\n\nInstead of compressing a concept into one average direction, use paths through edit lattices to understand how multiple concepts compose.\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMindCraft: How Do Concepts Take Shape Inside a Model?\n\n\nChange just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\nNo matching items\n\n\n  Code Orbit\n  @boweitian ↗\n  \n    A quiet moment between commits.\n    \n      \n        \n        \n        \n        \n        \n      \n    \n    \n  \n  Last 26 weeksLess  More\n  Loading GitHub contributions…\n  Take a walkTry again\n  Enable JavaScript to explore Code Orbit."
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html",
+    "href": "posts/Mindcraft/index.html",
+    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "section": "",
+    "text": "MindCraft asks a simple question: how does a difference in the input gradually become a distinction that affects the model’s answer?\nThe setup is straightforward: replace a single token in the prompt—for example, change “honest” to “dishonest”—and compare the model’s internal states across the two forward passes. If we treat depth as time, we can track how this difference propagates across tokens, gets amplified, and changes direction. This is what the paper calls full-sequence flow."
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#why-do-concepts-sometimes-look-linear-and-sometimes-curved",
+    "href": "posts/Mindcraft/index.html#why-do-concepts-sometimes-look-linear-and-sometimes-curved",
+    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "section": "1. Why do concepts sometimes look linear and sometimes curved?",
+    "text": "1. Why do concepts sometimes look linear and sometimes curved?\nMindCraft decomposes the evolution of a difference into two parts: stretching, which determines how much the difference is amplified, and turning, which determines where the difference points.\nIf different values of a concept are jointly rotated toward the same direction, they can align along a line. If they continue turning in different directions, they may preserve a curved structure. From this perspective, linear directions and concept manifolds can be viewed as different outcomes of the same underlying propagation process.\n\n\n\n\n\n\nFigure 1: Shared turning can produce a line, while value-specific turning can preserve a curved structure. Adapted from the original paper, Figure 1b–c."
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#which-differences-does-the-model-amplify",
+    "href": "posts/Mindcraft/index.html#which-differences-does-the-model-amplify",
+    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "section": "2. Which differences does the model amplify?",
+    "text": "2. Which differences does the model amplify?\nThe paper compares interventions such as “honest / dishonest” with controls such as “Room A / Room B.” In shallow layers, the magnitudes of the two kinds of changes are relatively similar. In deeper layers, however, honesty-related changes are amplified more strongly because they are more relevant to the model’s current response.\n\n\n\n\n\n\nFigure 2: From top to bottom: layers 2, 8, and 24. Honesty-related interventions show a clearer growth in displacement; the control plots are locally zoomed in. Original paper, Figure 3.\n\n\n\nThese plots are two-dimensional projections of high-dimensional displacements. The streamlines connect changes across different context prefixes, and cross-layer growth should be interpreted together with the coordinate scales."
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#at-which-layer-does-a-distinction-first-emerge",
+    "href": "posts/Mindcraft/index.html#at-which-layer-does-a-distinction-first-emerge",
+    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "section": "3. At which layer does a distinction first emerge?",
+    "text": "3. At which layer does a distinction first emerge?\nMindCraft measures the representation similarity at the final token between the two runs and finds the first layer where the similarity drops below a calibrated threshold. This layer is called the bifurcation layer. By ordering different interventions according to when they bifurcate, we obtain a “concept hierarchy” for the current prompt.\n\n\n\n\n\n\nFigure 3: Concept hierarchies for physics and politics prompts. Numbers indicate bifurcation layers; INF means no bifurcation occurs under the chosen criterion. Original paper, Figure 4.\n\n\n\nFor example, in a falling-object problem, changes such as “broken / intact” and “physics / magic” bifurcate as early as layer 2, while replacements such as “glass / rubber” do not bifurcate until layers 12–13. This ordering depends on context: in the paper, explicitly emphasizing the importance of the year causes year-related differences to bifurcate earlier."
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#why-does-this-matter",
+    "href": "posts/Mindcraft/index.html#why-does-this-matter",
+    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "section": "Why does this matter?",
+    "text": "Why does this matter?\nThe framework suggests a natural location for model intervention: extract a concept direction at the bifurcation layer, then inject that direction to steer the model’s response. The paper reports that, across seven tested models, this approach reduces the hallucination rate on HalluLens PreciseWikiQA by an average of 14.5 percentage points.\nThe central idea is simple: start from a difference in the input, then trace when the model begins to distinguish it and how that distinction is carried into the final answer. The theoretical convergence result requires conditions such as a growing separation between relevant directions. Empirically, the trajectories move toward task-relevant directions, although they do not yet reach the convergence regime characterized by the theorem. Extending the framework to multi-step edits and open-ended generation remains an open problem."
   }
 ]

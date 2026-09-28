@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 530" width="980" height="530" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b2b2b"/></marker><marker id="arrg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c8902e"/></marker><radialGradient id="glow"><stop offset="0" stop-color="#fff6d8"/><stop offset="0.35" stop-color="#c8902e" stop-opacity="0.9"/><stop offset="1" stop-color="#c8902e" stop-opacity="0"/></radialGradient></defs>
+<rect width="980" height="530" rx="14" fill="#fbf8f1"/>
+<text x="490.0" y="38.0" font-size="20" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">One city, many views (Monadology §57)</text>
+<rect x="40" y="90" width="340" height="360" rx="12" fill="#ffffff" stroke="#e2dccf"/>
+<text x="210.0" y="478.0" font-size="14" fill="#6f6a60" text-anchor="middle" font-weight="normal" font-style="normal">Map: there is only one city</text>
+<circle cx="210" cy="270" r="135" fill="none" stroke="#e2dccf" stroke-dasharray="4 6"/>
+<rect x="102.0" y="189.0" width="54.0" height="54.0" rx="3" fill="#c0504d" opacity="0.85"/>
+<rect x="253.2" y="171.4" width="48.6" height="48.6" rx="3" fill="#3d6fb6" opacity="0.85"/>
+<rect x="176.2" y="263.2" width="67.5" height="67.5" rx="3" fill="#4f9a6b" opacity="0.85"/>
+<rect x="112.8" y="328.1" width="45.9" height="45.9" rx="3" fill="#7d5ba6" opacity="0.85"/>
+<rect x="277.5" y="310.5" width="40.5" height="40.5" rx="3" fill="#c8902e" opacity="0.85"/>
+<ellipse cx="210.0" cy="118.8" rx="13" ry="8" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.8"/>
+<circle cx="210.0" cy="118.8" r="4" fill="#2b2b2b"/>
+<text x="210.0" y="100.8" font-size="14" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">N</text>
+<ellipse cx="361.2" cy="270.0" rx="13" ry="8" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.8"/>
+<circle cx="361.2" cy="270.0" r="4" fill="#2b2b2b"/>
+<text x="384.1" y="275.0" font-size="14" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">E</text>
+<ellipse cx="210.0" cy="421.2" rx="13" ry="8" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.8"/>
+<circle cx="210.0" cy="421.2" r="4" fill="#2b2b2b"/>
+<text x="210.0" y="449.1" font-size="14" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">S</text>
+<ellipse cx="58.8" cy="270.0" rx="13" ry="8" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.8"/>
+<circle cx="58.8" cy="270.0" r="4" fill="#2b2b2b"/>
+<text x="35.8" y="275.0" font-size="14" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">W</text>
+<rect x="420" y="90" width="265" height="160" rx="10" fill="#eef3f8" stroke="#d5dde6"/>
+<line x1="430" y1="228" x2="675" y2="228" stroke="#b9c3cf" stroke-width="1.5"/>
+<rect x="579.9" y="197.7" width="24.6" height="30.3" fill="#7d5ba6" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="492.2" y="190.3" width="22.6" height="37.7" fill="#c8902e" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="532.2" y="208.5" width="40.6" height="19.5" fill="#4f9a6b" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="592.5" y="168.0" width="40.0" height="60.0" fill="#c0504d" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="480.3" y="189.8" width="38.2" height="38.2" fill="#3d6fb6" stroke="#ffffff" stroke-width="1.2"/>
+<text x="434.0" y="114.0" font-size="14" fill="#2b2b2b" text-anchor="start" font-weight="bold" font-style="normal">seen from the north</text>
+<rect x="700" y="90" width="265" height="160" rx="10" fill="#eef3f8" stroke="#d5dde6"/>
+<line x1="710" y1="228" x2="955" y2="228" stroke="#b9c3cf" stroke-width="1.5"/>
+<rect x="846.9" y="184.7" width="28.9" height="43.3" fill="#c0504d" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="776.1" y="197.2" width="24.9" height="30.8" fill="#7d5ba6" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="793.5" y="207.2" width="43.3" height="20.8" fill="#4f9a6b" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="871.0" y="190.6" width="37.4" height="37.4" fill="#3d6fb6" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="766.1" y="172.7" width="33.2" height="55.3" fill="#c8902e" stroke="#ffffff" stroke-width="1.2"/>
+<text x="714.0" y="114.0" font-size="14" fill="#2b2b2b" text-anchor="start" font-weight="bold" font-style="normal">seen from the east</text>
+<rect x="420" y="290" width="265" height="160" rx="10" fill="#eef3f8" stroke="#d5dde6"/>
+<line x1="430" y1="428" x2="675" y2="428" stroke="#b9c3cf" stroke-width="1.5"/>
+<rect x="575.9" y="401.6" width="26.4" height="26.4" fill="#3d6fb6" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="491.3" y="382.1" width="30.6" height="45.9" fill="#c0504d" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="529.3" y="405.7" width="46.4" height="22.3" fill="#4f9a6b" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="603.5" y="377.0" width="30.6" height="51.0" fill="#c8902e" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="474.5" y="382.5" width="36.8" height="45.5" fill="#7d5ba6" stroke="#ffffff" stroke-width="1.2"/>
+<text x="434.0" y="314.0" font-size="14" fill="#2b2b2b" text-anchor="start" font-weight="bold" font-style="normal">seen from the south</text>
+<rect x="700" y="290" width="265" height="160" rx="10" fill="#eef3f8" stroke="#d5dde6"/>
+<line x1="710" y1="428" x2="955" y2="428" stroke="#b9c3cf" stroke-width="1.5"/>
+<rect x="853.9" y="392.4" width="21.4" height="35.6" fill="#c8902e" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="778.3" y="401.3" width="26.7" height="26.7" fill="#3d6fb6" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="828.2" y="407.2" width="43.3" height="20.8" fill="#4f9a6b" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="878.1" y="383.4" width="36.1" height="44.6" fill="#7d5ba6" stroke="#ffffff" stroke-width="1.2"/>
+<rect x="767.5" y="363.0" width="43.3" height="65.0" fill="#c0504d" stroke="#ffffff" stroke-width="1.2"/>
+<text x="714.0" y="314.0" font-size="14" fill="#2b2b2b" text-anchor="start" font-weight="bold" font-style="normal">seen from the west</text>
+<text x="700.0" y="510.0" font-size="14" fill="#6f6a60" text-anchor="middle" font-weight="normal" font-style="normal">Each monad is a point of view: the same universe, a different angle</text>
+</svg>

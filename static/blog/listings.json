@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Monad/index.html",
       "/posts/Geometry/index.html",
       "/posts/Mindcraft/index.html"
     ]

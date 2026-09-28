@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b2b2b"/></marker><marker id="arrg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c8902e"/></marker><radialGradient id="glow"><stop offset="0" stop-color="#fff6d8"/><stop offset="0.35" stop-color="#c8902e" stop-opacity="0.9"/><stop offset="1" stop-color="#c8902e" stop-opacity="0"/></radialGradient></defs>
+<rect width="960" height="470" rx="14" fill="#fbf8f1"/>
+<text x="480.0" y="38.0" font-size="19" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">A monad is like a curve: the point moves, the direction turns, the law stays</text>
+<polyline points="60.0,270.0 63.0,267.7 66.0,265.3 69.0,262.9 72.0,260.6 75.0,258.2 78.0,255.8 81.0,253.4 84.0,251.1 87.0,248.8 90.0,246.5 93.0,244.2 96.0,241.9 99.0,239.7 102.0,237.6 105.0,235.5 108.0,233.4 111.0,231.4 114.0,229.5 117.0,227.7 120.0,225.9 123.0,224.2 126.0,222.6 129.0,221.1 132.0,219.7 135.0,218.4 138.0,217.2 141.0,216.1 144.0,215.1 147.0,214.2 150.0,213.5 153.0,212.8 156.0,212.3 159.0,211.9 162.0,211.7 165.0,211.5 168.0,211.5 171.0,211.7 174.0,211.9 177.0,212.3 180.0,212.9 183.0,213.6 186.0,214.4 189.0,215.4 192.0,216.5 195.0,217.7 198.0,219.1 201.0,220.6 204.0,222.2 207.0,224.0 210.0,225.9 213.0,228.0 216.0,230.1 219.0,232.4 222.0,234.8 225.0,237.3 228.0,240.0 231.0,242.7 234.0,245.6 237.0,248.5 240.0,251.6 243.0,254.7 246.0,258.0 249.0,261.3 252.0,264.7 255.0,268.1 258.0,271.6 261.0,275.2 264.0,278.9 267.0,282.6 270.0,286.3 273.0,290.1 276.0,293.9 279.0,297.7 282.0,301.5 285.0,305.3 288.0,309.2 291.0,313.0 294.0,316.8 297.0,320.6 300.0,324.4 303.0,328.2 306.0,331.9 309.0,335.5 312.0,339.1 315.0,342.7 318.0,346.2 321.0,349.6 324.0,352.9 327.0,356.1 330.0,359.2 333.0,362.3 336.0,365.2 339.0,368.1 342.0,370.8 345.0,373.3 348.0,375.8 351.0,378.1 354.0,380.3 357.0,382.4 360.0,384.3 363.0,386.0 366.0,387.6 369.0,389.1 372.0,390.4 375.0,391.5 378.0,392.4 381.0,393.2 384.0,393.8 387.0,394.3 390.0,394.6 393.0,394.7 396.0,394.6 399.0,394.4 402.0,393.9 405.0,393.3 408.0,392.6 411.0,391.6 414.0,390.5 417.0,389.3 420.0,387.8 423.0,386.2 426.0,384.5 429.0,382.5 432.0,380.5 435.0,378.2 438.0,375.9 441.0,373.3 444.0,370.7 447.0,367.9 450.0,365.0 453.0,362.0 456.0,358.8 459.0,355.6 462.0,352.2 465.0,348.7 468.0,345.2 471.0,341.6 474.0,337.9 477.0,334.1 480.0,330.3 483.0,326.4 486.0,322.5 489.0,318.5 492.0,314.5 495.0,310.5 498.0,306.5 501.0,302.5 504.0,298.4 507.0,294.4 510.0,290.5 513.0,286.5 516.0,282.6 519.0,278.7 522.0,274.9 525.0,271.2 528.0,267.5 531.0,263.9 534.0,260.4 537.0,257.0 540.0,253.7 543.0,250.5 546.0,247.5 549.0,244.5 552.0,241.7 555.0,239.0 558.0,236.5 561.0,234.2 564.0,231.9 567.0,229.9 570.0,228.0 573.0,226.3 576.0,224.8 579.0,223.5 582.0,222.3 585.0,221.4 588.0,220.6 591.0,220.1 594.0,219.7 597.0,219.6 600.0,219.7 603.0,219.9 606.0,220.4 609.0,221.1 612.0,222.0 615.0,223.1 618.0,224.4" fill="none" stroke="#3d6fb6" stroke-width="3" stroke-linecap="round"/>
+<line x1="120" y1="225.9" x2="173.7" y2="195.0" stroke="#c0504d" stroke-width="2.4" marker-end="url(#arr)"/>
+<circle cx="120" cy="225.9" r="7" fill="#2b2b2b" stroke="#fbf8f1" stroke-width="2"/>
+<line x1="215" y1="229.4" x2="265.1" y2="265.9" stroke="#c0504d" stroke-width="2.4" marker-end="url(#arr)"/>
+<circle cx="215" cy="229.4" r="7" fill="#2b2b2b" stroke="#fbf8f1" stroke-width="2"/>
+<line x1="320" y1="348.4" x2="361.1" y2="394.9" stroke="#c0504d" stroke-width="2.4" marker-end="url(#arr)"/>
+<circle cx="320" cy="348.4" r="7" fill="#2b2b2b" stroke="#fbf8f1" stroke-width="2"/>
+<line x1="430" y1="381.9" x2="481.2" y2="346.9" stroke="#c0504d" stroke-width="2.4" marker-end="url(#arr)"/>
+<circle cx="430" cy="381.9" r="7" fill="#2b2b2b" stroke="#fbf8f1" stroke-width="2"/>
+<line x1="545" y1="248.5" x2="588.5" y2="204.3" stroke="#c0504d" stroke-width="2.4" marker-end="url(#arr)"/>
+<circle cx="545" cy="248.5" r="7" fill="#2b2b2b" stroke="#fbf8f1" stroke-width="2"/>
+<text x="90.0" y="310.0" font-size="14" fill="#6f6a60" text-anchor="middle" font-weight="normal" font-style="normal">past</text>
+<text x="600.0" y="269.4" font-size="14" fill="#6f6a60" text-anchor="middle" font-weight="normal" font-style="normal">future</text>
+<text x="340.0" y="450.0" font-size="15" fill="#6f6a60" text-anchor="middle" font-weight="normal" font-style="italic">“The present is big with the future.” — Monadology §22</text>
+<rect x="655" y="100" width="280" height="250" rx="12" fill="#ffffff" stroke="#e2dccf"/>
+<circle cx="681" cy="138" r="7" fill="#2b2b2b"/>
+<text x="701.0" y="143.0" font-size="15" fill="#2b2b2b" text-anchor="start" font-weight="normal" font-style="normal">Perception: the state now</text>
+<text x="701.0" y="165.0" font-size="12" fill="#6f6a60" text-anchor="start" font-weight="normal" font-style="normal">(the whole world, as seen right now)</text>
+<line x1="669" y1="208" x2="693" y2="208" stroke="#c0504d" stroke-width="2.4" marker-end="url(#arr)"/>
+<text x="701.0" y="213.0" font-size="15" fill="#2b2b2b" text-anchor="start" font-weight="normal" font-style="normal">Appetition: the pull onward</text>
+<text x="701.0" y="235.0" font-size="12" fill="#6f6a60" text-anchor="start" font-weight="normal" font-style="normal">(like the tangent at that point)</text>
+<line x1="669" y1="278" x2="693" y2="278" stroke="#3d6fb6" stroke-width="3"/>
+<text x="701.0" y="283.0" font-size="15" fill="#2b2b2b" text-anchor="start" font-weight="bold" font-style="normal">The law of the whole curve</text>
+<text x="701.0" y="305.0" font-size="15" fill="#3d6fb6" text-anchor="start" font-weight="bold" font-style="normal">= the monad itself</text>
+<text x="701.0" y="327.0" font-size="12" fill="#6f6a60" text-anchor="start" font-weight="normal" font-style="normal">(unchanged from start to end)</text>
+</svg>

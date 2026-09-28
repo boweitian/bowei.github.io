@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 430" width="980" height="430" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b2b2b"/></marker><marker id="arrg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c8902e"/></marker><radialGradient id="glow"><stop offset="0" stop-color="#fff6d8"/><stop offset="0.35" stop-color="#c8902e" stop-opacity="0.9"/><stop offset="1" stop-color="#c8902e" stop-opacity="0"/></radialGradient></defs>
+<rect width="980" height="430" rx="14" fill="#fbf8f1"/>
+<text x="490.0" y="38.0" font-size="18" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">An analogy: “monads” inside a language model (the author's analogy, not Leibniz's)</text>
+<rect x="74" y="358" width="92" height="36" rx="8" fill="#ffffff" stroke="#cfc7b8"/>
+<text x="120.0" y="383.0" font-size="15" fill="#2b2b2b" text-anchor="middle" font-weight="normal" font-style="normal">every</text>
+<line x1="120" y1="356" x2="120" y2="294" stroke="#cfc7b8" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="199" y="358" width="92" height="36" rx="8" fill="#ffffff" stroke="#cfc7b8"/>
+<text x="245.0" y="383.0" font-size="15" fill="#2b2b2b" text-anchor="middle" font-weight="normal" font-style="normal">monad</text>
+<line x1="245" y1="356" x2="245" y2="294" stroke="#cfc7b8" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="324" y="358" width="92" height="36" rx="8" fill="#ffffff" stroke="#cfc7b8"/>
+<text x="370.0" y="383.0" font-size="15" fill="#2b2b2b" text-anchor="middle" font-weight="normal" font-style="normal">mirrors</text>
+<line x1="370" y1="356" x2="370" y2="294" stroke="#cfc7b8" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="449" y="358" width="92" height="36" rx="8" fill="#ffffff" stroke="#cfc7b8"/>
+<text x="495.0" y="383.0" font-size="15" fill="#2b2b2b" text-anchor="middle" font-weight="normal" font-style="normal">the</text>
+<line x1="495" y1="356" x2="495" y2="294" stroke="#cfc7b8" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="574" y="358" width="92" height="36" rx="8" fill="#ffffff" stroke="#cfc7b8"/>
+<text x="620.0" y="383.0" font-size="15" fill="#2b2b2b" text-anchor="middle" font-weight="normal" font-style="normal">whole</text>
+<line x1="620" y1="356" x2="620" y2="294" stroke="#cfc7b8" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="699" y="358" width="92" height="36" rx="8" fill="#ffffff" stroke="#cfc7b8"/>
+<text x="745.0" y="383.0" font-size="15" fill="#2b2b2b" text-anchor="middle" font-weight="normal" font-style="normal">universe</text>
+<line x1="745" y1="356" x2="745" y2="294" stroke="#cfc7b8" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M120,250 Q307.5,180.0 495,250" fill="none" stroke="#4f9a6b" stroke-width="2" opacity="0.75"/>
+<path d="M245,250 Q370.0,200.0 495,250" fill="none" stroke="#4f9a6b" stroke-width="2" opacity="0.75"/>
+<path d="M370,250 Q432.5,220.0 495,250" fill="none" stroke="#4f9a6b" stroke-width="2" opacity="0.75"/>
+<path d="M120,250 Q432.5,140.0 745,250" fill="none" stroke="#c8902e" stroke-width="2" opacity="0.95"/>
+<path d="M245,250 Q495.0,160.0 745,250" fill="none" stroke="#c8902e" stroke-width="2" opacity="0.95"/>
+<path d="M370,250 Q557.5,180.0 745,250" fill="none" stroke="#c8902e" stroke-width="2" opacity="0.95"/>
+<path d="M495,250 Q620.0,200.0 745,250" fill="none" stroke="#c8902e" stroke-width="2" opacity="0.95"/>
+<path d="M620,250 Q682.5,220.0 745,250" fill="none" stroke="#c8902e" stroke-width="2" opacity="0.95"/>
+<circle cx="120" cy="270" r="20" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.6"/>
+<text x="120.0" y="275.0" font-size="13" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">h1</text>
+<circle cx="245" cy="270" r="20" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.6"/>
+<text x="245.0" y="275.0" font-size="13" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">h2</text>
+<circle cx="370" cy="270" r="20" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.6"/>
+<text x="370.0" y="275.0" font-size="13" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">h3</text>
+<circle cx="495" cy="270" r="20" fill="#4f9a6b" stroke="#2b2b2b" stroke-width="1.6"/>
+<text x="495.0" y="275.0" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="bold" font-style="normal">h4</text>
+<circle cx="620" cy="270" r="20" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.6"/>
+<text x="620.0" y="275.0" font-size="13" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">h5</text>
+<circle cx="745" cy="270" r="20" fill="#c8902e" stroke="#2b2b2b" stroke-width="1.6"/>
+<text x="745.0" y="275.0" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="bold" font-style="normal">h6</text>
+<line x1="767" y1="270" x2="837" y2="270" stroke="#c8902e" stroke-width="2.4" marker-end="url(#arrg)"/>
+<text x="845.0" y="262.0" font-size="14" fill="#8a5f14" text-anchor="start" font-weight="bold" font-style="normal">next word</text>
+<text x="845.0" y="284.0" font-size="12" fill="#6f6a60" text-anchor="start" font-weight="normal" font-style="normal">(present big with future)</text>
+<text x="60.0" y="84.0" font-size="14" fill="#2b2b2b" text-anchor="start" font-weight="normal" font-style="normal">● Each state h sees the whole text before it, from its own position — a living mirror</text>
+<text x="60.0" y="110.0" font-size="14" fill="#2b2b2b" text-anchor="start" font-weight="normal" font-style="normal">● h4 and h6 look at the same context from different places — the same city from different sides</text>
+<text x="60.0" y="136.0" font-size="14" fill="#2b2b2b" text-anchor="start" font-weight="normal" font-style="normal">● Every position runs on the same weights — each follows one unchanging “law”</text>
+</svg>

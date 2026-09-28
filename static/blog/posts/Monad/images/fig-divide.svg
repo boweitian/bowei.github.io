@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="960" height="300" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b2b2b"/></marker><marker id="arrg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c8902e"/></marker><radialGradient id="glow"><stop offset="0" stop-color="#fff6d8"/><stop offset="0.35" stop-color="#c8902e" stop-opacity="0.9"/><stop offset="1" stop-color="#c8902e" stop-opacity="0"/></radialGradient></defs>
+<rect width="960" height="300" rx="14" fill="#fbf8f1"/>
+<text x="480.0" y="38.0" font-size="20" fill="#2b2b2b" text-anchor="middle" font-weight="bold" font-style="normal">Keep cutting a stone. Do you ever reach the “last piece”?</text>
+<rect x="60.0" y="90.0" width="100.0" height="100.0" rx="25.0" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<text x="110.0" y="222.0" font-size="15" fill="#2b2b2b" text-anchor="middle" font-weight="normal" font-style="normal">a stone</text>
+<rect x="220.0" y="90.0" width="47.0" height="100.0" rx="11.8" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="273.0" y="90.0" width="47.0" height="100.0" rx="11.8" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<text x="270.0" y="222.0" font-size="15" fill="#2b2b2b" text-anchor="middle" font-weight="normal" font-style="normal">cut in two</text>
+<rect x="380.0" y="90.0" width="47.0" height="47.0" rx="11.8" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="380.0" y="143.0" width="47.0" height="47.0" rx="11.8" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="433.0" y="90.0" width="47.0" height="47.0" rx="11.8" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="433.0" y="143.0" width="47.0" height="47.0" rx="11.8" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<text x="430.0" y="222.0" font-size="15" fill="#2b2b2b" text-anchor="middle" font-weight="normal" font-style="normal">cut in four</text>
+<rect x="540.0" y="90.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="540.0" y="116.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="540.0" y="142.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="540.0" y="168.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="566.0" y="90.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="566.0" y="116.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="566.0" y="142.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="566.0" y="168.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="592.0" y="90.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="592.0" y="116.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="592.0" y="142.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="592.0" y="168.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="618.0" y="90.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="618.0" y="116.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="618.0" y="142.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<rect x="618.0" y="168.0" width="22.0" height="22.0" rx="5.5" fill="#9a8f80" stroke="#6d6458" stroke-width="1.2"/>
+<text x="590.0" y="222.0" font-size="15" fill="#2b2b2b" text-anchor="middle" font-weight="normal" font-style="normal">cut again…</text>
+<line x1="172" y1="140" x2="208" y2="140" stroke="#2b2b2b" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="332" y1="140" x2="368" y2="140" stroke="#2b2b2b" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="492" y1="140" x2="528" y2="140" stroke="#2b2b2b" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="652" y1="140" x2="700" y2="140" stroke="#2b2b2b" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="684.0" y="222.0" font-size="15" fill="#6f6a60" text-anchor="middle" font-weight="normal" font-style="normal">never ends</text>
+<line x1="720" y1="140" x2="790" y2="140" stroke="#c8902e" stroke-width="2" marker-end="url(#arrg)"/>
+<circle cx="850" cy="140" r="48" fill="url(#glow)"/>
+<circle cx="850" cy="140" r="7" fill="#c8902e" stroke="#8a5f14" stroke-width="1.5"/>
+<text x="850.0" y="222.0" font-size="15" fill="#8a5f14" text-anchor="middle" font-weight="bold" font-style="normal">monad: a true “one”</text>
+<rect x="50" y="248" width="610" height="30" rx="8" fill="#ece5d8"/>
+<text x="355.0" y="268.0" font-size="14" fill="#6f6a60" text-anchor="middle" font-weight="normal" font-style="normal">Matter: extended · shaped · divisible without end — always a “many”</text>
+<rect x="730" y="248" width="220" height="30" rx="8" fill="#f5e6c4"/>
+<text x="840.0" y="268.0" font-size="13" fill="#8a5f14" text-anchor="middle" font-weight="normal" font-style="normal">no parts · no shape · indivisible</text>
+</svg>
