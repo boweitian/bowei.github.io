@@ -29,7 +29,7 @@ Within three years he had found something new. In the autumn of 1675, in his pri
 
 He published the method in 1684, under the modest title *Nova Methodus pro Maximis et Minimis*, "A New Method for Maxima and Minima".
 
-![The first page of *Nova Methodus pro Maximis et Minimis*, *Acta Eruditorum*, October 1684. This is where the notation *dx* first appears in print. Public domain, via Wikimedia Commons.](images/nova-methodus-1684.jpg){#fig-nova width=60% fig-alt="A printed Latin page headed NOVA METHODUS PRO MAXIMIS & minimis, with letters dx, dy and dv visible in the text."}
+![The first page of *Nova Methodus pro Maximis et Minimis*, *Acta Eruditorum*, October 1684. This is where the notation *dx* first appears in print. Public domain, via Wikimedia Commons.](images/nova-methodus-1684.jpg){#fig-nova width="60%" fig-alt="A printed Latin page headed NOVA METHODUS PRO MAXIMIS & minimis, with letters dx, dy and dv visible in the text."}
 
 The method worked beautifully. But it left Leibniz with a question that would not go away. What *is* an infinitely small piece? If matter can be divided, and every part can be divided again, and again, forever, then where is the *thing*? Where does the world bottom out?
 
@@ -104,9 +104,9 @@ This leaves an obvious problem. If no monad can affect any other, why do they ag
 
 ![Three ways to keep two clocks in agreement. Leibniz chose the third.](images/fig-clocks.svg){#fig-clocks fig-alt="Three panels. First: two clocks hanging from a shared beam with an arrow between them. Second: two clocks with a small person standing between them. Third, highlighted: two unconnected clocks showing the same time."}
 
-1. **Mutual influence.** Hang both clocks on the same beam, so the swing of each disturbs the other and they fall into step. (Huygens had actually seen pendulum clocks synchronise like this.) This is the common view, that soul and body act on each other. Leibniz rejected it: monads have no windows, so there is nothing to carry the influence across.
-2. **A watchful craftsman.** Station a skilled workman beside the clocks who corrects them the moment they drift apart. This is the view of the occasionalists such as Malebranche: God adjusts the body every time the soul wills something. Leibniz found it unworthy of God, a perpetual miracle to patch up a badly made world.
-3. **Pre-established harmony.** Build both clocks so perfectly *from the very beginning* that each, following only its own mechanism, keeps time with the other forever.
+1.  **Mutual influence.** Hang both clocks on the same beam, so the swing of each disturbs the other and they fall into step. (Huygens had actually seen pendulum clocks synchronise like this.) This is the common view, that soul and body act on each other. Leibniz rejected it: monads have no windows, so there is nothing to carry the influence across.
+2.  **A watchful craftsman.** Station a skilled workman beside the clocks who corrects them the moment they drift apart. This is the view of the occasionalists such as Malebranche: God adjusts the body every time the soul wills something. Leibniz found it unworthy of God, a perpetual miracle to patch up a badly made world.
+3.  **Pre-established harmony.** Build both clocks so perfectly *from the very beginning* that each, following only its own mechanism, keeps time with the other forever.
 
 The third is Leibniz's answer. God did not wire the monads together. He chose, out of all possible worlds, one in which every monad's inner law unfolds in step with every other's. Leibniz also compared it to several choirs, placed so that none can see or hear the others, each singing only from its own score, and yet the music agrees perfectly.
 
@@ -121,7 +121,7 @@ When you stand by the sea, you hear its roar. That roar is made of the sound of 
 These are the **petites perceptions**, the little perceptions. And here you can see the mathematician again. This is *exactly* the logic of the integral. Each *dx* is smaller than anything you can measure, yet ∫ of them gives a real, finite area. For Leibniz, a conscious experience is the integral of countless unconscious ones. "Nature never makes leaps," he liked to say. There is no sharp line between a stone and a mind, only a continuous ladder:
 
 | Kind of monad | What it has | Example |
-|---|---|---|
+|------------------------|------------------------|------------------------|
 | Bare monad | Perception, but all of it confused and too small to notice | the monads in a stone or a plant |
 | Soul | Perception distinct enough to include feeling and memory | animals |
 | Spirit (rational soul) | Reason, self-awareness, knowledge of necessary truths | human beings |
