@@ -5,7 +5,7 @@ description: 'Change just one word and trace the difference across layers: when 
 categories: [Research, Interpretability, LLM]
 lang: en
 toc: false
-image: images/mindcraft-hierarchy.png
+image: images/mindcraft-geometry.png
 lightbox: true
 ---
 
