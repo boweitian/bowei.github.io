@@ -39,6 +39,62 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "MindCraft: How Do Concepts Take Shape Inside a Model?\n\n\nChange just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\nNo matching items\n\n\n  Code Orbit\n  @boweitian ↗\n  \n    A quiet moment between commits.\n    \n      \n        \n        \n        \n        \n        \n      \n    \n    \n  \n  Last 26 weeksLess  More\n  Loading GitHub contributions…\n  Take a walkTry again\n  Enable JavaScript to explore Code Orbit."
+    "text": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths\n\n\nInstead of compressing a concept into one average direction, keep the full cloud of counterfactual effects—and use paths through edit lattices to understand how multiple concepts compose.\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMindCraft: How Do Concepts Take Shape Inside a Model?\n\n\nChange just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\nNo matching items\n\n\n  Code Orbit\n  @boweitian ↗\n  \n    A quiet moment between commits.\n    \n      \n        \n        \n        \n        \n        \n      \n    \n    \n  \n  Last 26 weeksLess  More\n  Loading GitHub contributions…\n  Take a walkTry again\n  Enable JavaScript to explore Code Orbit."
+  },
+  {
+    "objectID": "posts/Geometry/index.html",
+    "href": "posts/Geometry/index.html",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "",
+    "text": "A concept direction is usually an average. But what is that average hiding?\nSuppose we change one word in a sentence—for example, replace honest with upright—and measure how the model’s residual stream changes. Repeat the same kind of edit across many contexts and across several words that realise it. Instead of one vector, we obtain a cloud of effect vectors.\nThis paper asks two questions:\nThe answer leads from cones to concept networks, and from concept networks to a surprisingly cheap estimator: a walker that follows only a few paths through an exponentially large edit lattice."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#from-a-concept-direction-to-an-effect-cloud",
+    "href": "posts/Geometry/index.html#from-a-concept-direction-to-an-effect-cloud",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "1. From a concept direction to an effect cloud",
+    "text": "1. From a concept direction to an effect cloud\nFor an edit (), a realisation (v), and a context (c), define the effect vector\n[ _v(c) = e(_v x,c)-e(x,c), ]\nwhere (e()) is the model representation being measured.\nRepeating the edit over different contexts and different realisations gives an effect cloud. The paper summarises this cloud with two geometric quantities:\n\nits ruler, the mean direction of the cloud;\nits concentration, the average cosine between the individual effects and that ruler.\n\nA tightly concentrated cloud behaves like a narrow cone. A diffuse cloud behaves like a wide cone.\n\n\n\n\n\n\nFigure 1: Seven edit types projected onto one sphere. Each cloud has a ruler and a mass region; the right panel unrolls the same sphere into a map. Adapted from the original paper, Figure 1.\n\n\n\nThis changes the usual picture of a concept. A direction is no longer assumed to describe every instance perfectly; it becomes the axis of a distribution of effects."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#does-one-edit-form-one-cone-or-several",
+    "href": "posts/Geometry/index.html#does-one-edit-form-one-cone-or-several",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "2. Does one edit form one cone or several?",
+    "text": "2. Does one edit form one cone or several?\nA cloud can be wide for two very different reasons.\nFirst, the same word replacement may behave differently in different contexts. Second, different words that are supposed to realise the same edit may actually move the model in different directions.\nThe paper separates these two effects. For each realisation (v), it first estimates its own ruler (_v). It then defines coherence\n[ = _{vv’} v, {v’} , ]\nwhich measures how closely the rulers of different realisations agree.\nA crucial detail is the baseline. Residual streams are anisotropic, so unrelated words inserted into the same sentence position already share some direction. The comparison therefore uses random words of the same part of speech in the same position, rather than an idealised isotropic baseline.\nThe experiments reveal a sharp distinction. Individual realisations are highly stable across contexts: their context concentration is 0.93–0.99. But families of words do not all behave alike. Adjective synonyms are less coherent than random adjectives on all 15 model–sentence lattices, while verbs describing destructive actions are more coherent than random verbs on 14 of 15 lattices.\nSo words that look synonymous to us do not necessarily correspond to one geometric change inside the model. Some families collapse toward a shared ruler; others retain word-specific directions."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#multiple-edits-form-a-concept-network",
+    "href": "posts/Geometry/index.html#multiple-edits-form-a-concept-network",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "3. Multiple edits form a concept network",
+    "text": "3. Multiple edits form a concept network\nThe next question is compositional: what happens when several edits are applied to the same sentence?\nStart with a base sentence (x_0) and (K) edits. Every admissible subset of those edits gives a new sentence. These sentences form a concept network: nodes are edited sentences, and edges are single edits.\n\n\n\n\n\n\nFigure 2: A schematic concept network. Grey edges show the full lattice, while the highlighted sequence shows one walker applying edits one at a time. Adapted from the original paper, Figure 2.\n\n\n\nIf an edit has nearly the same mean effect wherever in the lattice it is applied, then its direction behaves approximately linearly across the network. Under this condition, the composite representation change can be divided among edits.\nMore generally, the paper defines an edit’s contribution as a Shapley value. The value of a subset of edits is its progress along the final composite ruler, and each edit receives its average marginal contribution over admissible edit orderings.\nThis gives a principled answer to a subtle question:\n\nWhen several semantic changes are present at once, how much of the final representation change belongs to each one?"
+  },
+  {
+    "objectID": "posts/Geometry/index.html#a-walker-approximates-the-whole-lattice",
+    "href": "posts/Geometry/index.html#a-walker-approximates-the-whole-lattice",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "4. A walker approximates the whole lattice",
+    "text": "4. A walker approximates the whole lattice\nComputing exact Shapley shares appears expensive because a lattice with (K) edits can contain (2^K) sentences.\nThe paper instead follows one path:\n[ x_0 x_1 x_K=x^*. ]\nThis path is called a walker. At each step it measures the representation change caused by the next edit, and projects that step onto the final composite effect.\nFor the six-edit experiments, the full lattice contains 48 admissible sentences and 360 admissible edit orderings. Across those orderings, an edit’s share changes surprisingly little: the standard deviation is at most 0.05 in every lattice. The mean direction of an edit is also stable across nodes, with cross-node cosine 0.87–0.95.\n\n\n\n\n\n\nFigure 3: Shares read by all 360 walkers in one six-edit lattice. Despite different edit orders, the distributions are narrow relative to the differences between major and minor shares. Adapted from the original paper, Figure 3.\n\n\n\nThe main source of variation is therefore not context sampling but interaction between edits: an edit can change slightly depending on which edits came before it. Averaging several walkers averages over this ordering-dependent interaction."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#what-happens-when-the-lattice-becomes-enormous",
+    "href": "posts/Geometry/index.html#what-happens-when-the-lattice-becomes-enormous",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "5. What happens when the lattice becomes enormous?",
+    "text": "5. What happens when the lattice becomes enormous?\nWith 16 independent edits, the full lattice contains\n[ 2^{16}=65{,}536 ]\nsentences.\nThe paper evaluates this lattice exhaustively on three models so that the exact Shapley shares are known. It then asks how many random walkers are required to recover them.\n\n\n\n\n\n\nFigure 4: On a 65,536-node lattice, the maximum share error falls rapidly as more walkers are averaged. The right panel shows the exact Shapley-share profile across the 16 edits. Adapted from the original paper, Figure 4.\n\n\n\nFor a 95th-percentile maximum error below 0.02 on every share:\n\nSmolLM2-360M needs 1 walker;\nPythia-410m needs 2 walkers;\nQwen2.5-0.5B needs 8 walkers.\n\nEven the largest of these uses only 122 nodes—about 0.19% of the 65,536-node lattice.\nThe exponential object is still there mathematically, but in these experiments its attribution structure can be recovered from a tiny number of paths."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#do-the-shares-mean-anything-behaviorally",
+    "href": "posts/Geometry/index.html#do-the-shares-mean-anything-behaviorally",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "6. Do the shares mean anything behaviorally?",
+    "text": "6. Do the shares mean anything behaviorally?\nThe paper finally tests whether these geometric shares predict what happens when the corresponding directions are used for steering.\nIt adds edit vectors to the residual stream and asks how much of the composite edit’s change in next-token log-probabilities is reproduced. Then it removes one edit vector at a time from the combined steering vector.\nThe decrease caused by removing an edit tracks its Shapley share with Spearman correlation 0.78 over 90 edits, with a median of 0.83 per lattice. The share predicts this drop-one effect better than vector magnitude alone, and remains informative even after controlling for magnitude.\nSo the shares are not only a geometric decomposition. They predict which component of a composed representation actually matters to the model’s output distribution."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#why-does-this-matter",
+    "href": "posts/Geometry/index.html#why-does-this-matter",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "Why does this matter?",
+    "text": "Why does this matter?\nThe usual linear-representation story compresses a concept into one vector. This work suggests a richer hierarchy:\neffect vectors → effect clouds → cones → edit lattices → compositional shares.\nThe cloud tells us how stable an edit is across contexts and realisations. The cone tells us whether a family behaves like one geometric change or several. The concept network describes how multiple edits combine. The walker makes attribution through that network computationally practical.\nThe broader lesson is that linearity and variability do not have to be competing descriptions. An edit can have a stable ruler while still occupying a nontrivial cone around that ruler, and several approximately linear edits can still interact when they are composed.\nThe current experiments cover models from 360M to 7B parameters, focus primarily on one relative depth, evaluate steering through next-token distributions rather than free-form generation, and use study-written contexts. Extending the same geometry to larger models and naturally occurring text is therefore an important next step.\n\nThis article is based on the manuscript Concept Geometry in Language Models: Cones, Edits, and Compositional Paths (marked as under review at ICLR 2027). The figures shown here are cropped from the original manuscript and can be enlarged by clicking on them."
   }
 ]
