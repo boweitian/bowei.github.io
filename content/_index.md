@@ -61,7 +61,7 @@ sections:
   - block: html
     id: follow-me
     content:
-      title: Follow Me on Zhihu
+      title: Follow Me on Zhihu & Blog
   - block: experience
     id: experience
     content:
