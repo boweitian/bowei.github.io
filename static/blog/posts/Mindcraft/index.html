@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-09-27">
-<meta name="description" content="只改一个词，沿着模型的层数追踪：一个差异何时变得重要，又如何形成概念的几何结构？">
+<meta name="description" content="Change just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?">
 
-<title>index – Bowei's Blog</title>
+<title>MindCraft: How Do Concepts Take Shape Inside a Model? – Bowei’s Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -118,29 +118,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#概念为什么有时像直线有时像曲线" id="toc-概念为什么有时像直线有时像曲线" class="nav-link active" data-scroll-target="#概念为什么有时像直线有时像曲线">1. 概念为什么有时像直线，有时像曲线？</a></li>
-  <li><a href="#模型会把哪些差异放大" id="toc-模型会把哪些差异放大" class="nav-link" data-scroll-target="#模型会把哪些差异放大">2. 模型会把哪些差异放大？</a></li>
-  <li><a href="#一个区别从哪一层开始显现" id="toc-一个区别从哪一层开始显现" class="nav-link" data-scroll-target="#一个区别从哪一层开始显现">3. 一个区别从哪一层开始显现？</a></li>
-  <li><a href="#这有什么用" id="toc-这有什么用" class="nav-link" data-scroll-target="#这有什么用">这有什么用？</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MindCraft：概念如何在模型里成形？</h1>
-</div>
+<h1 class="title">MindCraft: How Do Concepts Take Shape Inside a Model?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Research</div>
+    <div class="quarto-category">Interpretability</div>
+    <div class="quarto-category">LLM</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    只改一个词，沿着模型的层数追踪：一个差异何时变得重要，又如何形成概念的几何结构？
+    Change just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?
   </div>
 </div>
 
@@ -163,59 +157,59 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MindCraft 想弄清楚：输入中的一个差异，如何在模型内部一步步变成影响回答的区别。</strong></p>
-<p>做法很直观：把提示词里的一个 token 换掉，例如把“诚实”换成“不诚实”，比较两次前向传播的内部状态。把层数看成时间，就能追踪这个差异如何在 token 之间传播、被放大，以及改变方向。这就是论文所说的 <em>full-sequence flow</em>。</p>
-<section id="概念为什么有时像直线有时像曲线" class="level2">
-<h2 class="anchored" data-anchor-id="概念为什么有时像直线有时像曲线">1. 概念为什么有时像直线，有时像曲线？</h2>
-<p>MindCraft 把差异的变化分成两件事：<strong>拉伸</strong>决定差异被放大多少，<strong>转向</strong>决定差异朝哪里走。</p>
-<p>如果一个概念的不同取值被共同转向同一方向，它们就可能排成一条线；如果各自持续朝不同方向转动，就可能保留弯曲的结构。线性方向和概念流形，因此可以看成同一传播过程的不同结果。</p>
-<div id="fig-geometry" class="quarto-float quarto-figure quarto-figure-center anchored" alt="两组概念轨迹：共同转向后排成直线，以及分别转向后形成曲线。">
+<p><strong>MindCraft asks a simple question: how does a difference in the input gradually become a distinction that affects the model’s answer?</strong></p>
+<p>The setup is straightforward: replace a single token in the prompt—for example, change “honest” to “dishonest”—and compare the model’s internal states across the two forward passes. If we treat depth as time, we can track how this difference propagates across tokens, gets amplified, and changes direction. This is what the paper calls <em>full-sequence flow</em>.</p>
+<section id="why-do-concepts-sometimes-look-linear-and-sometimes-curved" class="level2">
+<h2 class="anchored" data-anchor-id="why-do-concepts-sometimes-look-linear-and-sometimes-curved">1. Why do concepts sometimes look linear and sometimes curved?</h2>
+<p>MindCraft decomposes the evolution of a difference into two parts: <strong>stretching</strong>, which determines how much the difference is amplified, and <strong>turning</strong>, which determines where the difference points.</p>
+<p>If different values of a concept are jointly rotated toward the same direction, they can align along a line. If they continue turning in different directions, they may preserve a curved structure. From this perspective, linear directions and concept manifolds can be viewed as different outcomes of the same underlying propagation process.</p>
+<div id="fig-geometry" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two sets of concept trajectories: one aligns into a line after shared turning, while the other forms a curved structure through value-specific turning.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/mindcraft-geometry.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: 共同转向可以形成直线；不同取值各自转向，可以形成曲线。原论文 Figure 1b–c，示意图。"><img src="images/mindcraft-geometry.png" class="img-fluid figure-img" alt="两组概念轨迹：共同转向后排成直线，以及分别转向后形成曲线。"></a>
+<a href="images/mindcraft-geometry.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Shared turning can produce a line, while value-specific turning can preserve a curved structure. Adapted from the original paper, Figure 1b–c."><img src="images/mindcraft-geometry.png" class="img-fluid figure-img" alt="Two sets of concept trajectories: one aligns into a line after shared turning, while the other forms a curved structure through value-specific turning."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: 共同转向可以形成直线；不同取值各自转向，可以形成曲线。原论文 Figure 1b–c，示意图。
+Figure&nbsp;1: Shared turning can produce a line, while value-specific turning can preserve a curved structure. Adapted from the original paper, Figure 1b–c.
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="模型会把哪些差异放大" class="level2">
-<h2 class="anchored" data-anchor-id="模型会把哪些差异放大">2. 模型会把哪些差异放大？</h2>
-<p>论文比较了“诚实／不诚实”和“房间 A／房间 B”等修改。浅层里，两类修改带来的差异大小还比较接近；到深层，诚实性修改的影响被放大得更多，因为它与当前回答更相关。</p>
-<div id="fig-expansion" class="quarto-float quarto-figure quarto-figure-center anchored" alt="科学事实和日常生活两组实验中，诚实性修改与对照修改在三层上的位移投影。">
+<section id="which-differences-does-the-model-amplify" class="level2">
+<h2 class="anchored" data-anchor-id="which-differences-does-the-model-amplify">2. Which differences does the model amplify?</h2>
+<p>The paper compares interventions such as “honest / dishonest” with controls such as “Room A / Room B.” In shallow layers, the magnitudes of the two kinds of changes are relatively similar. In deeper layers, however, honesty-related changes are amplified more strongly because they are more relevant to the model’s current response.</p>
+<div id="fig-expansion" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Displacement projections for honesty-related and control interventions across three layers in scientific-fact and everyday-life experiments.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-expansion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/mindcraft-expansion.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: 从上到下是第 2、8、24 层。诚实性修改的位移增长更明显；对照组的小图做了局部放大。原论文 Figure 3。"><img src="images/mindcraft-expansion.png" class="img-fluid figure-img" alt="科学事实和日常生活两组实验中，诚实性修改与对照修改在三层上的位移投影。"></a>
+<a href="images/mindcraft-expansion.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: From top to bottom: layers 2, 8, and 24. Honesty-related interventions show a clearer growth in displacement; the control plots are locally zoomed in. Original paper, Figure 3."><img src="images/mindcraft-expansion.png" class="img-fluid figure-img" alt="Displacement projections for honesty-related and control interventions across three layers in scientific-fact and everyday-life experiments."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-expansion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: 从上到下是第 2、8、24 层。诚实性修改的位移增长更明显；对照组的小图做了局部放大。原论文 Figure 3。
+Figure&nbsp;2: From top to bottom: layers 2, 8, and 24. Honesty-related interventions show a clearer growth in displacement; the control plots are locally zoomed in. Original paper, Figure 3.
 </figcaption>
 </figure>
 </div>
-<p>这些是高维位移的二维投影，流线连接的是不同上下文前缀下的变化；跨层增长要结合坐标刻度来看。</p>
+<p>These plots are two-dimensional projections of high-dimensional displacements. The streamlines connect changes across different context prefixes, and cross-layer growth should be interpreted together with the coordinate scales.</p>
 </section>
-<section id="一个区别从哪一层开始显现" class="level2">
-<h2 class="anchored" data-anchor-id="一个区别从哪一层开始显现">3. 一个区别从哪一层开始显现？</h2>
-<p>MindCraft 用两次运行在最后一个 token 上的表征相似度，寻找首次低于校准阈值的层，称为<strong>分叉层</strong>。按分叉先后排列不同修改，就得到当前提示词的“概念层级”。</p>
-<div id="fig-hierarchy" class="quarto-float quarto-figure quarto-figure-center anchored" alt="物理和政治的四个提示词示例，各组反事实修改按分叉层排列。">
+<section id="at-which-layer-does-a-distinction-first-emerge" class="level2">
+<h2 class="anchored" data-anchor-id="at-which-layer-does-a-distinction-first-emerge">3. At which layer does a distinction first emerge?</h2>
+<p>MindCraft measures the representation similarity at the final token between the two runs and finds the first layer where the similarity drops below a calibrated threshold. This layer is called the <strong>bifurcation layer</strong>. By ordering different interventions according to when they bifurcate, we obtain a “concept hierarchy” for the current prompt.</p>
+<div id="fig-hierarchy" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Four prompt examples from physics and politics, with counterfactual interventions ordered by their bifurcation layers.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/mindcraft-hierarchy.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: 物理与政治提示词中的概念层级。数字表示分叉层；INF 表示在所用判据下始终没有分叉。原论文 Figure 4。"><img src="images/mindcraft-hierarchy.png" class="img-fluid figure-img" alt="物理和政治的四个提示词示例，各组反事实修改按分叉层排列。"></a>
+<a href="images/mindcraft-hierarchy.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Concept hierarchies for physics and politics prompts. Numbers indicate bifurcation layers; INF means no bifurcation occurs under the chosen criterion. Original paper, Figure 4."><img src="images/mindcraft-hierarchy.png" class="img-fluid figure-img" alt="Four prompt examples from physics and politics, with counterfactual interventions ordered by their bifurcation layers."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: 物理与政治提示词中的概念层级。数字表示分叉层；INF 表示在所用判据下始终没有分叉。原论文 Figure 4。
+Figure&nbsp;3: Concept hierarchies for physics and politics prompts. Numbers indicate bifurcation layers; INF means no bifurcation occurs under the chosen criterion. Original paper, Figure 4.
 </figcaption>
 </figure>
 </div>
-<p>例如在落球问题里，“破碎／完整”和“物理／魔法”在第 2 层就分叉，“玻璃／橡胶”等替换则到第 12–13 层才分叉。<strong>这个顺序取决于上下文</strong>：论文中，强调年份的重要性，就能让年份差异更早分叉。</p>
+<p>For example, in a falling-object problem, changes such as “broken / intact” and “physics / magic” bifurcate as early as layer 2, while replacements such as “glass / rubber” do not bifurcate until layers 12–13. <strong>This ordering depends on context</strong>: in the paper, explicitly emphasizing the importance of the year causes year-related differences to bifurcate earlier.</p>
 </section>
-<section id="这有什么用" class="level2">
-<h2 class="anchored" data-anchor-id="这有什么用">这有什么用？</h2>
-<p>它给模型干预提供了一个位置：在分叉层提取概念方向，再注入该方向来调整回答。论文报告，在测试的七个模型上，这种方法使 HalluLens PreciseWikiQA 的幻觉率平均下降 <strong>14.5 个百分点</strong>。</p>
-<p>核心想法是：<strong>沿着一个输入差异，看模型何时开始区分它，以及如何把它带到答案里。</strong> 理论中的收敛结论需要增长差距等条件；实验观察到向任务相关方向靠近，但尚未达到定理的收敛界。对多步修改和开放式生成的推广，仍是待解决的问题。</p>
+<section id="why-does-this-matter" class="level2">
+<h2 class="anchored" data-anchor-id="why-does-this-matter">Why does this matter?</h2>
+<p>The framework suggests a natural location for model intervention: extract a concept direction at the bifurcation layer, then inject that direction to steer the model’s response. The paper reports that, across seven tested models, this approach reduces the hallucination rate on HalluLens PreciseWikiQA by an average of <strong>14.5 percentage points</strong>.</p>
+<p>The central idea is simple: <strong>start from a difference in the input, then trace when the model begins to distinguish it and how that distinction is carried into the final answer.</strong> The theoretical convergence result requires conditions such as a growing separation between relevant directions. Empirically, the trajectories move toward task-relevant directions, although they do not yet reach the convergence regime characterized by the theorem. Extending the framework to multi-step edits and open-ended generation remains an open problem.</p>
 <hr>
-<p>本文依据 <em>MindCraft: A Full-Sequence Flow Theory of How Concepts Take Shape in Deep Models</em> 所提供稿件（标注为 ICLR 2027 在审）整理；图片均截取自原文，点击可放大。</p>
+<p>This article is based on the manuscript <em>MindCraft: A Full-Sequence Flow Theory of How Concepts Take Shape in Deep Models</em> (marked as under review at ICLR 2027). All figures are taken from the original manuscript and can be enlarged by clicking on them.</p>
 
 
 </section>

@@ -1,4 +1,3 @@
-# author: Bowei Tian
 format:
   html:
     include-after-body: ../_includes/giscus.html
