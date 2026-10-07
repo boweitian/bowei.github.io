@@ -29,8 +29,9 @@ bio: He is a Ph.D. student in the [University of Maryland, College Park (UMD)](h
 
 # Interests to show in About widget
 interests:
-  - Causal reasoning
+  - Representation Learning
   - Explainability
+  - Trustworthy
 
 # Education to show in About widget
 education:
