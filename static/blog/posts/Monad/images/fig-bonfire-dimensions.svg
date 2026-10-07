@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 470" width="980" height="470" role="img" aria-labelledby="title desc" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <title id="title">Bonfires in low and high dimensions</title>
+  <desc id="desc">Left: on a 2D map, bonfires A at (1,0) and B at (0,1) provide directions that combine to reach C at (1,1). Right: in the orthogonal high-dimensional model, bonfire C is outside the plane spanned by A and B. Both arrangements use position vectors from a common origin. Only three directions of the high-dimensional model are shown.</desc>
+  <defs>
+    <marker id="gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="m0 0 10 5-10 5Z" fill="#be7d26"/></marker>
+    <marker id="blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="m0 0 10 5-10 5Z" fill="#4a799c"/></marker>
+    <marker id="red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="m0 0 10 5-10 5Z" fill="#a85850"/></marker>
+    <g id="bonfire">
+      <circle cy="-18" r="30" fill="#f4c56d" opacity=".13"/>
+      <path d="M-11-7 11-2M11-7-11-2" stroke="#9b7050" stroke-width="4" stroke-linecap="round"/>
+      <path d="M0-40C3-29 12-23 10-15C8-4-8-4-11-15C-13-23-8-27-7-29C-7-21-3-20-3-23C-5-32 0-34 0-40Z" fill="#e59140"/>
+      <path d="M0-25C2-20 6-16 4-12C1-6-6-10-5-15C-5-19-1-21 0-25Z" fill="#ffdf87"/>
+      <circle r="4" fill="#323b46"/>
+    </g>
+  </defs>
+  <rect width="980" height="470" rx="16" fill="#fbf8f1"/>
+  <path d="M490 35V403" stroke="#dfd7c9"/>
+  <g fill="#323b46" font-size="22" font-weight="600">
+    <text x="42" y="48">Low dimensions: a shared map</text>
+    <text x="530" y="48">High dimensions: a new direction</text>
+  </g>
+  <g fill="#6a706f" font-size="17">
+    <text x="42" y="80">Two independent directions span this 2D space.</text>
+    <text x="530" y="80">In this model, C is orthogonal to A and B.</text>
+  </g>
+  <rect x="110" y="140" width="170" height="170" fill="#e6ecec" stroke="#cad4d3"/>
+  <path d="M110 225H280M195 140V310" stroke="#cad4d3"/>
+  <path d="M110 310H277" stroke="#be7d26" stroke-width="3" marker-end="url(#gold)"/>
+  <path d="M110 310V144" stroke="#4a799c" stroke-width="3" marker-end="url(#blue)"/>
+  <path d="M280 310V140" stroke="#4a799c" stroke-width="2" stroke-dasharray="6 6"/>
+  <path d="M110 140H280" stroke="#be7d26" stroke-width="2" stroke-dasharray="6 6"/>
+  <circle cx="110" cy="310" r="4" fill="#323b46"/>
+  <use href="#bonfire" transform="translate(280 310)"/>
+  <use href="#bonfire" transform="translate(110 140)"/>
+  <use href="#bonfire" transform="translate(280 140)"/>
+  <g font-size="18" fill="#323b46">
+    <text x="79" y="335">O</text>
+    <text x="280" y="337" text-anchor="middle">Bonfire A</text>
+    <text x="145" y="139">Bonfire B</text>
+    <text x="317" y="139">Bonfire C</text>
+  </g>
+  <g font-size="16" fill="#6a706f">
+    <text x="280" y="359" text-anchor="middle">(1, 0)</text>
+    <text x="145" y="162">(0, 1)</text>
+    <text x="317" y="162">(1, 1)</text>
+  </g>
+  <path d="M550 321 730 339 925 261 745 243Z" fill="#e6ecec" stroke="#a7b6b8" stroke-width="1.5"/>
+  <path d="M620 310H853" stroke="#be7d26" stroke-width="3" marker-end="url(#gold)"/>
+  <path d="M620 310 733 262" stroke="#4a799c" stroke-width="3" marker-end="url(#blue)"/>
+  <path d="M620 310V149" stroke="#a85850" stroke-width="3" marker-end="url(#red)"/>
+  <use href="#bonfire" transform="translate(856 310)"/>
+  <use href="#bonfire" transform="translate(738 260)"/>
+  <use href="#bonfire" transform="translate(620 145)"/>
+  <circle cx="620" cy="310" r="4" fill="#323b46"/>
+  <g font-size="18" fill="#323b46">
+    <text x="592" y="335">O</text>
+    <text x="856" y="359" text-anchor="middle">Bonfire A</text>
+    <text x="773" y="246">Bonfire B</text>
+    <text x="656" y="145">Bonfire C</text>
+  </g>
+  <text x="656" y="169" fill="#a85850" font-size="16">Outside the A, B plane</text>
+  <rect x="85" y="379" width="350" height="37" rx="9" fill="#efe9de"/>
+  <rect x="565" y="379" width="350" height="37" rx="9" fill="#efe9de"/>
+  <g fill="#323b46" font-size="20" text-anchor="middle">
+    <text x="260" y="404">C = A + B</text>
+    <text x="740" y="404">No aA + bB can reach C</text>
+  </g>
+  <text x="490" y="450" text-anchor="middle" fill="#6a706f" font-size="15">All arrows start at O. The right panel shows only three directions of the high-dimensional model.</text>
+</svg>

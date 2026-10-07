@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 440" width="980" height="440" role="img" aria-labelledby="title desc" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <title id="title">Campfire space: two fires cannot point the way to a third</title>
+  <desc id="desc">Three campfires, A, B, and C, glow in a night sky. A dotted route through A and B stops at a question mark without reaching C. Their spacing is metaphorical, not a measure of distance.</desc>
+  <defs>
+    <radialGradient id="glow"><stop stop-color="#ffcb78" stop-opacity=".32"/><stop offset="1" stop-color="#ffcb78" stop-opacity="0"/></radialGradient>
+    <g id="fire">
+      <circle r="66" fill="url(#glow)"/>
+      <path d="M-18 23 18 31M18 23-18 31" stroke="#c39571" stroke-width="6" stroke-linecap="round"/>
+      <path d="M0-30C4-13 18-10 17 5C17 23 3 26 0 26C-15 26-23 12-17 0C-15 10-10 12-8 9C-11-9 0-12 0-30Z" fill="#f2964c"/>
+      <path d="M1-7C3 2 10 6 8 15C6 24-8 24-9 14C-9 5-2 4 1-7Z" fill="#ffdc8c"/>
+    </g>
+  </defs>
+  <rect width="980" height="440" rx="16" fill="#142130"/>
+  <g fill="#d5e0ed" opacity=".35">
+    <circle cx="70" cy="130" r="2"/><circle cx="305" cy="102" r="2"/><circle cx="650" cy="83" r="2"/><circle cx="925" cy="141" r="2"/>
+    <circle cx="103" cy="326" r="2"/><circle cx="330" cy="343" r="2"/><circle cx="692" cy="315" r="2"/><circle cx="880" cy="358" r="2"/>
+    <circle cx="431" cy="119" r="1.5"/><circle cx="749" cy="242" r="1.5"/><circle cx="581" cy="363" r="1.5"/><circle cx="76" cy="230" r="1.5"/>
+  </g>
+  <text x="48" y="49" fill="#f6ead6" font-size="25" font-weight="600">Two fires cannot point the way to a third</text>
+  <text x="48" y="82" fill="#afbdcd" font-size="18">Each exists. Neither offers a shared guide.</text>
+  <path d="M225 263 440 218 640 181" fill="none" stroke="#a9b8ca" stroke-width="2" stroke-dasharray="7 9" opacity=".65"/>
+  <path d="M650 169 650 189" stroke="#a9b8ca" stroke-width="2" stroke-linecap="round"/>
+  <use href="#fire" transform="translate(190 270)"/>
+  <use href="#fire" transform="translate(467 210)"/>
+  <use href="#fire" transform="translate(809 142)"/>
+  <g fill="#f6ead6" font-size="20" text-anchor="middle">
+    <text x="190" y="334">Campfire A</text><text x="467" y="274">Campfire B</text><text x="809" y="206">Campfire C</text>
+  </g>
+  <circle cx="686" cy="172" r="22" fill="#213347" stroke="#74869c"/>
+  <text x="686" y="180" text-anchor="middle" font-size="25" fill="#e3c69a">?</text>
+  <text x="570" y="285" fill="#afbdcd" font-size="18">Knowing A and B ≠ locating C</text>
+  <text x="48" y="406" fill="#afbdcd" font-size="16">The sky is a metaphor. Spacing here does not show actual representation-space coordinates.</text>
+</svg>

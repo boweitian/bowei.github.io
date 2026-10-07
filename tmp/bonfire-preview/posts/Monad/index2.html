@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-09-27">
-<meta name="description" content="Change just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?">
+<meta name="dcterms.date" content="2026-10-07">
+<meta name="description" content="Bonfires on a simple map share two directions. In an orthogonal high-dimensional space, a third fire can lie beyond both.">
 
-<title>MindCraft: How Do Concepts Take Shape Inside a Model? – Bowei’s Blog</title>
+<title>Bonfire Space: Lights That Cannot Reach Each Other – Bowei’s Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -211,17 +211,17 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MindCraft: How Do Concepts Take Shape Inside a Model?</h1>
+<h1 class="title">Bonfire Space: Lights That Cannot Reach Each Other</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Research</div>
+    <div class="quarto-category">Monad</div>
     <div class="quarto-category">Interpretability</div>
-    <div class="quarto-category">LLM</div>
+    <div class="quarto-category">Theory</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Change just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?
+    Bonfires on a simple map share two directions. In an orthogonal high-dimensional space, a third fire can lie beyond both.
   </div>
 </div>
 
@@ -232,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 27, 2026</p>
+      <p class="date">October 7, 2026</p>
     </div>
   </div>
   
@@ -244,57 +244,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MindCraft asks a simple question: how does a difference in the input gradually become a distinction that affects the model’s answer?</strong></p>
-<p>The setup is straightforward: replace a single token in the prompt—for example, change “honest” to “dishonest”—and compare the model’s internal states across the two forward passes. If we treat depth as time, we can track how this difference propagates across tokens, gets amplified, and changes direction. This is what the paper calls <em>full-sequence flow</em>.</p>
-<section id="why-do-concepts-sometimes-look-linear-and-sometimes-curved" class="level2">
-<h2 class="anchored" data-anchor-id="why-do-concepts-sometimes-look-linear-and-sometimes-curved">1. Why do concepts sometimes look linear and sometimes curved?</h2>
-<p>MindCraft decomposes the evolution of a difference into two parts: <strong>stretching</strong>, which determines how much the difference is amplified, and <strong>turning</strong>, which determines where the difference points.</p>
-<p>If different values of a concept are jointly rotated toward the same direction, they can align along a line. If they continue turning in different directions, they may preserve a curved structure. From this perspective, linear directions and concept manifolds can be viewed as different outcomes of the same underlying propagation process.</p>
-<div id="fig-geometry" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two sets of concept trajectories: one aligns into a line after shared turning, while the other forms a curved structure through value-specific turning.">
+<p>Imagine an endless night sky scattered with bonfires. Each one burns, but its light never reaches another. <strong>I call this kind of high-dimensional representation space <em>bonfire space</em>.</strong></p>
+<section id="a-shared-map-in-low-dimensions" class="level2">
+<h2 class="anchored" data-anchor-id="a-shared-map-in-low-dimensions">A shared map in low dimensions</h2>
+<p>Start with three bonfires on a flat, two-dimensional map. Measure their positions from the same origin: A is one step east, B is one step north, and C is one step east <strong>and</strong> one step north. In coordinates, A = (1, 0), B = (0, 1), and C = (1, 1), so <strong>C = A + B</strong>.</p>
+<p>Two independent directions cover this whole map. Once a third fire’s coordinates are given, you can describe how to reach it using those same directions. Knowing A and B alone does not tell you where an unknown C is; they give you a shared language for locating it.</p>
+<div id="fig-bonfire-dimensions" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A comparison of two bonfire arrangements. Left: from a common origin, bonfire A is at (1,0), B at (0,1), and C at (1,1). Dashed steps show C equals A plus B. Right: A and B lie in a shaded plane, while bonfire C stands along a third direction outside it. Only three directions of the high-dimensional model are shown.">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/mindcraft-geometry.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Shared turning can produce a line, while value-specific turning can preserve a curved structure. Adapted from the original paper, Figure 1b–c."><img src="images/mindcraft-geometry.png" class="img-fluid figure-img" alt="Two sets of concept trajectories: one aligns into a line after shared turning, while the other forms a curved structure through value-specific turning."></a>
+<div aria-describedby="fig-bonfire-dimensions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/fig-bonfire-dimensions.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Left: three bonfires on a 2D map, where C = A + B. Right: in the orthogonal high-dimensional model, C occupies a direction outside the plane spanned by A and B."><img src="images/fig-bonfire-dimensions.svg" class="img-fluid figure-img" alt="A comparison of two bonfire arrangements. Left: from a common origin, bonfire A is at (1,0), B at (0,1), and C at (1,1). Dashed steps show C equals A plus B. Right: A and B lie in a shaded plane, while bonfire C stands along a third direction outside it. Only three directions of the high-dimensional model are shown."></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Shared turning can produce a line, while value-specific turning can preserve a curved structure. Adapted from the original paper, Figure 1b–c.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bonfire-dimensions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Left: three bonfires on a 2D map, where C = A + B. Right: in the orthogonal high-dimensional model, C occupies a direction outside the plane spanned by A and B.
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="which-differences-does-the-model-amplify" class="level2">
-<h2 class="anchored" data-anchor-id="which-differences-does-the-model-amplify">2. Which differences does the model amplify?</h2>
-<p>The paper compares interventions such as “honest / dishonest” with controls such as “Room A / Room B.” In shallow layers, the magnitudes of the two kinds of changes are relatively similar. In deeper layers, however, honesty-related changes are amplified more strongly because they are more relevant to the model’s current response.</p>
-<div id="fig-expansion" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Displacement projections for honesty-related and control interventions across three layers in scientific-fact and everyday-life experiments.">
+<section id="independent-directions-in-bonfire-space" class="level2">
+<h2 class="anchored" data-anchor-id="independent-directions-in-bonfire-space">Independent directions in bonfire space</h2>
+<p>A bonfire’s “location” is a direction in representation space, rather than a place you can mark with three ordinary spatial coordinates. A high-dimensional space has room for many independent directions. Each bonfire shines along its own.</p>
+<div id="fig-bonfire-universe" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three bonfires, A, B, and C, glow in a dark sky. A dotted route from A through B stops at a question mark without reaching C. Their spacing is a metaphor, not actual coordinates.">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-expansion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/mindcraft-expansion.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: From top to bottom: layers 2, 8, and 24. Honesty-related interventions show a clearer growth in displacement; the control plots are locally zoomed in. Original paper, Figure 3."><img src="images/mindcraft-expansion.png" class="img-fluid figure-img" alt="Displacement projections for honesty-related and control interventions across three layers in scientific-fact and everyday-life experiments."></a>
+<div aria-describedby="fig-bonfire-universe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/fig-bonfire-universe.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Like isolated stars: knowing A and B gives you no star map to C."><img src="images/fig-bonfire-universe.svg" class="img-fluid figure-img" alt="Three bonfires, A, B, and C, glow in a dark sky. A dotted route from A through B stops at a question mark without reaching C. Their spacing is a metaphor, not actual coordinates."></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-expansion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: From top to bottom: layers 2, 8, and 24. Honesty-related interventions show a clearer growth in displacement; the control plots are locally zoomed in. Original paper, Figure 3.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bonfire-universe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Like isolated stars: knowing A and B gives you no star map to C.
 </figcaption>
 </figure>
 </div>
-<p>These plots are two-dimensional projections of high-dimensional displacements. The streamlines connect changes across different context prefixes, and cross-layer growth should be interpreted together with the coordinate scales.</p>
-</section>
-<section id="at-which-layer-does-a-distinction-first-emerge" class="level2">
-<h2 class="anchored" data-anchor-id="at-which-layer-does-a-distinction-first-emerge">3. At which layer does a distinction first emerge?</h2>
-<p>MindCraft measures the representation similarity at the final token between the two runs and finds the first layer where the similarity drops below a calibrated threshold. This layer is called the <strong>bifurcation layer</strong>. By ordering different interventions according to when they bifurcate, we obtain a “concept hierarchy” for the current prompt.</p>
-<div id="fig-hierarchy" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Four prompt examples from physics and politics, with counterfactual interventions ordered by their bifurcation layers.">
+<p>Here, “far apart” means <strong>orthogonal: one bonfire’s direction has no projection onto another’s.</strong> They share no direction that could serve as a guide from one to the other.</p>
+<p>Try to read one through the other by taking their inner product, and the result is zero. This is the “nothingness” of bonfire space: no shared signal. Even combining the two directions leaves you within the space they span. You cannot reach a third bonfire whose direction is orthogonal to both.</p>
+<div id="fig-bonfire-directions" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Left: perpendicular arrows A and B, labelled A dot B equals zero. Right: A and B span a shaded plane, while C points out of it, labelled aA plus bB does not equal C. This illustrates direction relationships, not a three-dimensional map of the full space.">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/mindcraft-hierarchy.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Concept hierarchies for physics and politics prompts. Numbers indicate bifurcation layers; INF means no bifurcation occurs under the chosen criterion. Original paper, Figure 4."><img src="images/mindcraft-hierarchy.png" class="img-fluid figure-img" alt="Four prompt examples from physics and politics, with counterfactual interventions ordered by their bifurcation layers."></a>
+<div aria-describedby="fig-bonfire-directions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/fig-bonfire-directions.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Left: orthogonal directions have an inner product of zero. Right: combinations of A and B stay in their plane and cannot reach C. Only three directions are shown for illustration."><img src="images/fig-bonfire-directions.svg" class="img-fluid figure-img" alt="Left: perpendicular arrows A and B, labelled A dot B equals zero. Right: A and B span a shaded plane, while C points out of it, labelled aA plus bB does not equal C. This illustrates direction relationships, not a three-dimensional map of the full space."></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Concept hierarchies for physics and politics prompts. Numbers indicate bifurcation layers; INF means no bifurcation occurs under the chosen criterion. Original paper, Figure 4.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bonfire-directions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Left: orthogonal directions have an inner product of zero. Right: combinations of A and B stay in their plane and cannot reach C. Only three directions are shown for illustration.
 </figcaption>
 </figure>
 </div>
-<p>For example, in a falling-object problem, changes such as “broken / intact” and “physics / magic” bifurcate as early as layer 2, while replacements such as “glass / rubber” do not bifurcate until layers 12–13. <strong>This ordering depends on context</strong>: in the paper, explicitly emphasizing the importance of the year causes year-related differences to bifurcate earlier.</p>
-</section>
-<section id="why-does-this-matter" class="level2">
-<h2 class="anchored" data-anchor-id="why-does-this-matter">Why does this matter?</h2>
-<p>The framework suggests a natural location for model intervention: extract a concept direction at the bifurcation layer, then inject that direction to steer the model’s response. The paper reports that, across seven tested models, this approach reduces the hallucination rate on HalluLens PreciseWikiQA by an average of <strong>14.5 percentage points</strong>.</p>
-<p>The central idea is simple: <strong>start from a difference in the input, then trace when the model begins to distinguish it and how that distinction is carried into the final answer.</strong> The theoretical convergence result requires conditions such as a growing separation between relevant directions. Empirically, the trajectories move toward task-relevant directions, although they do not yet reach the convergence regime characterized by the theorem. Extending the framework to multi-step edits and open-ended generation remains an open problem.</p>
+<p>The difference is that two independent directions span the entire 2D map, while a third bonfire in this model lies beyond the first two directions. High dimensionality makes room for many such directions; <strong>mutual orthogonality is the assumption that keeps the fires separate.</strong></p>
+<p><strong>Every bonfire burns. None gives directions to the others.</strong></p>
 
 
 </section>

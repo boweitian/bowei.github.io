@@ -1,5 +1,124 @@
 [
   {
+    "objectID": "posts/Monad/index2.html",
+    "href": "posts/Monad/index2.html",
+    "title": "Bonfire Space: Lights That Cannot Reach Each Other",
+    "section": "",
+    "text": "Imagine an endless night sky scattered with bonfires. Each one burns, but its light never reaches another. I call this kind of high-dimensional representation space bonfire space."
+  },
+  {
+    "objectID": "posts/Monad/index2.html#a-shared-map-in-low-dimensions",
+    "href": "posts/Monad/index2.html#a-shared-map-in-low-dimensions",
+    "title": "Bonfire Space: Lights That Cannot Reach Each Other",
+    "section": "A shared map in low dimensions",
+    "text": "A shared map in low dimensions\nStart with three bonfires on a flat, two-dimensional map. Measure their positions from the same origin: A is one step east, B is one step north, and C is one step east and one step north. In coordinates, A = (1, 0), B = (0, 1), and C = (1, 1), so C = A + B.\nTwo independent directions cover this whole map. Once a third fire’s coordinates are given, you can describe how to reach it using those same directions. Knowing A and B alone does not tell you where an unknown C is; they give you a shared language for locating it.\n\n\n\n\n\n\nFigure 1: Left: three bonfires on a 2D map, where C = A + B. Right: in the orthogonal high-dimensional model, C occupies a direction outside the plane spanned by A and B."
+  },
+  {
+    "objectID": "posts/Monad/index2.html#independent-directions-in-bonfire-space",
+    "href": "posts/Monad/index2.html#independent-directions-in-bonfire-space",
+    "title": "Bonfire Space: Lights That Cannot Reach Each Other",
+    "section": "Independent directions in bonfire space",
+    "text": "Independent directions in bonfire space\nA bonfire’s “location” is a direction in representation space, rather than a place you can mark with three ordinary spatial coordinates. A high-dimensional space has room for many independent directions. Each bonfire shines along its own.\n\n\n\n\n\n\nFigure 2: Like isolated stars: knowing A and B gives you no star map to C.\n\n\n\nHere, “far apart” means orthogonal: one bonfire’s direction has no projection onto another’s. They share no direction that could serve as a guide from one to the other.\nTry to read one through the other by taking their inner product, and the result is zero. This is the “nothingness” of bonfire space: no shared signal. Even combining the two directions leaves you within the space they span. You cannot reach a third bonfire whose direction is orthogonal to both.\n\n\n\n\n\n\nFigure 3: Left: orthogonal directions have an inner product of zero. Right: combinations of A and B stay in their plane and cannot reach C. Only three directions are shown for illustration.\n\n\n\nThe difference is that two independent directions span the entire 2D map, while a third bonfire in this model lies beyond the first two directions. High dimensionality makes room for many such directions; mutual orthogonality is the assumption that keeps the fires separate.\nEvery bonfire burns. None gives directions to the others."
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html",
+    "href": "posts/Mindcraft/index.html",
+    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "section": "",
+    "text": "MindCraft asks a simple question: how does a difference in the input gradually become a distinction that affects the model’s answer?\nThe setup is straightforward: replace a single token in the prompt—for example, change “honest” to “dishonest”—and compare the model’s internal states across the two forward passes. If we treat depth as time, we can track how this difference propagates across tokens, gets amplified, and changes direction. This is what the paper calls full-sequence flow."
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#why-do-concepts-sometimes-look-linear-and-sometimes-curved",
+    "href": "posts/Mindcraft/index.html#why-do-concepts-sometimes-look-linear-and-sometimes-curved",
+    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "section": "1. Why do concepts sometimes look linear and sometimes curved?",
+    "text": "1. Why do concepts sometimes look linear and sometimes curved?\nMindCraft decomposes the evolution of a difference into two parts: stretching, which determines how much the difference is amplified, and turning, which determines where the difference points.\nIf different values of a concept are jointly rotated toward the same direction, they can align along a line. If they continue turning in different directions, they may preserve a curved structure. From this perspective, linear directions and concept manifolds can be viewed as different outcomes of the same underlying propagation process.\n\n\n\n\n\n\nFigure 1: Shared turning can produce a line, while value-specific turning can preserve a curved structure. Adapted from the original paper, Figure 1b–c."
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#which-differences-does-the-model-amplify",
+    "href": "posts/Mindcraft/index.html#which-differences-does-the-model-amplify",
+    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "section": "2. Which differences does the model amplify?",
+    "text": "2. Which differences does the model amplify?\nThe paper compares interventions such as “honest / dishonest” with controls such as “Room A / Room B.” In shallow layers, the magnitudes of the two kinds of changes are relatively similar. In deeper layers, however, honesty-related changes are amplified more strongly because they are more relevant to the model’s current response.\n\n\n\n\n\n\nFigure 2: From top to bottom: layers 2, 8, and 24. Honesty-related interventions show a clearer growth in displacement; the control plots are locally zoomed in. Original paper, Figure 3.\n\n\n\nThese plots are two-dimensional projections of high-dimensional displacements. The streamlines connect changes across different context prefixes, and cross-layer growth should be interpreted together with the coordinate scales."
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#at-which-layer-does-a-distinction-first-emerge",
+    "href": "posts/Mindcraft/index.html#at-which-layer-does-a-distinction-first-emerge",
+    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "section": "3. At which layer does a distinction first emerge?",
+    "text": "3. At which layer does a distinction first emerge?\nMindCraft measures the representation similarity at the final token between the two runs and finds the first layer where the similarity drops below a calibrated threshold. This layer is called the bifurcation layer. By ordering different interventions according to when they bifurcate, we obtain a “concept hierarchy” for the current prompt.\n\n\n\n\n\n\nFigure 3: Concept hierarchies for physics and politics prompts. Numbers indicate bifurcation layers; INF means no bifurcation occurs under the chosen criterion. Original paper, Figure 4.\n\n\n\nFor example, in a falling-object problem, changes such as “broken / intact” and “physics / magic” bifurcate as early as layer 2, while replacements such as “glass / rubber” do not bifurcate until layers 12–13. This ordering depends on context: in the paper, explicitly emphasizing the importance of the year causes year-related differences to bifurcate earlier."
+  },
+  {
+    "objectID": "posts/Mindcraft/index.html#why-does-this-matter",
+    "href": "posts/Mindcraft/index.html#why-does-this-matter",
+    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
+    "section": "Why does this matter?",
+    "text": "Why does this matter?\nThe framework suggests a natural location for model intervention: extract a concept direction at the bifurcation layer, then inject that direction to steer the model’s response. The paper reports that, across seven tested models, this approach reduces the hallucination rate on HalluLens PreciseWikiQA by an average of 14.5 percentage points.\nThe central idea is simple: start from a difference in the input, then trace when the model begins to distinguish it and how that distinction is carried into the final answer. The theoretical convergence result requires conditions such as a growing separation between relevant directions. Empirically, the trajectories move toward task-relevant directions, although they do not yet reach the convergence regime characterized by the theorem. Extending the framework to multi-step edits and open-ended generation remains an open problem."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Bonfire Space: Lights That Cannot Reach Each Other\n\n\nBonfires on a simple map share two directions. In an orthogonal high-dimensional space, a third fire can lie beyond both.\n\n\n\n\n\nOct 7, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nIntroducing Monads\n\n\nA story about Leibniz, the infinitely small, and the windowless mirrors he believed the world is made of.\n\n\n\n\n\nSep 28, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nConcept Geometry in Language Models: Cones, Edits, and Compositional Paths\n\n\nInstead of compressing a concept into one average direction, use paths through edit lattices to understand how multiple concepts compose.\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMindCraft: How Do Concepts Take Shape Inside a Model?\n\n\nChange just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\nNo matching items\n\n\n  Code Orbit\n  @boweitian ↗\n  \n    A quiet moment between commits.\n    \n      \n        \n        \n        \n        \n        \n      \n    \n    \n  \n  Last 26 weeksLess  More\n  Loading GitHub contributions…\n  Take a walkTry again\n  Enable JavaScript to explore Code Orbit."
+  },
+  {
+    "objectID": "posts/Geometry/index.html",
+    "href": "posts/Geometry/index.html",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "",
+    "text": "A concept direction is usually an average. But what is that average hiding?\nSuppose we change one word in a sentence—for example, replace honest with upright—and measure how the model’s residual stream changes. Repeat the same kind of edit across many contexts and across several words that realise it. Instead of one vector, we obtain a cloud of effect vectors.\nThis paper asks two questions:\nThe answer leads from cones to concept networks, and from concept networks to a surprisingly cheap estimator: a walker that follows only a few paths through an exponentially large edit lattice."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#from-a-concept-direction-to-an-effect-cloud",
+    "href": "posts/Geometry/index.html#from-a-concept-direction-to-an-effect-cloud",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "1. From a concept direction to an effect cloud",
+    "text": "1. From a concept direction to an effect cloud\nFor an edit (), a realisation (v), and a context (c), define the effect vector\n[ _v(c) = e(_v x,c)-e(x,c), ]\nwhere (e()) is the model representation being measured.\nRepeating the edit over different contexts and different realisations gives an effect cloud. The paper summarises this cloud with two geometric quantities:\n\nits ruler, the mean direction of the cloud;\nits concentration, the average cosine between the individual effects and that ruler.\n\nA tightly concentrated cloud behaves like a narrow cone. A diffuse cloud behaves like a wide cone.\n\n\n\n\n\n\nFigure 1: Seven edit types projected onto one sphere. Each cloud has a ruler and a mass region; the right panel unrolls the same sphere into a map. Adapted from the original paper, Figure 1.\n\n\n\nThis changes the usual picture of a concept. A direction is no longer assumed to describe every instance perfectly; it becomes the axis of a distribution of effects."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#does-one-edit-form-one-cone-or-several",
+    "href": "posts/Geometry/index.html#does-one-edit-form-one-cone-or-several",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "2. Does one edit form one cone or several?",
+    "text": "2. Does one edit form one cone or several?\nA cloud can be wide for two very different reasons.\nFirst, the same word replacement may behave differently in different contexts. Second, different words that are supposed to realise the same edit may actually move the model in different directions.\nThe paper separates these two effects. For each realisation (v), it first estimates its own ruler (_v). It then defines coherence\n[ = _{vv’} v, , ]\nwhich measures how closely the rulers of different realisations agree.\nA crucial detail is the baseline. Residual streams are anisotropic, so unrelated words inserted into the same sentence position already share some direction. The comparison therefore uses random words of the same part of speech in the same position, rather than an idealised isotropic baseline.\nThe experiments reveal a sharp distinction. Individual realisations are highly stable across contexts: their context concentration is 0.93–0.99. But families of words do not all behave alike. Adjective synonyms are less coherent than random adjectives on all 15 model–sentence lattices, while verbs describing destructive actions are more coherent than random verbs on 14 of 15 lattices.\nSo words that look synonymous to us do not necessarily correspond to one geometric change inside the model. Some families collapse toward a shared ruler; others retain word-specific directions."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#multiple-edits-form-a-concept-network",
+    "href": "posts/Geometry/index.html#multiple-edits-form-a-concept-network",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "3. Multiple edits form a concept network",
+    "text": "3. Multiple edits form a concept network\nThe next question is compositional: what happens when several edits are applied to the same sentence?\nStart with a base sentence (x_0) and (K) edits. Every admissible subset of those edits gives a new sentence. These sentences form a concept network: nodes are edited sentences, and edges are single edits.\n\n\n\n\n\n\nFigure 2: A schematic concept network. Grey edges show the full lattice, while the highlighted sequence shows one walker applying edits one at a time. Adapted from the original paper, Figure 2.\n\n\n\nIf an edit has nearly the same mean effect wherever in the lattice it is applied, then its direction behaves approximately linearly across the network. Under this condition, the composite representation change can be divided among edits.\nMore generally, the paper defines an edit’s contribution as a Shapley value. The value of a subset of edits is its progress along the final composite ruler, and each edit receives its average marginal contribution over admissible edit orderings.\nThis gives a principled answer to a subtle question:\n\nWhen several semantic changes are present at once, how much of the final representation change belongs to each one?"
+  },
+  {
+    "objectID": "posts/Geometry/index.html#a-walker-approximates-the-whole-lattice",
+    "href": "posts/Geometry/index.html#a-walker-approximates-the-whole-lattice",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "4. A walker approximates the whole lattice",
+    "text": "4. A walker approximates the whole lattice\nComputing exact Shapley shares appears expensive because a lattice with (K) edits can contain (2^K) sentences.\nThe paper instead follows one path:\n[ x_0 x_1 x_K=x^*. ]\nThis path is called a walker. At each step it measures the representation change caused by the next edit, and projects that step onto the final composite effect.\nFor the six-edit experiments, the full lattice contains 48 admissible sentences and 360 admissible edit orderings. Across those orderings, an edit’s share changes surprisingly little: the standard deviation is at most 0.05 in every lattice. The mean direction of an edit is also stable across nodes, with cross-node cosine 0.87–0.95.\n\n\n\n\n\n\nFigure 3: Shares read by all 360 walkers in one six-edit lattice. Despite different edit orders, the distributions are narrow relative to the differences between major and minor shares. Adapted from the original paper, Figure 3.\n\n\n\nThe main source of variation is therefore not context sampling but interaction between edits: an edit can change slightly depending on which edits came before it. Averaging several walkers averages over this ordering-dependent interaction."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#what-happens-when-the-lattice-becomes-enormous",
+    "href": "posts/Geometry/index.html#what-happens-when-the-lattice-becomes-enormous",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "5. What happens when the lattice becomes enormous?",
+    "text": "5. What happens when the lattice becomes enormous?\nWith 16 independent edits, the full lattice contains\n[ 2^{16}=65{,}536 ]\nsentences.\nThe paper evaluates this lattice exhaustively on three models so that the exact Shapley shares are known. It then asks how many random walkers are required to recover them.\n\n\n\n\n\n\nFigure 4: On a 65,536-node lattice, the maximum share error falls rapidly as more walkers are averaged. The right panel shows the exact Shapley-share profile across the 16 edits. Adapted from the original paper, Figure 4.\n\n\n\nFor a 95th-percentile maximum error below 0.02 on every share:\n\nSmolLM2-360M needs 1 walker;\nPythia-410m needs 2 walkers;\nQwen2.5-0.5B needs 8 walkers.\n\nEven the largest of these uses only 122 nodes—about 0.19% of the 65,536-node lattice.\nThe exponential object is still there mathematically, but in these experiments its attribution structure can be recovered from a tiny number of paths."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#do-the-shares-mean-anything-behaviorally",
+    "href": "posts/Geometry/index.html#do-the-shares-mean-anything-behaviorally",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "6. Do the shares mean anything behaviorally?",
+    "text": "6. Do the shares mean anything behaviorally?\nThe paper finally tests whether these geometric shares predict what happens when the corresponding directions are used for steering.\nIt adds edit vectors to the residual stream and asks how much of the composite edit’s change in next-token log-probabilities is reproduced. Then it removes one edit vector at a time from the combined steering vector.\nThe decrease caused by removing an edit tracks its Shapley share with Spearman correlation 0.78 over 90 edits, with a median of 0.83 per lattice. The share predicts this drop-one effect better than vector magnitude alone, and remains informative even after controlling for magnitude.\nSo the shares are not only a geometric decomposition. They predict which component of a composed representation actually matters to the model’s output distribution."
+  },
+  {
+    "objectID": "posts/Geometry/index.html#why-does-this-matter",
+    "href": "posts/Geometry/index.html#why-does-this-matter",
+    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
+    "section": "Why does this matter?",
+    "text": "Why does this matter?\nThe usual linear-representation story compresses a concept into one vector. This work suggests a richer hierarchy:\neffect vectors → effect clouds → cones → edit lattices → compositional shares.\nThe cloud tells us how stable an edit is across contexts and realisations. The cone tells us whether a family behaves like one geometric change or several. The concept network describes how multiple edits combine. The walker makes attribution through that network computationally practical.\nThe broader lesson is that linearity and variability do not have to be competing descriptions. An edit can have a stable ruler while still occupying a nontrivial cone around that ruler, and several approximately linear edits can still interact when they are composed.\nThe current experiments cover models from 360M to 7B parameters, focus primarily on one relative depth, evaluate steering through next-token distributions rather than free-form generation, and use study-written contexts. Extending the same geometry to larger models and naturally occurring text is therefore an important next step."
+  },
+  {
     "objectID": "posts/Monad/index.html",
     "href": "posts/Monad/index.html",
     "title": "Introducing Monads",
@@ -82,103 +201,5 @@
     "title": "Introducing Monads",
     "section": "Further reading",
     "text": "Further reading\n\nG. W. Leibniz, The Monadology (1714). Robert Latta’s 1898 English translation is in the public domain and widely available online.\nG. W. Leibniz, New Essays on Human Understanding (written c. 1704), especially the preface, for the little perceptions and the roar of the sea.\nMaria Rosa Antognazza, Leibniz: An Intellectual Biography (Cambridge University Press, 2009).\nNicholas Rescher, G. W. Leibniz’s Monadology: An Edition for Students (University of Pittsburgh Press, 1991).\nBrandon C. Look, “Gottfried Wilhelm Leibniz”, Stanford Encyclopedia of Philosophy."
-  },
-  {
-    "objectID": "posts/Geometry/index.html",
-    "href": "posts/Geometry/index.html",
-    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
-    "section": "",
-    "text": "A concept direction is usually an average. But what is that average hiding?\nSuppose we change one word in a sentence—for example, replace honest with upright—and measure how the model’s residual stream changes. Repeat the same kind of edit across many contexts and across several words that realise it. Instead of one vector, we obtain a cloud of effect vectors.\nThis paper asks two questions:\nThe answer leads from cones to concept networks, and from concept networks to a surprisingly cheap estimator: a walker that follows only a few paths through an exponentially large edit lattice."
-  },
-  {
-    "objectID": "posts/Geometry/index.html#from-a-concept-direction-to-an-effect-cloud",
-    "href": "posts/Geometry/index.html#from-a-concept-direction-to-an-effect-cloud",
-    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
-    "section": "1. From a concept direction to an effect cloud",
-    "text": "1. From a concept direction to an effect cloud\nFor an edit (), a realisation (v), and a context (c), define the effect vector\n[ _v(c) = e(_v x,c)-e(x,c), ]\nwhere (e()) is the model representation being measured.\nRepeating the edit over different contexts and different realisations gives an effect cloud. The paper summarises this cloud with two geometric quantities:\n\nits ruler, the mean direction of the cloud;\nits concentration, the average cosine between the individual effects and that ruler.\n\nA tightly concentrated cloud behaves like a narrow cone. A diffuse cloud behaves like a wide cone.\n\n\n\n\n\n\nFigure 1: Seven edit types projected onto one sphere. Each cloud has a ruler and a mass region; the right panel unrolls the same sphere into a map. Adapted from the original paper, Figure 1.\n\n\n\nThis changes the usual picture of a concept. A direction is no longer assumed to describe every instance perfectly; it becomes the axis of a distribution of effects."
-  },
-  {
-    "objectID": "posts/Geometry/index.html#does-one-edit-form-one-cone-or-several",
-    "href": "posts/Geometry/index.html#does-one-edit-form-one-cone-or-several",
-    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
-    "section": "2. Does one edit form one cone or several?",
-    "text": "2. Does one edit form one cone or several?\nA cloud can be wide for two very different reasons.\nFirst, the same word replacement may behave differently in different contexts. Second, different words that are supposed to realise the same edit may actually move the model in different directions.\nThe paper separates these two effects. For each realisation (v), it first estimates its own ruler (_v). It then defines coherence\n[ = _{vv’} v, , ]\nwhich measures how closely the rulers of different realisations agree.\nA crucial detail is the baseline. Residual streams are anisotropic, so unrelated words inserted into the same sentence position already share some direction. The comparison therefore uses random words of the same part of speech in the same position, rather than an idealised isotropic baseline.\nThe experiments reveal a sharp distinction. Individual realisations are highly stable across contexts: their context concentration is 0.93–0.99. But families of words do not all behave alike. Adjective synonyms are less coherent than random adjectives on all 15 model–sentence lattices, while verbs describing destructive actions are more coherent than random verbs on 14 of 15 lattices.\nSo words that look synonymous to us do not necessarily correspond to one geometric change inside the model. Some families collapse toward a shared ruler; others retain word-specific directions."
-  },
-  {
-    "objectID": "posts/Geometry/index.html#multiple-edits-form-a-concept-network",
-    "href": "posts/Geometry/index.html#multiple-edits-form-a-concept-network",
-    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
-    "section": "3. Multiple edits form a concept network",
-    "text": "3. Multiple edits form a concept network\nThe next question is compositional: what happens when several edits are applied to the same sentence?\nStart with a base sentence (x_0) and (K) edits. Every admissible subset of those edits gives a new sentence. These sentences form a concept network: nodes are edited sentences, and edges are single edits.\n\n\n\n\n\n\nFigure 2: A schematic concept network. Grey edges show the full lattice, while the highlighted sequence shows one walker applying edits one at a time. Adapted from the original paper, Figure 2.\n\n\n\nIf an edit has nearly the same mean effect wherever in the lattice it is applied, then its direction behaves approximately linearly across the network. Under this condition, the composite representation change can be divided among edits.\nMore generally, the paper defines an edit’s contribution as a Shapley value. The value of a subset of edits is its progress along the final composite ruler, and each edit receives its average marginal contribution over admissible edit orderings.\nThis gives a principled answer to a subtle question:\n\nWhen several semantic changes are present at once, how much of the final representation change belongs to each one?"
-  },
-  {
-    "objectID": "posts/Geometry/index.html#a-walker-approximates-the-whole-lattice",
-    "href": "posts/Geometry/index.html#a-walker-approximates-the-whole-lattice",
-    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
-    "section": "4. A walker approximates the whole lattice",
-    "text": "4. A walker approximates the whole lattice\nComputing exact Shapley shares appears expensive because a lattice with (K) edits can contain (2^K) sentences.\nThe paper instead follows one path:\n[ x_0 x_1 x_K=x^*. ]\nThis path is called a walker. At each step it measures the representation change caused by the next edit, and projects that step onto the final composite effect.\nFor the six-edit experiments, the full lattice contains 48 admissible sentences and 360 admissible edit orderings. Across those orderings, an edit’s share changes surprisingly little: the standard deviation is at most 0.05 in every lattice. The mean direction of an edit is also stable across nodes, with cross-node cosine 0.87–0.95.\n\n\n\n\n\n\nFigure 3: Shares read by all 360 walkers in one six-edit lattice. Despite different edit orders, the distributions are narrow relative to the differences between major and minor shares. Adapted from the original paper, Figure 3.\n\n\n\nThe main source of variation is therefore not context sampling but interaction between edits: an edit can change slightly depending on which edits came before it. Averaging several walkers averages over this ordering-dependent interaction."
-  },
-  {
-    "objectID": "posts/Geometry/index.html#what-happens-when-the-lattice-becomes-enormous",
-    "href": "posts/Geometry/index.html#what-happens-when-the-lattice-becomes-enormous",
-    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
-    "section": "5. What happens when the lattice becomes enormous?",
-    "text": "5. What happens when the lattice becomes enormous?\nWith 16 independent edits, the full lattice contains\n[ 2^{16}=65{,}536 ]\nsentences.\nThe paper evaluates this lattice exhaustively on three models so that the exact Shapley shares are known. It then asks how many random walkers are required to recover them.\n\n\n\n\n\n\nFigure 4: On a 65,536-node lattice, the maximum share error falls rapidly as more walkers are averaged. The right panel shows the exact Shapley-share profile across the 16 edits. Adapted from the original paper, Figure 4.\n\n\n\nFor a 95th-percentile maximum error below 0.02 on every share:\n\nSmolLM2-360M needs 1 walker;\nPythia-410m needs 2 walkers;\nQwen2.5-0.5B needs 8 walkers.\n\nEven the largest of these uses only 122 nodes—about 0.19% of the 65,536-node lattice.\nThe exponential object is still there mathematically, but in these experiments its attribution structure can be recovered from a tiny number of paths."
-  },
-  {
-    "objectID": "posts/Geometry/index.html#do-the-shares-mean-anything-behaviorally",
-    "href": "posts/Geometry/index.html#do-the-shares-mean-anything-behaviorally",
-    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
-    "section": "6. Do the shares mean anything behaviorally?",
-    "text": "6. Do the shares mean anything behaviorally?\nThe paper finally tests whether these geometric shares predict what happens when the corresponding directions are used for steering.\nIt adds edit vectors to the residual stream and asks how much of the composite edit’s change in next-token log-probabilities is reproduced. Then it removes one edit vector at a time from the combined steering vector.\nThe decrease caused by removing an edit tracks its Shapley share with Spearman correlation 0.78 over 90 edits, with a median of 0.83 per lattice. The share predicts this drop-one effect better than vector magnitude alone, and remains informative even after controlling for magnitude.\nSo the shares are not only a geometric decomposition. They predict which component of a composed representation actually matters to the model’s output distribution."
-  },
-  {
-    "objectID": "posts/Geometry/index.html#why-does-this-matter",
-    "href": "posts/Geometry/index.html#why-does-this-matter",
-    "title": "Concept Geometry in Language Models: Cones, Edits, and Compositional Paths",
-    "section": "Why does this matter?",
-    "text": "Why does this matter?\nThe usual linear-representation story compresses a concept into one vector. This work suggests a richer hierarchy:\neffect vectors → effect clouds → cones → edit lattices → compositional shares.\nThe cloud tells us how stable an edit is across contexts and realisations. The cone tells us whether a family behaves like one geometric change or several. The concept network describes how multiple edits combine. The walker makes attribution through that network computationally practical.\nThe broader lesson is that linearity and variability do not have to be competing descriptions. An edit can have a stable ruler while still occupying a nontrivial cone around that ruler, and several approximately linear edits can still interact when they are composed.\nThe current experiments cover models from 360M to 7B parameters, focus primarily on one relative depth, evaluate steering through next-token distributions rather than free-form generation, and use study-written contexts. Extending the same geometry to larger models and naturally occurring text is therefore an important next step."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Introducing Monads\n\n\nA story about Leibniz, the infinitely small, and the windowless mirrors he believed the world is made of.\n\n\n\n\n\nSep 28, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nConcept Geometry in Language Models: Cones, Edits, and Compositional Paths\n\n\nInstead of compressing a concept into one average direction, use paths through edit lattices to understand how multiple concepts compose.\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMindCraft: How Do Concepts Take Shape Inside a Model?\n\n\nChange just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\nNo matching items\n\n\n  Code Orbit\n  @boweitian ↗\n  \n    A quiet moment between commits.\n    \n      \n        \n        \n        \n        \n        \n      \n    \n    \n  \n  Last 26 weeksLess  More\n  Loading GitHub contributions…\n  Take a walkTry again\n  Enable JavaScript to explore Code Orbit."
-  },
-  {
-    "objectID": "posts/Mindcraft/index.html",
-    "href": "posts/Mindcraft/index.html",
-    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
-    "section": "",
-    "text": "MindCraft asks a simple question: how does a difference in the input gradually become a distinction that affects the model’s answer?\nThe setup is straightforward: replace a single token in the prompt—for example, change “honest” to “dishonest”—and compare the model’s internal states across the two forward passes. If we treat depth as time, we can track how this difference propagates across tokens, gets amplified, and changes direction. This is what the paper calls full-sequence flow."
-  },
-  {
-    "objectID": "posts/Mindcraft/index.html#why-do-concepts-sometimes-look-linear-and-sometimes-curved",
-    "href": "posts/Mindcraft/index.html#why-do-concepts-sometimes-look-linear-and-sometimes-curved",
-    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
-    "section": "1. Why do concepts sometimes look linear and sometimes curved?",
-    "text": "1. Why do concepts sometimes look linear and sometimes curved?\nMindCraft decomposes the evolution of a difference into two parts: stretching, which determines how much the difference is amplified, and turning, which determines where the difference points.\nIf different values of a concept are jointly rotated toward the same direction, they can align along a line. If they continue turning in different directions, they may preserve a curved structure. From this perspective, linear directions and concept manifolds can be viewed as different outcomes of the same underlying propagation process.\n\n\n\n\n\n\nFigure 1: Shared turning can produce a line, while value-specific turning can preserve a curved structure. Adapted from the original paper, Figure 1b–c."
-  },
-  {
-    "objectID": "posts/Mindcraft/index.html#which-differences-does-the-model-amplify",
-    "href": "posts/Mindcraft/index.html#which-differences-does-the-model-amplify",
-    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
-    "section": "2. Which differences does the model amplify?",
-    "text": "2. Which differences does the model amplify?\nThe paper compares interventions such as “honest / dishonest” with controls such as “Room A / Room B.” In shallow layers, the magnitudes of the two kinds of changes are relatively similar. In deeper layers, however, honesty-related changes are amplified more strongly because they are more relevant to the model’s current response.\n\n\n\n\n\n\nFigure 2: From top to bottom: layers 2, 8, and 24. Honesty-related interventions show a clearer growth in displacement; the control plots are locally zoomed in. Original paper, Figure 3.\n\n\n\nThese plots are two-dimensional projections of high-dimensional displacements. The streamlines connect changes across different context prefixes, and cross-layer growth should be interpreted together with the coordinate scales."
-  },
-  {
-    "objectID": "posts/Mindcraft/index.html#at-which-layer-does-a-distinction-first-emerge",
-    "href": "posts/Mindcraft/index.html#at-which-layer-does-a-distinction-first-emerge",
-    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
-    "section": "3. At which layer does a distinction first emerge?",
-    "text": "3. At which layer does a distinction first emerge?\nMindCraft measures the representation similarity at the final token between the two runs and finds the first layer where the similarity drops below a calibrated threshold. This layer is called the bifurcation layer. By ordering different interventions according to when they bifurcate, we obtain a “concept hierarchy” for the current prompt.\n\n\n\n\n\n\nFigure 3: Concept hierarchies for physics and politics prompts. Numbers indicate bifurcation layers; INF means no bifurcation occurs under the chosen criterion. Original paper, Figure 4.\n\n\n\nFor example, in a falling-object problem, changes such as “broken / intact” and “physics / magic” bifurcate as early as layer 2, while replacements such as “glass / rubber” do not bifurcate until layers 12–13. This ordering depends on context: in the paper, explicitly emphasizing the importance of the year causes year-related differences to bifurcate earlier."
-  },
-  {
-    "objectID": "posts/Mindcraft/index.html#why-does-this-matter",
-    "href": "posts/Mindcraft/index.html#why-does-this-matter",
-    "title": "MindCraft: How Do Concepts Take Shape Inside a Model?",
-    "section": "Why does this matter?",
-    "text": "Why does this matter?\nThe framework suggests a natural location for model intervention: extract a concept direction at the bifurcation layer, then inject that direction to steer the model’s response. The paper reports that, across seven tested models, this approach reduces the hallucination rate on HalluLens PreciseWikiQA by an average of 14.5 percentage points.\nThe central idea is simple: start from a difference in the input, then trace when the model begins to distinguish it and how that distinction is carried into the final answer. The theoretical convergence result requires conditions such as a growing separation between relevant directions. Empirically, the trajectories move toward task-relevant directions, although they do not yet reach the convergence regime characterized by the theorem. Extending the framework to multi-step edits and open-ended generation remains an open problem."
   }
 ]

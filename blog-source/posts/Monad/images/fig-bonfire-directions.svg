@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 460" width="980" height="460" role="img" aria-labelledby="title desc" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <title id="title">Orthogonal directions share no projection; combining two cannot reach a third orthogonal direction</title>
+  <desc id="desc">Left: perpendicular arrows A and B have an inner product of zero. Right: A and B span a plane, while C points out of it and cannot be reached by their linear combinations. Only three directions are illustrated, not a three-dimensional map of the full space.</desc>
+  <defs>
+    <marker id="gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="m0 0 10 5-10 5Z" fill="#be7d26"/></marker>
+    <marker id="blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="m0 0 10 5-10 5Z" fill="#4a799c"/></marker>
+    <marker id="red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="m0 0 10 5-10 5Z" fill="#a85850"/></marker>
+  </defs>
+  <rect width="980" height="460" rx="16" fill="#fbf8f1"/>
+  <path d="M490 42V379" stroke="#dfd7c9"/>
+  <g fill="#323b46" font-size="23" font-weight="600">
+    <text x="42" y="53">1. No shared signal</text>
+    <text x="530" y="53">2. Combining A and B cannot reach C</text>
+  </g>
+  <text x="42" y="86" fill="#6a706f" font-size="17">Orthogonal: zero projection onto each other.</text>
+  <text x="530" y="86" fill="#6a706f" font-size="17">C is orthogonal to both: outside their plane.</text>
+  <path d="M139 285H368" stroke="#be7d26" stroke-width="4" marker-end="url(#gold)"/>
+  <path d="M139 285V131" stroke="#4a799c" stroke-width="4" marker-end="url(#blue)"/>
+  <path d="M139 265H159V285" stroke="#8c928d" stroke-width="2" fill="none"/>
+  <circle cx="139" cy="285" r="5" fill="#323b46"/>
+  <text x="380" y="292" fill="#a46a1e" font-size="23">A</text>
+  <text x="130" y="116" fill="#4a799c" font-size="23">B</text>
+  <text x="186" y="209" fill="#6a706f" font-size="19">No shared direction</text>
+  <rect x="94" y="330" width="300" height="43" rx="10" fill="#efe9de"/>
+  <text x="244" y="358" text-anchor="middle" fill="#323b46" font-size="21">A · B = 0</text>
+  <path d="M549 294 719 318 925 232 755 208Z" fill="#e6ecec" stroke="#a7b6b8" stroke-width="1.5"/>
+  <path d="M642 283 866 283" stroke="#be7d26" stroke-width="3" marker-end="url(#gold)"/>
+  <path d="M642 283 738 232" stroke="#4a799c" stroke-width="3" marker-end="url(#blue)"/>
+  <path d="M642 283V139" stroke="#a85850" stroke-width="4" marker-end="url(#red)"/>
+  <circle cx="642" cy="283" r="5" fill="#323b46"/>
+  <text x="879" y="289" fill="#a46a1e" font-size="23">A</text>
+  <text x="746" y="224" fill="#4a799c" font-size="23">B</text>
+  <text x="634" y="124" fill="#a85850" font-size="23">C</text>
+  <text x="693" y="178" fill="#a85850" font-size="19">Outside the plane of A and B</text>
+  <rect x="578" y="330" width="330" height="43" rx="10" fill="#efe9de"/>
+  <text x="743" y="358" text-anchor="middle" fill="#323b46" font-size="21">aA + bB ≠ C</text>
+  <text x="490" y="424" text-anchor="middle" fill="#6a706f" font-size="16">Three directions shown for illustration, not a 3D map of the full high-dimensional space.</text>
+</svg>

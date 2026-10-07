@@ -1,0 +1,150 @@
+.blog-home-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 370px;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: start;
+}
+.blog-home-layout > * { min-width: 0; grid-column: auto !important; grid-row: auto; }
+
+#pixel-garden {
+  --l0: #eff2f5;
+  --l1: #d4ead7;
+  --l2: #a6d7b0;
+  --l3: #72b88a;
+  --l4: #438961;
+  color: #343a40;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0 4px 16px;
+  font-size: 16px;
+  position: sticky;
+  top: 90px;
+}
+#pixel-garden h2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+  letter-spacing: -.6px;
+}
+#pixel-garden a.garden-profile {
+  color: #656d76;
+  font-size: 16px;
+  text-decoration: none;
+}
+#pixel-garden a.garden-profile:hover { color: #24292f; text-decoration: underline; }
+.garden-scene {
+  position: relative;
+  padding-top: 105px;
+  margin-top: 12px;
+  isolation: isolate;
+}
+/* A soft patch of light, with no card edge or enclosing surface. */
+.garden-scene::before {
+  content: "";
+  position: absolute;
+  inset: 12px -16px -22px;
+  background: radial-gradient(ellipse, #f5f8fa 0%, #fafcfb 38%, transparent 72%);
+  z-index: -1;
+  pointer-events: none;
+}
+.garden-bubble {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #656d76;
+  margin: 0;
+  min-height: 48px;
+}
+.garden-grid {
+  display: grid;
+  grid-template-rows: repeat(7, 10px);
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 4px;
+  position: relative;
+}
+#pixel-garden .garden-day {
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  min-width: 0;
+  width: 100%;
+  height: 10px;
+  background: var(--l0);
+  cursor: pointer;
+}
+#pixel-garden [data-level="0"] { background: var(--l0); }
+#pixel-garden [data-level="1"] { background: var(--l1); }
+#pixel-garden [data-level="2"] { background: var(--l2); }
+#pixel-garden [data-level="3"] { background: var(--l3); }
+#pixel-garden [data-level="4"] { background: var(--l4); }
+#pixel-garden .garden-day:hover,
+#pixel-garden .garden-day:focus-visible,
+#pixel-garden .garden-day.selected { outline: 2px solid #758b7e; outline-offset: 1px; z-index: 1; }
+.garden-cat {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  left: 40%;
+  top: 49px;
+  z-index: 3;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: left .65s ease, top .65s ease;
+}
+.garden-cat svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.garden-cat.happy svg { animation: garden-hop .45s ease 2; }
+.garden-cat:focus-visible { outline: 2px dashed #438961; outline-offset: 3px; }
+.garden-scale {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #656d76;
+  margin: 14px 0 24px;
+}
+.garden-scale > span:last-child { display: flex; align-items: center; gap: 4px; }
+.garden-scale i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+.garden-status { min-height: 52px; font-size: 16px; line-height: 1.6; margin: 0 0 18px; }
+.garden-total, .garden-updated { display: block; }
+.garden-total { font-weight: 500; }
+.garden-updated { font-size: 14px; color: #656d76; margin-top: 3px; }
+.garden-controls { display: flex; flex-wrap: wrap; gap: 12px; }
+.garden-controls button {
+  border: 0;
+  background: #f6f8fa;
+  color: #48535e;
+  border-radius: 20px;
+  padding: 9px 18px;
+  font-size: 15px;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background .2s;
+}
+.garden-controls button:hover { background: #eaeef2; }
+.garden-controls button:focus-visible { outline: 2px solid #758b7e; outline-offset: 3px; }
+@keyframes garden-hop { 50% { transform: translateY(-9px) rotate(-5deg); } }
+@media (max-width: 1000px) {
+  .blog-home-layout { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  #pixel-garden { position: static; width: min(100%, 370px); justify-self: center; }
+}
+@media (max-width: 400px) {
+  .garden-grid { gap: 3px; grid-template-rows: repeat(7, 9px); }
+  #pixel-garden .garden-day { height: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .garden-cat, .garden-controls button { transition: none; }
+  .garden-cat.happy svg { animation: none; }
+}

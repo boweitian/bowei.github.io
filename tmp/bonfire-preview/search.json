@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Bonfire Space: Lights That Cannot Reach Each Other\n\n\nBonfires on a simple map share two directions. In an orthogonal high-dimensional space, a third fire can lie beyond both.\n\n\n\n\n\nOct 7, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nIntroducing Monads\n\n\nA story about Leibniz, the infinitely small, and the windowless mirrors he believed the world is made of.\n\n\n\n\n\nSep 28, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nConcept Geometry in Language Models: Cones, Edits, and Compositional Paths\n\n\nInstead of compressing a concept into one average direction, use paths through edit lattices to understand how multiple concepts compose.\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMindCraft: How Do Concepts Take Shape Inside a Model?\n\n\nChange just one word and trace the difference across layers: when does it start to matter, and how does it form the geometry of a concept?\n\n\n\n\n\nSep 27, 2026\n\n\n\n\n\nNo matching items\n\n\n  Code Orbit\n  @boweitian ↗\n  \n    A quiet moment between commits.\n    \n      \n        \n        \n        \n        \n        \n      \n    \n    \n  \n  Last 26 weeksLess  More\n  Loading GitHub contributions…\n  Take a walkTry again\n  Enable JavaScript to explore Code Orbit."
+  },
+  {
+    "objectID": "posts/Monad/index2.html",
+    "href": "posts/Monad/index2.html",
+    "title": "Bonfire Space: Lights That Cannot Reach Each Other",
+    "section": "",
+    "text": "Imagine an endless night sky scattered with bonfires. Each one burns, but its light never reaches another. I call this kind of high-dimensional representation space bonfire space."
+  },
+  {
+    "objectID": "posts/Monad/index2.html#a-shared-map-in-low-dimensions",
+    "href": "posts/Monad/index2.html#a-shared-map-in-low-dimensions",
+    "title": "Bonfire Space: Lights That Cannot Reach Each Other",
+    "section": "A shared map in low dimensions",
+    "text": "A shared map in low dimensions\nStart with three bonfires on a flat, two-dimensional map. Measure their positions from the same origin: A is one step east, B is one step north, and C is one step east and one step north. In coordinates, A = (1, 0), B = (0, 1), and C = (1, 1), so C = A + B.\nTwo independent directions cover this whole map. Once a third fire’s coordinates are given, you can describe how to reach it using those same directions. Knowing A and B alone does not tell you where an unknown C is; they give you a shared language for locating it.\n\n\n\n\n\n\nFigure 1: Left: three bonfires on a 2D map, where C = A + B. Right: in the orthogonal high-dimensional model, C occupies a direction outside the plane spanned by A and B."
+  },
+  {
+    "objectID": "posts/Monad/index2.html#independent-directions-in-bonfire-space",
+    "href": "posts/Monad/index2.html#independent-directions-in-bonfire-space",
+    "title": "Bonfire Space: Lights That Cannot Reach Each Other",
+    "section": "Independent directions in bonfire space",
+    "text": "Independent directions in bonfire space\nA bonfire’s “location” is a direction in representation space, rather than a place you can mark with three ordinary spatial coordinates. A high-dimensional space has room for many independent directions. Each bonfire shines along its own.\n\n\n\n\n\n\nFigure 2: Like isolated stars: knowing A and B gives you no star map to C.\n\n\n\nHere, “far apart” means orthogonal: one bonfire’s direction has no projection onto another’s. They share no direction that could serve as a guide from one to the other.\nTry to read one through the other by taking their inner product, and the result is zero. This is the “nothingness” of bonfire space: no shared signal. Even combining the two directions leaves you within the space they span. You cannot reach a third bonfire whose direction is orthogonal to both.\n\n\n\n\n\n\nFigure 3: Left: orthogonal directions have an inner product of zero. Right: combinations of A and B stay in their plane and cannot reach C. Only three directions are shown for illustration.\n\n\n\nThe difference is that two independent directions span the entire 2D map, while a third bonfire in this model lies beyond the first two directions. High dimensionality makes room for many such directions; mutual orthogonality is the assumption that keeps the fires separate.\nEvery bonfire burns. None gives directions to the others."
+  }
+]
