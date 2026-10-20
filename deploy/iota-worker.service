@@ -1,0 +1,19 @@
+[Unit]
+Description=IOTA outbound Netlify model bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Set these paths and the unprivileged service user before installing.
+User=btian1
+WorkingDirectory=/beacon-homes/btian1/.tmp/bowei-netlify-iota
+ExecStart=/usr/bin/python3 scripts/iota_worker.py --env-file /beacon-homes/btian1/.tmp/iota-netlify-private/netlify.env --site https://bowei.netlify.app
+Restart=always
+RestartSec=15
+NoNewPrivileges=true
+PrivateTmp=true
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

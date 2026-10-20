@@ -12,3 +12,11 @@ go.sum
 # Quarto working files (rendered static/blog is committed for Netlify)
 blog-source/.quarto/
 blog-source/**/.ipynb_checkpoints/
+
+# Decrypted app assets and credentials are never public repository content.
+static/iota/
+.env
+.env.*
+.netlify/
+__pycache__/
+iota-assets/*.enc
