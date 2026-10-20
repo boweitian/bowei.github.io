@@ -1,19 +1,20 @@
 [build]
-  command = "hugo --gc --minify -b $URL"
+  command = "hugo --gc --minify -b $URL && node scripts/restore-iota.mjs"
   publish = "public" 
 
 [build.environment]
   HUGO_VERSION = "0.111.3"
   HUGO_ENABLEGITINFO = "true"
+  NODE_VERSION = "22"
 
 [context.production.environment]
   HUGO_ENV = "production"
 
 [context.deploy-preview]
-  command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+  command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL && node scripts/restore-iota.mjs"
 
 [context.branch-deploy]
-  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL && node scripts/restore-iota.mjs"
 
 [[plugins]]
   package = "netlify-plugin-hugo-cache-resources"
