@@ -6,9 +6,9 @@ import {MemoryStore} from './memory-store.mjs';
 function setup() {
   let clock = 1792500000000;
   const store = new MemoryStore();
-  const env = {IOTA_ACCESS_USERNAME: 'test', IOTA_ACCESS_PASSWORD: 'private', IOTA_BRIDGE_TOKEN: 'x'.repeat(48)};
+  const env = {IOTA_BRIDGE_TOKEN: 'x'.repeat(48)};
   const handle = createBroker(store, env, () => clock);
-  const visitor = 'Basic ' + btoa('test:private');
+  const visitor = '';
   const worker = 'Bearer ' + env.IOTA_BRIDGE_TOKEN;
   async function call(path, data, auth = visitor, extras = {}) {
     const headers = {Authorization: auth, ...extras};
@@ -21,14 +21,18 @@ function setup() {
   return {store, env, handle, visitor, worker, call, beat, advance: ms => {clock += ms;}};
 }
 
-test('pages/API authentication fails closed; visitor and worker credentials are separate', async () => {
+test('visitors need no credentials while worker access remains private', async () => {
   const s = setup();
-  assert.equal((await s.call('/status', undefined, '')).status, 401);
-  assert.equal((await s.call('/status', undefined, s.worker)).status, 401);
+  assert.equal((await s.call('/status', undefined, '')).status, 200);
+  assert.equal((await s.call('/latest', undefined, '')).status, 200);
+  assert.equal((await s.call('/status', undefined, 'Basic !!!')).status, 200);
   assert.equal((await s.call('/bridge', {status: {online: true}})).status, 401);
-  assert.equal((await s.call('/status', undefined, 'Basic !!!')).status, 401);
+  assert.equal((await s.call('/bridge', {status: {online: true}}, 'Bearer wrong')).status, 401);
   delete s.env.IOTA_BRIDGE_TOKEN;
-  assert.equal((await s.call('/status')).status, 503);
+  const offline = await s.call('/status');
+  assert.equal(offline.status, 200);
+  assert.equal(offline.body.online, false);
+  assert.equal((await s.call('/bridge', {status: {online: true}}, s.worker)).status, 503);
 });
 
 test('offline model rejects work and stale heartbeats cannot imply online', async () => {

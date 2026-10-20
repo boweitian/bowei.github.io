@@ -4,7 +4,6 @@ import {readFile, stat} from 'node:fs/promises';
 import {resolve, extname} from 'node:path';
 import {Readable} from 'node:stream';
 import {createBroker} from '../netlify/lib/broker.mjs';
-import {authorized, unauthorized} from '../netlify/lib/auth.mjs';
 import {MemoryStore} from './memory-store.mjs';
 
 const env = {};
@@ -23,7 +22,6 @@ const server = createServer(async (incoming, outgoing) => {
     const request = new Request(url, options);
     let response;
     if (url.pathname.startsWith('/iota/api/')) response = await broker(request);
-    else if (!(await authorized(request, env))) response = unauthorized();
     else {
       let path = resolve(root, '.' + decodeURIComponent(url.pathname));
       if (!path.startsWith(root + '/')) throw Error('Invalid path');

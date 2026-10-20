@@ -1,5 +1,5 @@
 import {randomBytes} from "node:crypto";
-import {authorized, json, unauthorized} from "./auth.mjs";
+import {workerAuthorized, json, unauthorized} from "./auth.mjs";
 
 const METHODS = new Set(["/studio/chat", "/studio/compare", "/studio/walk", "/studio/direction", "/route"]);
 const ID = /^\d{13}-[a-f0-9]{32}$/;
@@ -47,10 +47,9 @@ export function createBroker(store, env, now = Date.now) {
     const url = new URL(request.url);
     const path = url.pathname.slice("/iota/api".length);
     if (!url.pathname.startsWith("/iota/api/")) return json({error: "Not found"}, 404);
-    if (!env.IOTA_BRIDGE_TOKEN || !env.IOTA_ACCESS_USERNAME || !env.IOTA_ACCESS_PASSWORD)
-      return json({error: "IOTA 尚未完成服务配置。"}, 503);
     const bridge = path === "/bridge";
-    if (!(await authorized(request, env, bridge))) return unauthorized();
+    if (bridge && !env.IOTA_BRIDGE_TOKEN) return json({error: "IOTA 尚未完成服务配置。"}, 503);
+    if (bridge && !(await workerAuthorized(request, env))) return unauthorized();
     if (!["GET", "POST"].includes(request.method)) return json({error: "Method not allowed"}, 405);
     if (request.method === "POST") {
       const origin = request.headers.get("origin");
@@ -90,7 +89,7 @@ export function createBroker(store, env, now = Date.now) {
         return json({job: null});
       }
       if (path === "/status" && request.method === "GET")
-        return json(onlineStatus(await get(store, "heartbeat"), now()));
+        return json(onlineStatus(env.IOTA_BRIDGE_TOKEN ? await get(store, "heartbeat") : null, now()));
       if (path === "/latest" && request.method === "GET") return json({latest: null});
       if (path.startsWith("/jobs/") && request.method === "GET") {
         const id = path.slice(6);
@@ -102,6 +101,7 @@ export function createBroker(store, env, now = Date.now) {
         return json({error: "本次生成已过期，请重新提交。"}, 410);
       }
       if (!METHODS.has(path) || request.method !== "POST") return json({error: "Not found"}, 404);
+      if (!env.IOTA_BRIDGE_TOKEN) return json({error: "模型暂未连接，请稍后重试。"}, 503);
       const input = await body(request);
       delete input.display_in_browser;
       if (!onlineStatus(await get(store, "heartbeat"), now()).online)

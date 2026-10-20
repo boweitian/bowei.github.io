@@ -10,14 +10,9 @@ export async function sameSecret(actual, expected) {
   return difference === 0;
 }
 
-export async function authorized(request, env, bridge = false) {
+export async function workerAuthorized(request, env) {
   const header = request.headers.get("authorization") || "";
-  if (bridge) return !!env.IOTA_BRIDGE_TOKEN && sameSecret(header, "Bearer " + env.IOTA_BRIDGE_TOKEN);
-  if (!env.IOTA_ACCESS_USERNAME || !env.IOTA_ACCESS_PASSWORD) return false;
-  if (!header.startsWith("Basic ")) return false;
-  try {
-    return sameSecret(atob(header.slice(6)), env.IOTA_ACCESS_USERNAME + ":" + env.IOTA_ACCESS_PASSWORD);
-  } catch { return false; }
+  return !!env.IOTA_BRIDGE_TOKEN && sameSecret(header, "Bearer " + env.IOTA_BRIDGE_TOKEN);
 }
 
 export function json(value, status = 200, headers = {}) {
@@ -25,6 +20,6 @@ export function json(value, status = 200, headers = {}) {
 }
 
 export function unauthorized() {
-  return json({error: "请输入 IOTA 用户名与访问密码。"}, 401,
-    {"WWW-Authenticate": 'Basic realm="IOTA demo", charset="UTF-8"'});
+  return json({error: "Worker authentication required"}, 401,
+    {"WWW-Authenticate": 'Bearer realm="IOTA worker"'});
 }
