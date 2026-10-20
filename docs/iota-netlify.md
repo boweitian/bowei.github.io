@@ -2,7 +2,7 @@
 
 The production URL is `https://bowei.netlify.app/iota/`. The Hugo homepage and blog keep their current routes.
 
-The app keeps the current password prompt. The build is designed to use an AES-256-GCM encrypted snapshot of the existing IOTA site, including its experiment evidence and downloads. That artifact is currently retained privately on the server and excluded from this code-only draft; public distribution requires separate explicit owner authorization. Do not merge until the approved artifact is supplied. The build decrypts the snapshot into ignored `static/iota/` and adds the asynchronous transport script; plaintext research assets, passwords, bridge tokens, user conversations, model weights, and worker runtime files are not committed. The existing interface and exact model responses are retained.
+The app keeps the current password prompt. The repository includes an AES-256-GCM encrypted snapshot of the existing IOTA site, including its experiment evidence and downloads, published with the owner's explicit authorization. Configure the private Netlify environment variables before merging or deploying. The build decrypts the snapshot into ignored `static/iota/` and adds the asynchronous transport script; plaintext research assets, passwords, bridge tokens, user conversations, model weights, and worker runtime files are not committed. The existing interface and exact model responses are retained.
 
 ## One-time Netlify configuration
 

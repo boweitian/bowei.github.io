@@ -20,3 +20,4 @@ static/iota/
 .netlify/
 __pycache__/
 iota-assets/*.enc
+!iota-assets/site.tar.gz.enc
